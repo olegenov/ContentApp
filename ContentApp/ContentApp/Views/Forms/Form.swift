@@ -10,7 +10,7 @@ import UIKit
 final class Form: UIView {
     enum Constants {
         static let defaultSubmitText: String = "Submit"
-        static let minFormHeight: CGFloat = 300
+        static let minFormHeight: CGFloat = 900
         static let formGap: CGFloat = 14
     }
     
@@ -18,6 +18,7 @@ final class Form: UIView {
     private var fields: [FormInput] = [FormInput]()
     private var submitButtonAction: (() -> Void)?
     private var submitButton: UIButton = UIButton()
+    private var errorsStack: UIStackView = UIStackView()
     
     private var formTitle: UIView = UIView()
     
@@ -47,6 +48,7 @@ final class Form: UIView {
         configureFormTitle(title: title)
         configureFormFields()
         configureSubmitButton(title: submitText)
+        configureErrors()
         
         NSLayoutConstraint.activate([
             heightAnchor.constraint(greaterThanOrEqualToConstant: Constants.minFormHeight),
@@ -79,7 +81,6 @@ final class Form: UIView {
             contents.trailingAnchor.constraint(equalTo: trailingAnchor),
             contents.topAnchor.constraint(equalTo: formTitle.bottomAnchor),
         ])
-
     }
     
     private func configureSubmitButton(title: String) {
@@ -94,6 +95,20 @@ final class Form: UIView {
         ])
     }
     
+    private func configureErrors() {
+        errorsStack.axis = .vertical
+        errorsStack.spacing = Constants.formGap
+        errorsStack.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(errorsStack)
+        
+        NSLayoutConstraint.activate([
+            errorsStack.leadingAnchor.constraint(equalTo: leadingAnchor),
+            errorsStack.trailingAnchor.constraint(equalTo: trailingAnchor),
+            errorsStack.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: Constants.formGap),
+        ])
+    }
+    
     public func setSubmitButtonText(_ text: String) {
         submitButton.setTitle(text, for: .normal)
     }
@@ -104,6 +119,26 @@ final class Form: UIView {
     }
 
     @objc private func submitButtonTapped() {
+        errorsStack.clear()
+        
+        for field in fields {
+            let validated = field.validate()
+            
+            if !validated.isValid {
+                field.makeErrorField()
+                
+                for errorMessage in validated.errorMessages {
+                    showError(errorText: errorMessage)
+                }
+            }
+        }
         submitButtonAction?()
+    }
+    
+    func showError(errorText: String) {
+        let errorLabel = ErrorLabel(errorText)
+        errorLabel.show()
+        
+        errorsStack.addArrangedSubview(errorLabel)
     }
 }

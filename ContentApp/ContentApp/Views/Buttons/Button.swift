@@ -35,10 +35,21 @@ class Button: UIButton {
         titleEdgeInsets.right = Constants.paddingHorizontal
         titleEdgeInsets.bottom = Constants.paddingVertical
         titleEdgeInsets.top = Constants.paddingVertical
+        
+        addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
+        addTarget(self, action: #selector(buttonTouchUp), for: .touchUpInside)
+        addTarget(self, action: #selector(buttonTouchUp), for: .touchUpOutside)
+        addTarget(self, action: #selector(buttonTouchUp), for: .touchCancel)
 
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: Constants.height),
             widthAnchor.constraint(greaterThanOrEqualToConstant: 50)
         ])
+    }
+    
+    @objc func buttonTouchDown() {
+    }
+
+    @objc func buttonTouchUp() {
     }
 }

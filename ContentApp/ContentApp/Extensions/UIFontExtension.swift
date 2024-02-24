@@ -16,6 +16,7 @@ extension UIFont {
         case regular
         case placeholder
         case formInput
+        case inputError
     }
     
     enum Constants {
@@ -46,6 +47,8 @@ extension UIFont {
         case .placeholder:
             return UIFont(name: Constants.defaultTextFont, size: Constants.defaultFontSize) ?? defaultFont()
         case .formInput:
+            return UIFont(name: Constants.defaultTextFont, size: Constants.defaultFontSize) ?? defaultFont()
+        case .inputError:
             return UIFont(name: Constants.defaultTextFont, size: Constants.defaultFontSize) ?? defaultFont()
         }
     }

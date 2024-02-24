@@ -10,7 +10,7 @@ import UIKit
 class SignupViewController: UIViewController {
     enum Constants {
         static let formTitleText: String = "signup"
-        static let formTopOffset: CGFloat = 250
+        static let formTopOffset: CGFloat = 180
         
         static let formSideMargin: CGFloat = 64
         static let sectionBottomOffset: CGFloat = 30
@@ -25,18 +25,23 @@ class SignupViewController: UIViewController {
         configureUI()
     }
     
-    private let usernameInputView: FormInput = FormInput(.username)
-    private let emailInputVIew: FormInput = FormInput(.email)
-    private let passwordInputView: FormInput = FormInput(.password)
-    private let repeatPasswordInputView: FormInput = FormInput(.repeatPassword)
+    private let firstNameInputView: FormInput = FormInputFactory.createFormInput(type: .firstName)
+    private let surnameInputView: FormInput = FormInputFactory.createFormInput(type: .surname)
+    private let usernameInputView: FormInput = FormInputFactory.createFormInput(type: .signupUsername)
+    private let emailInputVIew: FormInput = FormInputFactory.createFormInput(type: .signupEmail)
+    private let passwordInputView: FormInput = FormInputFactory.createFormInput(type: .signupPassword)
+    private let repeatPasswordInputView: FormInput = FormInputFactory.createFormInput(type: .signupRepeatPassword)
     
     private func configureUI() {
         configureForm()
         configureSignupSwitch()
+        configureHidingKeyBoard()
     }
     
     private func configureForm() {
         let loginForm = Form(Constants.formTitleText, formFields: [
+            firstNameInputView,
+            surnameInputView,
             usernameInputView,
             emailInputVIew,
             passwordInputView,
@@ -88,9 +93,18 @@ class SignupViewController: UIViewController {
         ])
     }
     
+    private func configureHidingKeyBoard() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
     @objc private func signupSwitchButtonTapped() {
         let loginViewController: UIViewController = LoginViewController()
         navigationController?.pushViewController(loginViewController, animated: false)
+    }
+    
+    @objc func handleTap() {
+        view.endEditing(true)
     }
     
     func handleSubmit() {

@@ -28,7 +28,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let navigationController = UINavigationController()
             let signupViewController = SignupViewController()
-            let loginViewController = LoginViewController()
             
             navigationController.viewControllers = [signupViewController]
             

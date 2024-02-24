@@ -15,6 +15,9 @@ extension UIColor {
         static let outlineColor: UIColor = UIColor("#606060")
         static let accentColor: UIColor = UIColor("#584CE2")
         static let white: UIColor = UIColor("FFFFFF")
+        static let lightAccentColor: UIColor = UIColor("#6456FF")
+        static let red: UIColor = UIColor("#FEB5B5")
+        static let darkRed: UIColor = UIColor("#A54242")
     }
     
     enum Constants {

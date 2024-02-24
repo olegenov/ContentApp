@@ -7,14 +7,7 @@
 
 import UIKit
 
-final class FormInput: UIView, UITextFieldDelegate {
-    enum PlaceholderType {
-            case username
-            case password
-            case email
-            case repeatPassword
-        }
-
+final class FormInput: UIView {
     enum Constants {
         static var height: CGFloat = 36
         
@@ -27,19 +20,15 @@ final class FormInput: UIView, UITextFieldDelegate {
         
         static var paddingHorizontal: CGFloat = 16
         static var paddingVertical: CGFloat = 8
-        
-        static var usernamePlaceHolder: String = "username"
-        static var passwordPlaceHolder: String = "password"
-        static var repeatPasswordPlaceHolder: String = "repeat password"
-        static var emailPlaceHolder: String = "email"
     }
     
     var input: UITextField = UITextField()
+    var validator: Validator?
 
-    init(_ type: PlaceholderType) {
+    init(_ placeholder: String) {
         super.init(frame: .zero)
         
-        configureUI(for: type)
+        configureUI(placeholder: placeholder)
     }
 
     @available(*, unavailable)
@@ -51,13 +40,11 @@ final class FormInput: UIView, UITextFieldDelegate {
         return input.text
     }
     
-    private func configureUI(for type: PlaceholderType) {
+    private func configureUI(placeholder: String) {
         translatesAutoresizingMaskIntoConstraints = false
         
         input.translatesAutoresizingMaskIntoConstraints = false
-        
-        input.autocapitalizationType = .none
-        input.attributedPlaceholder = NSAttributedString(string: placeholder(for: type), attributes: [NSAttributedString.Key.font: UIFont.appFont(.placeholder), NSAttributedString.Key.foregroundColor: UIColor.AppColors.outlineColor])
+        input.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.font: UIFont.appFont(.placeholder), NSAttributedString.Key.foregroundColor: UIColor.AppColors.outlineColor])
         input.layer.cornerRadius = Constants.cornerRadius
         input.layer.borderWidth = Constants.borderWidth
         input.layer.borderColor = Constants.borderColor.cgColor
@@ -67,7 +54,7 @@ final class FormInput: UIView, UITextFieldDelegate {
         
         input.font = UIFont.appFont(.formInput)
         input.textColor = UIColor.AppColors.textColor
-        
+
         addSubview(input)
         
         NSLayoutConstraint.activate([
@@ -80,16 +67,33 @@ final class FormInput: UIView, UITextFieldDelegate {
         ])
     }
     
-    private func placeholder(for type: PlaceholderType) -> String {
-        switch type {
-        case .username:
-            return Constants.usernamePlaceHolder
-        case .password:
-            return Constants.passwordPlaceHolder
-        case .email:
-            return Constants.emailPlaceHolder
-        case .repeatPassword:
-            return Constants.repeatPasswordPlaceHolder
+    public func disableAutoCorrection() {
+        input.autocapitalizationType = .none
+        input.autocorrectionType = .no
+    }
+    
+    public func enableSecuring() {
+        input.isSecureTextEntry = true
+    }
+    
+    public func setKeyBoardType(_ type: UIKeyboardType) {
+        input.keyboardType = type
+    }
+    
+    func setValidator(_ validator: Validator?) {
+        self.validator = validator
+    }
+    
+    func makeErrorField() {
+        input.layer.borderColor = UIColor.AppColors.darkRed.cgColor
+    }
+    
+    func validate() -> (isValid: Bool, errorMessages: [String]) {
+        guard let validator = validator else {
+            return (true, [""])
         }
+
+        let currentText = input.text ?? ""
+        return validator.validate(currentText)
     }
 }

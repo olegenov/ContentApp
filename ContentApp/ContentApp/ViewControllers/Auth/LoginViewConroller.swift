@@ -25,12 +25,13 @@ class LoginViewController: UIViewController {
         configureUI()
     }
     
-    private let loginUsernameInputView: FormInput = FormInput(.username)
-    private let loginPasswordInputView: FormInput = FormInput(.password)
+    private let loginUsernameInputView: FormInput = FormInputFactory.createFormInput(type: .loginUsername)
+    private let loginPasswordInputView: FormInput = FormInputFactory.createFormInput(type: .loginPassword)
     
     private func configureUI() {
         configureForm()
         configureSignupSwitch()
+        configureHidingKeyBoard()
     }
     
     private func configureForm() {
@@ -83,8 +84,17 @@ class LoginViewController: UIViewController {
         ])
     }
     
+    private func configureHidingKeyBoard() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
     @objc private func signupSwitchButtonTapped() {
         navigationController?.popViewController(animated: false)
+    }
+    
+    @objc func handleTap() {
+        view.endEditing(true)
     }
     
     func handleSubmit() {

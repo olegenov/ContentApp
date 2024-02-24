@@ -10,6 +10,7 @@ import UIKit
 final class ButtonActive: Button {
     enum Constants {
         static let backgroundColor: UIColor = UIColor.AppColors.accentColor
+        static let tappedBackgroundColor: UIColor = UIColor.AppColors.lightAccentColor
         static let titleColor: UIColor = UIColor.AppColors.white
     }
 
@@ -28,6 +29,18 @@ final class ButtonActive: Button {
         backgroundColor = Constants.backgroundColor
         setTitleColor(Constants.titleColor, for: .normal)
         titleLabel?.font = UIFont.appFont(.buttonActive)
+    }
+    
+    @objc override func buttonTouchDown() {
+        UIView.animate(withDuration: 0.1) {
+            self.backgroundColor = Constants.tappedBackgroundColor
+        }
+    }
+
+    @objc override func buttonTouchUp() {
+        UIView.animate(withDuration: 0.1) {
+            self.backgroundColor = Constants.backgroundColor
+        }
     }
 }
 

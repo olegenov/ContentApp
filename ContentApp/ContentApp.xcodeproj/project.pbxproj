@@ -11,6 +11,13 @@
 		0DCE84B22B8943450019AE42 /* ButtonEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE84B12B8943450019AE42 /* ButtonEmpty.swift */; };
 		0DCE84B42B89464F0019AE42 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE84B32B89464F0019AE42 /* SignupViewController.swift */; };
 		0DCE84BC2B8951410019AE42 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE84BB2B8951410019AE42 /* ProjectsViewController.swift */; };
+		0DCE84BE2B8A55E60019AE42 /* FormInputFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE84BD2B8A55E60019AE42 /* FormInputFactory.swift */; };
+		0DCE84C12B8A62930019AE42 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE84C02B8A62930019AE42 /* Validator.swift */; };
+		0DCE84C32B8A635F0019AE42 /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE84C22B8A635F0019AE42 /* EmailValidator.swift */; };
+		0DCE84C52B8A66A40019AE42 /* ErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE84C42B8A66A40019AE42 /* ErrorLabel.swift */; };
+		0DCE84C72B8A6F4B0019AE42 /* UIStackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE84C62B8A6F4B0019AE42 /* UIStackViewExtension.swift */; };
+		0DCE84C92B8A703A0019AE42 /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE84C82B8A703A0019AE42 /* PasswordValidator.swift */; };
+		0DCE84CC2B8A89930019AE42 /* UsernameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE84CB2B8A89930019AE42 /* UsernameValidator.swift */; };
 		0DD5423D2B83F69600362B77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD5423C2B83F69600362B77 /* AppDelegate.swift */; };
 		0DD5423F2B83F69600362B77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD5423E2B83F69600362B77 /* SceneDelegate.swift */; };
 		0DD542462B83F69700362B77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DD542452B83F69700362B77 /* Assets.xcassets */; };
@@ -35,6 +42,13 @@
 		0DCE84B12B8943450019AE42 /* ButtonEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonEmpty.swift; sourceTree = "<group>"; };
 		0DCE84B32B89464F0019AE42 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		0DCE84BB2B8951410019AE42 /* ProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
+		0DCE84BD2B8A55E60019AE42 /* FormInputFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInputFactory.swift; sourceTree = "<group>"; };
+		0DCE84C02B8A62930019AE42 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		0DCE84C22B8A635F0019AE42 /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
+		0DCE84C42B8A66A40019AE42 /* ErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLabel.swift; sourceTree = "<group>"; };
+		0DCE84C62B8A6F4B0019AE42 /* UIStackViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtension.swift; sourceTree = "<group>"; };
+		0DCE84C82B8A703A0019AE42 /* PasswordValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidator.swift; sourceTree = "<group>"; };
+		0DCE84CB2B8A89930019AE42 /* UsernameValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameValidator.swift; sourceTree = "<group>"; };
 		0DD542392B83F69600362B77 /* ContentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DD5423C2B83F69600362B77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DD5423E2B83F69600362B77 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,21 +81,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0DCE84B72B894B000019AE42 /* auth */ = {
+		0DCE84B72B894B000019AE42 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				0DD542512B83F7E700362B77 /* LoginViewConroller.swift */,
 				0DCE84B32B89464F0019AE42 /* SignupViewController.swift */,
 			);
-			path = auth;
+			path = Auth;
 			sourceTree = "<group>";
 		};
-		0DCE84BA2B89511C0019AE42 /* projects */ = {
+		0DCE84BA2B89511C0019AE42 /* Projects */ = {
 			isa = PBXGroup;
 			children = (
 				0DCE84BB2B8951410019AE42 /* ProjectsViewController.swift */,
 			);
-			path = projects;
+			path = Projects;
+			sourceTree = "<group>";
+		};
+		0DCE84BF2B8A62840019AE42 /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				0DCE84C02B8A62930019AE42 /* Validator.swift */,
+				0DCE84C22B8A635F0019AE42 /* EmailValidator.swift */,
+				0DCE84C82B8A703A0019AE42 /* PasswordValidator.swift */,
+				0DCE84CB2B8A89930019AE42 /* UsernameValidator.swift */,
+			);
+			path = Validators;
+			sourceTree = "<group>";
+		};
+		0DCE84CA2B8A86AB0019AE42 /* FormInput */ = {
+			isa = PBXGroup;
+			children = (
+				0DD5425E2B84078800362B77 /* FormInput.swift */,
+				0DCE84BD2B8A55E60019AE42 /* FormInputFactory.swift */,
+			);
+			path = FormInput;
 			sourceTree = "<group>";
 		};
 		0DD542302B83F69600362B77 = {
@@ -106,7 +140,7 @@
 				0DD5426C2B85338500362B77 /* Models */,
 				0DD5425B2B84073A00362B77 /* Views */,
 				0DD542562B84037200362B77 /* Extensions */,
-				0DD542532B83FEB900362B77 /* fonts */,
+				0DD542532B83FEB900362B77 /* Fonts */,
 				0DD542502B83F7C100362B77 /* ViewControllers */,
 				0DD5423C2B83F69600362B77 /* AppDelegate.swift */,
 				0DD5423E2B83F69600362B77 /* SceneDelegate.swift */,
@@ -120,19 +154,19 @@
 		0DD542502B83F7C100362B77 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				0DCE84BA2B89511C0019AE42 /* projects */,
-				0DCE84B72B894B000019AE42 /* auth */,
+				0DCE84BA2B89511C0019AE42 /* Projects */,
+				0DCE84B72B894B000019AE42 /* Auth */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		0DD542532B83FEB900362B77 /* fonts */ = {
+		0DD542532B83FEB900362B77 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
 				0DCE84AF2B8592F10019AE42 /* Nunito-Regular.ttf */,
 				0DD542542B83FEE900362B77 /* Nunito-Bold.ttf */,
 			);
-			path = fonts;
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		0DD542562B84037200362B77 /* Extensions */ = {
@@ -141,6 +175,7 @@
 				0DD542572B84039300362B77 /* UIColorExtension.swift */,
 				0DD542592B84047100362B77 /* UIViewControllerExtension.swift */,
 				0DD542662B840EEB00362B77 /* UIFontExtension.swift */,
+				0DCE84C62B8A6F4B0019AE42 /* UIStackViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -179,7 +214,9 @@
 			isa = PBXGroup;
 			children = (
 				0DD542622B840D6F00362B77 /* Form.swift */,
-				0DD5425E2B84078800362B77 /* FormInput.swift */,
+				0DCE84CA2B8A86AB0019AE42 /* FormInput */,
+				0DCE84BF2B8A62840019AE42 /* Validators */,
+				0DCE84C42B8A66A40019AE42 /* ErrorLabel.swift */,
 			);
 			path = Forms;
 			sourceTree = "<group>";
@@ -262,16 +299,23 @@
 				0DD5425D2B84075700362B77 /* PageTitle.swift in Sources */,
 				0DD5423F2B83F69600362B77 /* SceneDelegate.swift in Sources */,
 				0DD5425A2B84047100362B77 /* UIViewControllerExtension.swift in Sources */,
+				0DCE84CC2B8A89930019AE42 /* UsernameValidator.swift in Sources */,
 				0DD542522B83F7E700362B77 /* LoginViewConroller.swift in Sources */,
+				0DCE84BE2B8A55E60019AE42 /* FormInputFactory.swift in Sources */,
 				0DD542672B840EEB00362B77 /* UIFontExtension.swift in Sources */,
 				0DD542752B85488800362B77 /* ButtonFactory.swift in Sources */,
 				0DD5425F2B84078800362B77 /* FormInput.swift in Sources */,
 				0DCE84B22B8943450019AE42 /* ButtonEmpty.swift in Sources */,
+				0DCE84C12B8A62930019AE42 /* Validator.swift in Sources */,
 				0DCE84B42B89464F0019AE42 /* SignupViewController.swift in Sources */,
 				0DD542772B854BE600362B77 /* ButtonRegular.swift in Sources */,
 				0DD542712B85472000362B77 /* ButtonActive.swift in Sources */,
 				0DD542582B84039300362B77 /* UIColorExtension.swift in Sources */,
+				0DCE84C72B8A6F4B0019AE42 /* UIStackViewExtension.swift in Sources */,
+				0DCE84C32B8A635F0019AE42 /* EmailValidator.swift in Sources */,
 				0DD542732B85475B00362B77 /* Button.swift in Sources */,
+				0DCE84C92B8A703A0019AE42 /* PasswordValidator.swift in Sources */,
+				0DCE84C52B8A66A40019AE42 /* ErrorLabel.swift in Sources */,
 				0DD5426E2B8533B300362B77 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
