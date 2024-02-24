@@ -12,7 +12,10 @@ extension UIFont {
         case nameLabel
         case title
         case buttonActive
+        case button
         case regular
+        case placeholder
+        case formInput
     }
     
     enum Constants {
@@ -36,7 +39,13 @@ extension UIFont {
             return UIFont(name: Constants.boldTextFont, size: Constants.nameLabelFontSize) ?? defaultFont()
         case .buttonActive:
             return UIFont(name: Constants.boldTextFont, size: Constants.buttonFontSize) ?? defaultFont()
+        case .button:
+            return UIFont(name: Constants.defaultTextFont, size: Constants.buttonFontSize) ?? defaultFont()
         case .regular:
+            return UIFont(name: Constants.defaultTextFont, size: Constants.defaultFontSize) ?? defaultFont()
+        case .placeholder:
+            return UIFont(name: Constants.defaultTextFont, size: Constants.defaultFontSize) ?? defaultFont()
+        case .formInput:
             return UIFont(name: Constants.defaultTextFont, size: Constants.defaultFontSize) ?? defaultFont()
         }
     }

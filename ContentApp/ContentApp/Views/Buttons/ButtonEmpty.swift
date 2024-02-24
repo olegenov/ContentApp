@@ -1,16 +1,16 @@
 //
-//  RegularButton.swift
+//  ButtonEmpty.swift
 //  ContentApp
 //
-//  Created by Никита Китаев on 21.02.2024.
+//  Created by Никита Китаев on 24.02.2024.
 //
 
 import UIKit
 
-final class RegularButton: Button {
+final class ButtonEmpty: Button {
     enum Constants {
         static let backgroundColor: UIColor = UIColor.clear
-        static let titleColor: UIColor = UIColor.AppColors.textColor
+        static let titleColor: UIColor = UIColor.AppColors.accentColor
     }
 
     override init(_ title: String) {
@@ -28,6 +28,11 @@ final class RegularButton: Button {
         setTitle(title, for: .normal)
         backgroundColor = Constants.backgroundColor
         setTitleColor(Constants.titleColor, for: .normal)
-        titleLabel?.font = UIFont.appFont(.buttonActive)
+        titleLabel?.font = UIFont.appFont(.button)
+        
+        titleEdgeInsets.left = 0
+        titleEdgeInsets.right = 0
+        titleEdgeInsets.bottom = 0
+        titleEdgeInsets.top = 0
     }
 }

@@ -8,12 +8,20 @@
 import UIKit
 
 class ButtonFactory {
-    static func createButton(type: Button.Types, title: String) -> Button {
+    enum Types {
+        case active
+        case regular
+        case empty
+    }
+    
+    static func createButton(type: ButtonFactory.Types, title: String) -> Button {
         switch type {
         case .active:
             return ButtonActive(title)
         case .regular:
-            return RegularButton(title)
+            return ButtonRegular(title)
+        case .empty:
+            return ButtonEmpty(title)
         }
     }
 }

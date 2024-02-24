@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0DCE84B02B8592F10019AE42 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DCE84AF2B8592F10019AE42 /* Nunito-Regular.ttf */; };
+		0DCE84B22B8943450019AE42 /* ButtonEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE84B12B8943450019AE42 /* ButtonEmpty.swift */; };
+		0DCE84B42B89464F0019AE42 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE84B32B89464F0019AE42 /* SignupViewController.swift */; };
+		0DCE84BC2B8951410019AE42 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE84BB2B8951410019AE42 /* ProjectsViewController.swift */; };
 		0DD5423D2B83F69600362B77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD5423C2B83F69600362B77 /* AppDelegate.swift */; };
 		0DD5423F2B83F69600362B77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD5423E2B83F69600362B77 /* SceneDelegate.swift */; };
 		0DD542462B83F69700362B77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DD542452B83F69700362B77 /* Assets.xcassets */; };
@@ -24,11 +27,14 @@
 		0DD542712B85472000362B77 /* ButtonActive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD542702B85472000362B77 /* ButtonActive.swift */; };
 		0DD542732B85475B00362B77 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD542722B85475B00362B77 /* Button.swift */; };
 		0DD542752B85488800362B77 /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD542742B85488800362B77 /* ButtonFactory.swift */; };
-		0DD542772B854BE600362B77 /* RegularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD542762B854BE600362B77 /* RegularButton.swift */; };
+		0DD542772B854BE600362B77 /* ButtonRegular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD542762B854BE600362B77 /* ButtonRegular.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0DCE84AF2B8592F10019AE42 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Regular.ttf"; path = "../../../../../../../../../Downloads/Nunito/Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		0DCE84B12B8943450019AE42 /* ButtonEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonEmpty.swift; sourceTree = "<group>"; };
+		0DCE84B32B89464F0019AE42 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		0DCE84BB2B8951410019AE42 /* ProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
 		0DD542392B83F69600362B77 /* ContentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DD5423C2B83F69600362B77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DD5423E2B83F69600362B77 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,7 +53,7 @@
 		0DD542702B85472000362B77 /* ButtonActive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonActive.swift; sourceTree = "<group>"; };
 		0DD542722B85475B00362B77 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		0DD542742B85488800362B77 /* ButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFactory.swift; sourceTree = "<group>"; };
-		0DD542762B854BE600362B77 /* RegularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularButton.swift; sourceTree = "<group>"; };
+		0DD542762B854BE600362B77 /* ButtonRegular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRegular.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DCE84B72B894B000019AE42 /* auth */ = {
+			isa = PBXGroup;
+			children = (
+				0DD542512B83F7E700362B77 /* LoginViewConroller.swift */,
+				0DCE84B32B89464F0019AE42 /* SignupViewController.swift */,
+			);
+			path = auth;
+			sourceTree = "<group>";
+		};
+		0DCE84BA2B89511C0019AE42 /* projects */ = {
+			isa = PBXGroup;
+			children = (
+				0DCE84BB2B8951410019AE42 /* ProjectsViewController.swift */,
+			);
+			path = projects;
+			sourceTree = "<group>";
+		};
 		0DD542302B83F69600362B77 = {
 			isa = PBXGroup;
 			children = (
@@ -97,7 +120,8 @@
 		0DD542502B83F7C100362B77 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				0DD542512B83F7E700362B77 /* LoginViewConroller.swift */,
+				0DCE84BA2B89511C0019AE42 /* projects */,
+				0DCE84B72B894B000019AE42 /* auth */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -143,9 +167,10 @@
 			isa = PBXGroup;
 			children = (
 				0DD542702B85472000362B77 /* ButtonActive.swift */,
+				0DD542762B854BE600362B77 /* ButtonRegular.swift */,
+				0DCE84B12B8943450019AE42 /* ButtonEmpty.swift */,
 				0DD542722B85475B00362B77 /* Button.swift */,
 				0DD542742B85488800362B77 /* ButtonFactory.swift */,
-				0DD542762B854BE600362B77 /* RegularButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -232,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DD5423D2B83F69600362B77 /* AppDelegate.swift in Sources */,
+				0DCE84BC2B8951410019AE42 /* ProjectsViewController.swift in Sources */,
 				0DD542632B840D6F00362B77 /* Form.swift in Sources */,
 				0DD5425D2B84075700362B77 /* PageTitle.swift in Sources */,
 				0DD5423F2B83F69600362B77 /* SceneDelegate.swift in Sources */,
@@ -240,7 +266,9 @@
 				0DD542672B840EEB00362B77 /* UIFontExtension.swift in Sources */,
 				0DD542752B85488800362B77 /* ButtonFactory.swift in Sources */,
 				0DD5425F2B84078800362B77 /* FormInput.swift in Sources */,
-				0DD542772B854BE600362B77 /* RegularButton.swift in Sources */,
+				0DCE84B22B8943450019AE42 /* ButtonEmpty.swift in Sources */,
+				0DCE84B42B89464F0019AE42 /* SignupViewController.swift in Sources */,
+				0DD542772B854BE600362B77 /* ButtonRegular.swift in Sources */,
 				0DD542712B85472000362B77 /* ButtonActive.swift in Sources */,
 				0DD542582B84039300362B77 /* UIColorExtension.swift in Sources */,
 				0DD542732B85475B00362B77 /* Button.swift in Sources */,

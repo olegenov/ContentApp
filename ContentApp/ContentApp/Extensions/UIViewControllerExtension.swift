@@ -14,7 +14,7 @@ extension UIViewController {
         static let NameLabelText: String = "content"
         static let NameLabelColor: UIColor = UIColor.AppColors.textColor
         static let NameLabelFontSize: CGFloat = 24
-        static let NameLabelTopOffset: CGFloat = 10
+        static let NameLabelTopOffset: CGFloat = 70
         
         static let BackgroundColor: UIColor = UIColor.AppColors.backgroundColor
     }
@@ -31,7 +31,7 @@ extension UIViewController {
         
         NSLayoutConstraint.activate([
             nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.NameLabelTopOffset)
+            nameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.NameLabelTopOffset)
         ])
     }
     

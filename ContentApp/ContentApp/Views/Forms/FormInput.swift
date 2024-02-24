@@ -57,7 +57,7 @@ final class FormInput: UIView, UITextFieldDelegate {
         input.translatesAutoresizingMaskIntoConstraints = false
         
         input.autocapitalizationType = .none
-        input.placeholder = placeholder(for: type)
+        input.attributedPlaceholder = NSAttributedString(string: placeholder(for: type), attributes: [NSAttributedString.Key.font: UIFont.appFont(.placeholder), NSAttributedString.Key.foregroundColor: UIColor.AppColors.outlineColor])
         input.layer.cornerRadius = Constants.cornerRadius
         input.layer.borderWidth = Constants.borderWidth
         input.layer.borderColor = Constants.borderColor.cgColor
@@ -65,6 +65,8 @@ final class FormInput: UIView, UITextFieldDelegate {
         input.leftView = UIView(frame: CGRect(x: 0, y: 0, width: Constants.paddingHorizontal, height: Constants.height))
         input.leftViewMode = .always
         
+        input.font = UIFont.appFont(.formInput)
+        input.textColor = UIColor.AppColors.textColor
         
         addSubview(input)
         

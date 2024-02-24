@@ -8,11 +8,6 @@
 import UIKit
 
 class Button: UIButton {
-    enum Types {
-        case active
-        case regular
-    }
-    
     enum Constants {
         static var height: CGFloat = 36
         static var cornerRadius: CGFloat = 18
@@ -43,7 +38,7 @@ class Button: UIButton {
 
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: Constants.height),
+            widthAnchor.constraint(greaterThanOrEqualToConstant: 50)
         ])
-
     }
 }

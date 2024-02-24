@@ -14,11 +14,14 @@ class LoginViewController: UIViewController {
         
         static let formSideMargin: CGFloat = 64
         static let sectionBottomOffset: CGFloat = 30
+        
+        static let sectionLinkTitle: String = "signup"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTemplate()
+        navigationItem.hidesBackButton = true
         configureUI()
     }
     
@@ -62,10 +65,8 @@ class LoginViewController: UIViewController {
         text.font = UIFont.appFont(.regular)
         text.textColor = UIColor.AppColors.textColor
         
-        let link = UILabel()
-        link.text = "signup"
-        link.font = UIFont.appFont(.regular)
-        link.textColor = UIColor.AppColors.accentColor
+        let link = ButtonFactory.createButton(type: .empty, title: Constants.sectionLinkTitle)
+        link.addTarget(self, action: #selector(signupSwitchButtonTapped), for: .touchUpInside)
         
         section.addArrangedSubview(text)
         section.addArrangedSubview(link)
@@ -82,13 +83,13 @@ class LoginViewController: UIViewController {
         ])
     }
     
+    @objc private func signupSwitchButtonTapped() {
+        navigationController?.popViewController(animated: false)
+    }
+    
     func handleSubmit() {
         guard let username = loginUsernameInputView.getData(), let password = loginPasswordInputView.getData() else {
             return
         }
-
-        let user = User(username: username, password: password)
-        print(user.password)
-        print(user.username)
     }
 }
