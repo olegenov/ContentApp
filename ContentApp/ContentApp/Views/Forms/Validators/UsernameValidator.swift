@@ -13,7 +13,7 @@ class UsernameValidator: Validator {
         
         static let allowedCharactersRegex: String = "^[a-zA-Z0-9_-]+$"
         
-        static let passwordLengthError: String = "username is to short"
+        static let passwordLengthError: String = "username is too short"
         static let forbiddenCharactersError: String = "forbidden symbols in username"
     }
     

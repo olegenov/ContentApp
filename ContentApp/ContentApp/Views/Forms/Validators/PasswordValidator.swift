@@ -14,7 +14,7 @@ class PasswordValidator: Validator {
         static let digitsRegex: String = "\\d"
         static let allowedCharactersRegex: String = "^[a-zA-Z0-9_!@#$%^&*()-_+=;:,./?\\|`~\\[\\]{}]+$"
         
-        static let passwordLengthError: String = "password is to short"
+        static let passwordLengthError: String = "password is too short"
         static let noDigitsError: String = "password must contain digits"
         static let forbiddenCharactersError: String = "forbidden symbols in password"
     }
