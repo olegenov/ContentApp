@@ -11,7 +11,7 @@ class TokenManager {
     static let shared = TokenManager()
 
     private var accessToken: String?
-
+    
     func saveToken(token: String) {
         UserDefaults.standard.set(token, forKey: "accessToken")
         self.accessToken = token
@@ -22,5 +22,17 @@ class TokenManager {
             self.accessToken = UserDefaults.standard.string(forKey: "accessToken")
         }
         return accessToken
+    }
+    
+    func hasToken() -> Bool {
+        if accessToken != nil {
+            return true
+        }
+        
+        if getToken() == nil {
+            return false
+        }
+        
+        return true
     }
 }

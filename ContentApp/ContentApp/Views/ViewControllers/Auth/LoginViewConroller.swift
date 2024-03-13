@@ -29,8 +29,9 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     var router: LoginRouterProtocol?
     
     init(interactor: LoginBusinessLogic) {
-        self.interactor = interactor
         super.init(nibName: nil, bundle: nil)
+        
+        self.interactor = interactor
     }
     
     required init?(coder: NSCoder) {

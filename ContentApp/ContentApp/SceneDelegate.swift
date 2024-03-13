@@ -19,9 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
                 
         let window = UIWindow(windowScene: windowScene)
-        let signupViewController = SignupAssembly.build()
+        let rootViewController = RootAssembly.build()
         
-        let navigationController = UINavigationController(rootViewController: signupViewController)
+        let navigationController = UINavigationController(rootViewController: rootViewController)
             
         window.rootViewController = navigationController
         self.window = window

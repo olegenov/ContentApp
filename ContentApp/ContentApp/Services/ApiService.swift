@@ -9,59 +9,66 @@ import Foundation
 import Alamofire
 
 protocol APIServiceProtocol {
-    func fetchData(url: String, completion: @escaping (Result<Data, ApiError>) -> Void)
+    func fetchData<T: Decodable>(urlString: String, responseType: T.Type, completion: @escaping (Result<T, ApiError>) -> Void)
     
-    func postData(url: String, parameters: [String: Any], completion: @escaping (Result<Data, ApiError>) -> Void)
-    
-    func extractToken(from data: Data) -> String?
+    func postData<T: Encodable, U: Decodable>(urlString: String, parameters: T, responseType: U.Type, completion: @escaping (Result<U, ApiError>) -> Void)
 }
 
 class APIService: APIServiceProtocol {
     private final let baseUrl = "http://127.0.0.1:8080/api/"
     
-    func postData(url: String, parameters: [String : Any], completion: @escaping (Result<Data, ApiError>) -> Void) {
-        AF.request(baseUrl + url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseData {
-            response in switch response.result {
-            case .success(let data):
-                if let statusCode = response.response?.statusCode, 200..<300 ~= statusCode {
+    func postData<T: Encodable, U: Decodable>(urlString: String, parameters: T, responseType: U.Type, completion: @escaping (Result<U, ApiError>) -> Void) {
+        
+        guard let url = URL(string: baseUrl+urlString) else {
+            completion(.failure(ApiError("invalid url")))
+            return
+        }
+
+        var headers: HTTPHeaders = [:]
+        if TokenManager.shared.hasToken() {
+            let token = TokenManager.shared.getToken()
+            headers["Authorization"] = "Bearer \(String(describing: token))"
+        }
+        
+        AF.request(url, method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers).responseDecodable(of: U.self) { response in
+                switch response.result {
+                case .success(let data):
                     completion(.success(data))
-                } else {
-                    completion(.failure(ApiError(self.extractError(from: data) ?? "Unknown error")))
+                case .failure(_):
+                    completion(.failure(ApiError("network error")))
+                }
+            }
+    }
+    
+    func fetchData<T: Decodable>(urlString: String, responseType: T.Type, completion: @escaping (Result<T, ApiError>) -> Void) {
+        
+        guard let url = URL(string: baseUrl+urlString) else {
+            completion(.failure(ApiError("invalid url")))
+            return
+        }
+        
+        var headers: HTTPHeaders = [:]
+
+        if TokenManager.shared.hasToken() {
+
+            let token = TokenManager.shared.getToken()
+
+            headers["Authorization"] = "Bearer " + (token ?? "")
+
+        }
+        
+        AF.request(url, method: .get, headers: headers).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let decodedData = try JSONDecoder().decode(T.self, from: data)
+                    completion(.success(decodedData))
+                } catch {
+                    completion(.failure(ApiError("invalid data")))
                 }
             case .failure(_):
-                completion(.failure(ApiError("Server error")))
+                completion(.failure(ApiError("network error")))
             }
         }
-    }
-    
-    func fetchData(url: String, completion: @escaping (Result<Data, ApiError>) -> Void) {
-        AF.request(baseUrl + url).responseData {
-            response in switch response.result {
-            case .success(let data):
-                completion(.success(data))
-            case .failure(_):
-                completion(.failure(ApiError("Server error")))
-            }
-        }
-    }
-    
-    func extractToken(from data: Data) -> String? {
-        do {
-            if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-               let token = json["token"] as? String {
-                return token
-            }
-        } catch { }
-        return nil
-    }
-    
-    func extractError(from data: Data) -> String? {
-        do {
-            if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-               let errorMessage = json["error"] as? String {
-                return errorMessage
-            }
-        } catch { }
-        return nil
     }
 }

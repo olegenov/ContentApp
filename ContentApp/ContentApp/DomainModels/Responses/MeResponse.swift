@@ -1,5 +1,5 @@
 //
-//  ApiRequest.swift
+//  MeResponse.swift
 //  ContentApp
 //
 //  Created by Никита Китаев on 13.03.2024.
@@ -7,6 +7,7 @@
 
 import Foundation
 
-protocol ApiRequest {
-    func toDict() -> [String: Any]
+struct MeResponse: Codable {
+    var data: UserResponse
+    var message: String
 }

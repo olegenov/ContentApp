@@ -46,8 +46,9 @@ class SignupViewController: UIViewController, SignupDisplayLogic {
     private let loginSection = UIStackView()
     
     init(interactor: SignupBusinessLogic) {
-        self.interactor = interactor
         super.init(nibName: nil, bundle: nil)
+        
+        self.interactor = interactor
     }
     
     required init?(coder: NSCoder) {

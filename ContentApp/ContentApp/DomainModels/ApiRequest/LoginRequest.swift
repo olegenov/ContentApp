@@ -7,19 +7,12 @@
 
 import Foundation
 
-class LoginRequest: ApiRequest {
+class LoginRequest: Encodable {
     let username: String
     let password: String
     
     init(username: String, password: String) {
         self.username = username
         self.password = password
-    }
-    
-    public func toDict() -> [String : Any] {
-        return [
-            "username": username,
-            "password": password
-        ]
     }
 }

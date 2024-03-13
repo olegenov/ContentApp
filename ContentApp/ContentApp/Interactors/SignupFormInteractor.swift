@@ -59,15 +59,21 @@ final class SignupFormInteractor: SignupBusinessLogic {
             email: formData.email
         )
         
-        apiService.postData(url: apiUrl, parameters: request.toDict(), completion: handleResponse)
+        apiService.postData(urlString: apiUrl, parameters: request, responseType: TokenResponse.self) { result in
+            switch result {
+            case .success(_):
+                self.handleSuccessResponse()
+            case .failure(let error):
+                self.handleFailureResponse(error)
+            }
+        }
     }
     
-    func handleResponse(response: Result<Data, ApiError>) {
-        switch response {
-        case .success(_):
-            self.presenter?.handleSuccessSignup()
-        case .failure(let error):
-            self.presenter?.presentError(errors: [error.message])
-        }
+    private func handleSuccessResponse() {
+        self.presenter?.handleSuccessSignup()
+    }
+    
+    private func handleFailureResponse(_ error: ApiError) {
+        self.presenter?.presentError(errors: [error.message])
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SignupRequest: ApiRequest {
+class SignupRequest: Encodable {
     let username: String
     let password: String
     let firstname: String
@@ -20,15 +20,5 @@ class SignupRequest: ApiRequest {
         self.firstname = firstname
         self.surname = surname
         self.email = email
-    }
-    
-    public func toDict() -> [String : Any] {
-        return [
-            "username": username,
-            "password": password,
-            "firstname": firstname,
-            "surname": surname,
-            "email": email
-        ]
     }
 }
