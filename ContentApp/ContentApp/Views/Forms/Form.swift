@@ -18,9 +18,12 @@ final class Form: UIView {
     private var fields: [FormInput] = [FormInput]()
     private var submitButtonAction: (() -> Void)?
     private var submitButton: UIButton = UIButton()
-    private var errorsStack: UIStackView = UIStackView()
     
     private var formTitle: UIView = UIView()
+    
+    init() {
+        super.init(frame: .zero)
+    }
     
     init(_ title: String, formFields: [FormInput], submitText: String = Constants.defaultSubmitText) {
         super.init(frame: .zero)
@@ -35,7 +38,6 @@ final class Form: UIView {
         configureUI(title: title, submitText: submitText)
     }
     
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -48,7 +50,6 @@ final class Form: UIView {
         configureFormTitle(title: title)
         configureFormFields()
         configureSubmitButton(title: submitText)
-        configureErrors()
         
         NSLayoutConstraint.activate([
             heightAnchor.constraint(greaterThanOrEqualToConstant: Constants.minFormHeight),
@@ -86,26 +87,12 @@ final class Form: UIView {
     private func configureSubmitButton(title: String) {
         submitButton = ButtonFactory.createButton(type: .active, title: title)
         
-        self.addSubview(submitButton)
+        addSubview(submitButton)
         
         NSLayoutConstraint.activate([
             submitButton.topAnchor.constraint(equalTo: contents.bottomAnchor, constant: Constants.formGap),
             submitButton.leadingAnchor.constraint(equalTo: leadingAnchor),
             submitButton.trailingAnchor.constraint(equalTo: trailingAnchor),
-        ])
-    }
-    
-    private func configureErrors() {
-        errorsStack.axis = .vertical
-        errorsStack.spacing = Constants.formGap
-        errorsStack.translatesAutoresizingMaskIntoConstraints = false
-        
-        addSubview(errorsStack)
-        
-        NSLayoutConstraint.activate([
-            errorsStack.leadingAnchor.constraint(equalTo: leadingAnchor),
-            errorsStack.trailingAnchor.constraint(equalTo: trailingAnchor),
-            errorsStack.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: Constants.formGap),
         ])
     }
     
@@ -119,26 +106,6 @@ final class Form: UIView {
     }
 
     @objc private func submitButtonTapped() {
-        errorsStack.clear()
-        
-        for field in fields {
-            let validated = field.validate()
-            
-            if !validated.isValid {
-                field.makeErrorField()
-                
-                for errorMessage in validated.errorMessages {
-                    showError(errorText: errorMessage)
-                }
-            }
-        }
         submitButtonAction?()
-    }
-    
-    func showError(errorText: String) {
-        let errorLabel = ErrorLabel(errorText)
-        errorLabel.show()
-        
-        errorsStack.addArrangedSubview(errorLabel)
     }
 }

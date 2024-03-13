@@ -35,11 +35,8 @@ final class ErrorLabel: UIView {
         layer.cornerRadius = Constants.cornerRadius
         backgroundColor = UIColor.AppColors.red
         
-        text.translatesAutoresizingMaskIntoConstraints = false
-        text.font = UIFont.appFont(.inputError)
-        text.textColor = UIColor.AppColors.darkRed
-        text.text = labelText
-
+        configureErrorText(labelText)
+        
         addSubview(text)
         
         NSLayoutConstraint.activate([
@@ -51,6 +48,14 @@ final class ErrorLabel: UIView {
             text.topAnchor.constraint(equalTo: topAnchor, constant: Constants.paddingVertical),
             text.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Constants.paddingVertical),
         ])
+    }
+    
+    private func configureErrorText(_ labelText: String) {
+        text.translatesAutoresizingMaskIntoConstraints = false
+        
+        text.font = UIFont.appFont(.inputError)
+        text.textColor = UIColor.AppColors.darkRed
+        text.text = labelText
     }
     
     public func show() {
