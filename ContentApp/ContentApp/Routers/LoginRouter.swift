@@ -21,4 +21,9 @@ class LoginRouter: LoginRouterProtocol {
     func navigateToSignup() {
         viewController?.navigationController?.popViewController(animated: true)
     }
+    
+    func navigateToProjects() {
+        let projectsVC = ProjectsAssembly.build()
+        viewController?.navigationController?.pushViewController(projectsVC, animated: true)
+    }
 }

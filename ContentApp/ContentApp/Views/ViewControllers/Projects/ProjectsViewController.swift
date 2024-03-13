@@ -7,9 +7,23 @@
 
 import UIKit
 
-class ProjectsViewController: UIViewController {
+protocol ProjectsDisplayLogic {
+}
+
+class ProjectsViewController: UIViewController, ProjectsDisplayLogic {
     enum Constants {
-        
+    }
+    
+    var interactor: ProjectsBusinessLogic?
+    var router: ProjectsRouterProtocol?
+    
+    init(interactor: ProjectsBusinessLogic) {
+        self.interactor = interactor
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {

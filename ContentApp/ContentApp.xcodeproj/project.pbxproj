@@ -13,6 +13,10 @@
 		0D58157D2BA13EC70034764F /* SignupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D58157C2BA13EC70034764F /* SignupRouter.swift */; };
 		0D5815802BA13F160034764F /* LoginAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D58157F2BA13F160034764F /* LoginAssembly.swift */; };
 		0D5815822BA1465D0034764F /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815812BA1465D0034764F /* LoginRouter.swift */; };
+		0D5815842BA1697D0034764F /* ProjectsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815832BA1697D0034764F /* ProjectsAssembly.swift */; };
+		0D5815862BA169C80034764F /* ProjectsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815852BA169C80034764F /* ProjectsInteractor.swift */; };
+		0D5815882BA16A260034764F /* ProjectsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815872BA16A260034764F /* ProjectsPresenter.swift */; };
+		0D58158A2BA16A680034764F /* ProjectsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815892BA16A680034764F /* ProjectsRouter.swift */; };
 		0D8DA4982BA0E11800D76C62 /* SignupFormInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8DA4972BA0E11800D76C62 /* SignupFormInteractor.swift */; };
 		0D8DA49A2BA0E1AC00D76C62 /* SignupFormPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8DA4992BA0E1AC00D76C62 /* SignupFormPresenter.swift */; };
 		0D8DA4A02BA0F5B900D76C62 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8DA49F2BA0F5B800D76C62 /* LoginRequest.swift */; };
@@ -60,6 +64,10 @@
 		0D58157C2BA13EC70034764F /* SignupRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRouter.swift; sourceTree = "<group>"; };
 		0D58157F2BA13F160034764F /* LoginAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAssembly.swift; sourceTree = "<group>"; };
 		0D5815812BA1465D0034764F /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		0D5815832BA1697D0034764F /* ProjectsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsAssembly.swift; sourceTree = "<group>"; };
+		0D5815852BA169C80034764F /* ProjectsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsInteractor.swift; sourceTree = "<group>"; };
+		0D5815872BA16A260034764F /* ProjectsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsPresenter.swift; sourceTree = "<group>"; };
+		0D5815892BA16A680034764F /* ProjectsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsRouter.swift; sourceTree = "<group>"; };
 		0D8DA4972BA0E11800D76C62 /* SignupFormInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupFormInteractor.swift; sourceTree = "<group>"; };
 		0D8DA4992BA0E1AC00D76C62 /* SignupFormPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupFormPresenter.swift; sourceTree = "<group>"; };
 		0D8DA49F2BA0F5B800D76C62 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
@@ -121,6 +129,7 @@
 			children = (
 				0D8DA4992BA0E1AC00D76C62 /* SignupFormPresenter.swift */,
 				0D5815782BA13CE80034764F /* LoginFormPresenter.swift */,
+				0D5815872BA16A260034764F /* ProjectsPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -131,6 +140,7 @@
 				0DCE84BF2B8A62840019AE42 /* Validators */,
 				0D8DA4972BA0E11800D76C62 /* SignupFormInteractor.swift */,
 				0D5815762BA13CBF0034764F /* LoginFormInteractor.swift */,
+				0D5815852BA169C80034764F /* ProjectsInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -140,6 +150,7 @@
 			children = (
 				0D58157C2BA13EC70034764F /* SignupRouter.swift */,
 				0D5815812BA1465D0034764F /* LoginRouter.swift */,
+				0D5815892BA16A680034764F /* ProjectsRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -149,6 +160,7 @@
 			children = (
 				0D8DA4B32BA1313A00D76C62 /* SignupAssembly.swift */,
 				0D58157F2BA13F160034764F /* LoginAssembly.swift */,
+				0D5815832BA1697D0034764F /* ProjectsAssembly.swift */,
 			);
 			path = Assemblies;
 			sourceTree = "<group>";
@@ -481,9 +493,13 @@
 				0DD5425A2B84047100362B77 /* UIViewControllerExtension.swift in Sources */,
 				0DCE84CC2B8A89930019AE42 /* UsernameValidator.swift in Sources */,
 				0D8DA4A02BA0F5B900D76C62 /* LoginRequest.swift in Sources */,
+				0D5815862BA169C80034764F /* ProjectsInteractor.swift in Sources */,
+				0D5815842BA1697D0034764F /* ProjectsAssembly.swift in Sources */,
 				0D5815822BA1465D0034764F /* LoginRouter.swift in Sources */,
+				0D58158A2BA16A680034764F /* ProjectsRouter.swift in Sources */,
 				0D5815802BA13F160034764F /* LoginAssembly.swift in Sources */,
 				0DD542522B83F7E700362B77 /* LoginViewConroller.swift in Sources */,
+				0D5815882BA16A260034764F /* ProjectsPresenter.swift in Sources */,
 				0DCE84BE2B8A55E60019AE42 /* FormInputFactory.swift in Sources */,
 				0DD542672B840EEB00362B77 /* UIFontExtension.swift in Sources */,
 				0DD542752B85488800362B77 /* ButtonFactory.swift in Sources */,

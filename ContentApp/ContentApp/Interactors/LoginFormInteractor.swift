@@ -11,7 +11,7 @@ protocol LoginBusinessLogic {
     func submitFormData(_ formData: LoginFormData)
 }
 
-class LoginFormInteractor: LoginBusinessLogic {
+final class LoginFormInteractor: LoginBusinessLogic {
     var presenter: LoginPresentationLogic?
     var apiService: APIServiceProtocol = APIService()
     

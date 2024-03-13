@@ -12,7 +12,7 @@ protocol SignupBusinessLogic {
     func submitFormData(_ formData: SignupFormData)
 }
 
-class SignupFormInteractor: SignupBusinessLogic {
+final class SignupFormInteractor: SignupBusinessLogic {
     var presenter: SignupPresentationLogic?
     var dataValidator: Validator = SignupFormValidator()
     var apiService: APIServiceProtocol = APIService()
