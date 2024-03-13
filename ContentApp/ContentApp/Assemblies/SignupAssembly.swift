@@ -10,7 +10,7 @@ import UIKit
 enum SignupAssembly {
     static func build() -> UIViewController {
         let presenter = SignupFormPresenter()
-        let interactor = SignupFormInteractor(presenter: presenter)
+        let interactor = SignupFormInteractor(presenter: presenter, apiService: APIService())
         let viewController = SignupViewController(interactor: interactor)
         
         viewController.router = SignupRouter(viewController: viewController)

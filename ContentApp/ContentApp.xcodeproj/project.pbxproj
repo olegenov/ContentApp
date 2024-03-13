@@ -17,6 +17,9 @@
 		0D5815862BA169C80034764F /* ProjectsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815852BA169C80034764F /* ProjectsInteractor.swift */; };
 		0D5815882BA16A260034764F /* ProjectsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815872BA16A260034764F /* ProjectsPresenter.swift */; };
 		0D58158A2BA16A680034764F /* ProjectsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815892BA16A680034764F /* ProjectsRouter.swift */; };
+		0D58158C2BA16EBC0034764F /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D58158B2BA16EBC0034764F /* ApiRequest.swift */; };
+		0D58158E2BA17F260034764F /* SignupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D58158D2BA17F260034764F /* SignupRequest.swift */; };
+		0D5815922BA186FF0034764F /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815912BA186FF0034764F /* ApiError.swift */; };
 		0D8DA4982BA0E11800D76C62 /* SignupFormInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8DA4972BA0E11800D76C62 /* SignupFormInteractor.swift */; };
 		0D8DA49A2BA0E1AC00D76C62 /* SignupFormPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8DA4992BA0E1AC00D76C62 /* SignupFormPresenter.swift */; };
 		0D8DA4A02BA0F5B900D76C62 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8DA49F2BA0F5B800D76C62 /* LoginRequest.swift */; };
@@ -68,6 +71,9 @@
 		0D5815852BA169C80034764F /* ProjectsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsInteractor.swift; sourceTree = "<group>"; };
 		0D5815872BA16A260034764F /* ProjectsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsPresenter.swift; sourceTree = "<group>"; };
 		0D5815892BA16A680034764F /* ProjectsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsRouter.swift; sourceTree = "<group>"; };
+		0D58158B2BA16EBC0034764F /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
+		0D58158D2BA17F260034764F /* SignupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequest.swift; sourceTree = "<group>"; };
+		0D5815912BA186FF0034764F /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		0D8DA4972BA0E11800D76C62 /* SignupFormInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupFormInteractor.swift; sourceTree = "<group>"; };
 		0D8DA4992BA0E1AC00D76C62 /* SignupFormPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupFormPresenter.swift; sourceTree = "<group>"; };
 		0D8DA49F2BA0F5B800D76C62 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
@@ -165,6 +171,25 @@
 			path = Assemblies;
 			sourceTree = "<group>";
 		};
+		0D58158F2BA17F950034764F /* ApiRequest */ = {
+			isa = PBXGroup;
+			children = (
+				0D8DA49F2BA0F5B800D76C62 /* LoginRequest.swift */,
+				0D58158D2BA17F260034764F /* SignupRequest.swift */,
+				0D58158B2BA16EBC0034764F /* ApiRequest.swift */,
+			);
+			path = ApiRequest;
+			sourceTree = "<group>";
+		};
+		0D5815902BA17FA40034764F /* FormData */ = {
+			isa = PBXGroup;
+			children = (
+				0D8DA4A92BA102A800D76C62 /* SignupFormData.swift */,
+				0D58157A2BA13DF10034764F /* LoginFormData.swift */,
+			);
+			path = FormData;
+			sourceTree = "<group>";
+		};
 		0D8DA4962BA0E0F000D76C62 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,9 +220,8 @@
 		0D8DA4A62BA0FCC500D76C62 /* DomainModels */ = {
 			isa = PBXGroup;
 			children = (
-				0D8DA49F2BA0F5B800D76C62 /* LoginRequest.swift */,
-				0D8DA4A92BA102A800D76C62 /* SignupFormData.swift */,
-				0D58157A2BA13DF10034764F /* LoginFormData.swift */,
+				0D5815902BA17FA40034764F /* FormData */,
+				0D58158F2BA17F950034764F /* ApiRequest */,
 			);
 			path = DomainModels;
 			sourceTree = "<group>";
@@ -206,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				0DA841F52B8FEC7A0054ED4B /* ApiService.swift */,
+				0D5815912BA186FF0034764F /* ApiError.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -485,7 +510,9 @@
 				0D8DA4A22BA0F7F600D76C62 /* SignupFormValidator.swift in Sources */,
 				0D8DA4B42BA1313A00D76C62 /* SignupAssembly.swift in Sources */,
 				0DD5423D2B83F69600362B77 /* AppDelegate.swift in Sources */,
+				0D58158E2BA17F260034764F /* SignupRequest.swift in Sources */,
 				0DCE84BC2B8951410019AE42 /* ProjectsViewController.swift in Sources */,
+				0D5815922BA186FF0034764F /* ApiError.swift in Sources */,
 				0D5815772BA13CBF0034764F /* LoginFormInteractor.swift in Sources */,
 				0DD542632B840D6F00362B77 /* Form.swift in Sources */,
 				0DD5425D2B84075700362B77 /* PageTitle.swift in Sources */,
@@ -524,6 +551,7 @@
 				0DCE84C92B8A703A0019AE42 /* PasswordValidator.swift in Sources */,
 				0DCE84C52B8A66A40019AE42 /* ErrorLabel.swift in Sources */,
 				0DD5426E2B8533B300362B77 /* User.swift in Sources */,
+				0D58158C2BA16EBC0034764F /* ApiRequest.swift in Sources */,
 				0D8DA4A52BA0F98200D76C62 /* Validator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

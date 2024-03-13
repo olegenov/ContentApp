@@ -9,6 +9,7 @@ import UIKit
 
 protocol LoginRouterProtocol {
     func navigateToSignup()
+    func navigateToProjects()
 }
 
 class LoginRouter: LoginRouterProtocol {

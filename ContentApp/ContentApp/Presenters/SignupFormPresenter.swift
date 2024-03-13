@@ -8,15 +8,20 @@
 import Foundation
 
 protocol SignupPresentationLogic {
-    func presentValidationError(errors: [String])
+    func presentError(errors: [String])
+    func handleSuccessSignup()
 }
 
 class SignupFormPresenter: SignupPresentationLogic {
     var viewController: SignupDisplayLogic?
     
-    func presentValidationError(errors: [String]) {
+    func presentError(errors: [String]) {
         for error in errors {
-            viewController?.displayValidationError(error)
+            viewController?.displayError(error)
         }
+    }
+    
+    func handleSuccessSignup() {
+        viewController?.handleSuccessSignup()
     }
 }

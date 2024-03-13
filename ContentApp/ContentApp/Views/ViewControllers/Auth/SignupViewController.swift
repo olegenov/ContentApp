@@ -8,7 +8,8 @@
 import UIKit
 
 protocol SignupDisplayLogic {
-    func displayValidationError(_ error: String)
+    func displayError(_ error: String)
+    func handleSuccessSignup()
 }
 
 class SignupViewController: UIViewController, SignupDisplayLogic {
@@ -163,11 +164,15 @@ class SignupViewController: UIViewController, SignupDisplayLogic {
         interactor?.validateFormData(formData)
     }
     
-    func displayValidationError(_ error: String) {
-        let error = ErrorLabel(error)
+    func displayError(_ error: String) {
+        let errorLabel = ErrorLabel(error)
         
-        error.show()
-        errorsStack.addArrangedSubview(error)
+        errorLabel.show()
+        errorsStack.addArrangedSubview(errorLabel)
+    }
+    
+    func handleSuccessSignup() {
+        router?.navigateToLogin()
     }
 }
 

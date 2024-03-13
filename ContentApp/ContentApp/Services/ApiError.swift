@@ -1,0 +1,16 @@
+//
+//  ApiError.swift
+//  ContentApp
+//
+//  Created by Никита Китаев on 13.03.2024.
+//
+
+import Foundation
+
+class ApiError: Error {
+    var message: String
+    
+    init(_ message: String) {
+        self.message = message
+    }
+}

@@ -10,7 +10,7 @@ import UIKit
 enum LoginAssembly {
     static func build() -> UIViewController {
         let presenter = LoginFormPresenter()
-        let interactor = LoginFormInteractor(presenter: presenter)
+        let interactor = LoginFormInteractor(presenter: presenter, apiService: APIService(), tokenManager: TokenManager())
         let viewController = LoginViewController(interactor: interactor)
         
         viewController.router = LoginRouter(viewController: viewController)

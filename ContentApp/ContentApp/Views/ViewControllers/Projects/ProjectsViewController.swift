@@ -29,6 +29,7 @@ class ProjectsViewController: UIViewController, ProjectsDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.hidesBackButton = true
         configureTemplate()
         configureUI()
     }
