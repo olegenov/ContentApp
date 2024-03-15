@@ -24,7 +24,7 @@ final class RootInteractor: RootBusinessLogic {
     }
     
     func checkToken() {
-        apiService.fetchData(urlString: apiUrl, responseType: MeResponse.self) { result in
+        apiService.fetchData(urlString: apiUrl, responseType: MeResponse.self, token: true) { result in
             switch result {
             case .success(let meResponse):
                 self.handleSuccessResponse(meResponse)

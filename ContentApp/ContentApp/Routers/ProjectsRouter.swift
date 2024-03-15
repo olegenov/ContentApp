@@ -8,6 +8,7 @@
 import UIKit
 
 protocol ProjectsRouterProtocol {
+    func navigateToProjectCreation()
 }
 
 class ProjectsRouter: ProjectsRouterProtocol {
@@ -15,5 +16,10 @@ class ProjectsRouter: ProjectsRouterProtocol {
     
     init(viewController: UIViewController) {
         self.viewController = viewController
+    }
+    
+    func navigateToProjectCreation() {
+        let newProjectVC = NewProjectAssembly.build()
+        viewController?.navigationController?.pushViewController(newProjectVC, animated: true)
     }
 }

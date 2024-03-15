@@ -37,7 +37,5 @@ extension UIViewController {
     
     public func configureTemplate() {
         view.backgroundColor = Constants.BackgroundColor
-        
-        configureNameLabel()
     }
 }

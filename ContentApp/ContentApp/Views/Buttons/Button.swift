@@ -18,7 +18,14 @@ class Button: UIButton {
     init(_ title: String) {
         super.init(frame: .zero)
         
-        configureUI(title)
+        setTitle(title, for: .normal)
+        configureUI()
+    }
+    
+    init() {
+        super.init(frame: .zero)
+        
+        configureUI()
     }
 
     @available(*, unavailable)
@@ -26,8 +33,7 @@ class Button: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func configureUI(_ title: String) {
-        setTitle(title, for: .normal)
+    private func configureUI() {
         layer.cornerRadius = Constants.cornerRadius
         translatesAutoresizingMaskIntoConstraints = false
         

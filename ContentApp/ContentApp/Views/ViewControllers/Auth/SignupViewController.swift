@@ -28,6 +28,7 @@ class SignupViewController: UIViewController, SignupDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTemplate()
+        configureNameLabel()
         navigationItem.hidesBackButton = true
         configureUI()
     }

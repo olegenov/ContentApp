@@ -59,7 +59,7 @@ final class SignupFormInteractor: SignupBusinessLogic {
             email: formData.email
         )
         
-        apiService.postData(urlString: apiUrl, parameters: request, responseType: TokenResponse.self) { result in
+        apiService.postData(urlString: apiUrl, parameters: request, responseType: SignupResponse.self, token: false) { result in
             switch result {
             case .success(_):
                 self.handleSuccessResponse()

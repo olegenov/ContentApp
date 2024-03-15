@@ -7,12 +7,7 @@
 
 import Foundation
 
-class LoginRequest: Encodable {
+struct LoginRequest: Encodable {
     let username: String
     let password: String
-    
-    init(username: String, password: String) {
-        self.username = username
-        self.password = password
-    }
 }

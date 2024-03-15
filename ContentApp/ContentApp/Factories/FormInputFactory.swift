@@ -17,6 +17,7 @@ class FormInputFactory {
         case signupRepeatPassword
         case loginUsername
         case loginPassword
+        case projectName
     }
     
     enum Constants {
@@ -26,6 +27,7 @@ class FormInputFactory {
         static var passwordPlaceHolder: String = "password"
         static var repeatPasswordPlaceHolder: String = "repeat password"
         static var emailPlaceHolder: String = "email"
+        static var projectNamePlaceHolder: String = "name"
     }
     
     static func createFormInput(type: Types) -> FormInput {
@@ -58,6 +60,8 @@ class FormInputFactory {
             inputView = FormInput(Constants.passwordPlaceHolder)
             inputView.enableSecuring()
             inputView.disableAutoCorrection()
+        case .projectName:
+            inputView = FormInput(Constants.projectNamePlaceHolder)
         }
         
         return inputView

@@ -10,7 +10,7 @@ import UIKit
 enum ProjectsAssembly {
     static func build() -> UIViewController {
         let presenter = ProjectsPresenter()
-        let interactor = ProjectsInteractor(presenter: presenter)
+        let interactor = ProjectsInteractor(presenter: presenter, apiService: APIService())
         let viewController = ProjectsViewController(interactor: interactor)
         
         viewController.router = ProjectsRouter(viewController: viewController)

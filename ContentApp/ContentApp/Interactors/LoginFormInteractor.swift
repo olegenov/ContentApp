@@ -36,7 +36,7 @@ final class LoginFormInteractor: LoginBusinessLogic {
         
         let request = LoginRequest(username: formData.username, password: formData.password)
         
-        apiService.postData(urlString: apiUrl, parameters: request, responseType: TokenResponse.self) { result in
+        apiService.postData(urlString: apiUrl, parameters: request, responseType: TokenResponse.self, token: false) { result in
             switch result {
             case .success(let tokenResponse):
                 self.handleSuccessResponse(tokenResponse)

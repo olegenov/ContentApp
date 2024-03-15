@@ -19,7 +19,7 @@ final class Form: UIView {
     private var submitButtonAction: (() -> Void)?
     private var submitButton: UIButton = UIButton()
     
-    private var formTitle: UIView = UIView()
+    private var formTitle: PageTitle = PageTitle()
     
     init() {
         super.init(frame: .zero)
@@ -58,6 +58,7 @@ final class Form: UIView {
     
     private func configureFormTitle(title: String) {
         formTitle = PageTitle(title)
+        formTitle.centerSelf()
         addSubview(formTitle)
         formTitle.translatesAutoresizingMaskIntoConstraints = false
         

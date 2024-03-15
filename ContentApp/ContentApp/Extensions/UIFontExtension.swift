@@ -17,15 +17,18 @@ extension UIFont {
         case placeholder
         case formInput
         case inputError
+        case cardTitle
     }
     
     enum Constants {
         static let defaultFontSize: CGFloat = 16
         static let boldTextFont: String = "Nunito-Bold"
+        static let semiboldTextFont: String = "Nunito-SemiBold"
         static let defaultTextFont: String = "Nunito-Regular"
         static let titleFontSize: CGFloat = 32
         static let nameLabelFontSize: CGFloat = 24
         static let buttonFontSize: CGFloat = 16
+        static let cardTitleFontSize: CGFloat = 20
     }
     
     private static func defaultFont() -> UIFont {
@@ -50,6 +53,8 @@ extension UIFont {
             return UIFont(name: Constants.defaultTextFont, size: Constants.defaultFontSize) ?? defaultFont()
         case .inputError:
             return UIFont(name: Constants.defaultTextFont, size: Constants.defaultFontSize) ?? defaultFont()
+        case .cardTitle:
+            return UIFont(name: Constants.semiboldTextFont, size: Constants.cardTitleFontSize) ?? defaultFont()
         }
     }
 }

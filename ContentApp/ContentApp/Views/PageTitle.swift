@@ -12,6 +12,7 @@ final class PageTitle : UIView {
         static let titleColor: UIColor = UIColor.AppColors.textColor
         static let titleFontSize: CGFloat = 32
         static let titleBottomOffset: CGFloat = 15
+        static let titleHeight: CGFloat = 44
     }
     
     var titleView = UILabel()
@@ -20,6 +21,10 @@ final class PageTitle : UIView {
         super.init(frame: .zero)
         
         configureUI(titleText: titleText)
+    }
+    
+    init() {
+        super.init(frame: .zero)
     }
 
     @available(*, unavailable)
@@ -38,8 +43,15 @@ final class PageTitle : UIView {
         addSubview(title)
         
         NSLayoutConstraint.activate([
-            title.centerXAnchor.constraint(equalTo: centerXAnchor),
-            title.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Constants.titleBottomOffset),
+            title.heightAnchor.constraint(equalToConstant: Constants.titleHeight),
+            bottomAnchor.constraint(equalTo: title.bottomAnchor, constant: Constants.titleBottomOffset),
+            centerYAnchor.constraint(equalTo: title.centerYAnchor)
+        ])
+    }
+    
+    public func centerSelf() {
+        NSLayoutConstraint.activate([
+            titleView.centerXAnchor.constraint(equalTo: centerXAnchor),
         ])
     }
 }

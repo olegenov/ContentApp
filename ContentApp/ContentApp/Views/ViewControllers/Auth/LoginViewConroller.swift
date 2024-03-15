@@ -46,6 +46,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTemplate()
+        configureNameLabel()
         navigationItem.hidesBackButton = true
         configureUI()
     }

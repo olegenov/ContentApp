@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class Icon: UIView {
+class Icon: UIView {
     public var icon = UIImageView()
     
     init(_ named: String) {
@@ -26,8 +26,9 @@ final class Icon: UIView {
         NSLayoutConstraint.activate([
             icon.heightAnchor.constraint(equalToConstant: icon.image?.size.height ?? 0),
             icon.widthAnchor.constraint(equalToConstant: icon.image?.size.width ?? 0),
-            icon.centerXAnchor.constraint(equalTo: centerXAnchor),
-            icon.centerYAnchor.constraint(equalTo: centerYAnchor)
+            icon.centerYAnchor.constraint(equalTo: centerYAnchor),
+            icon.trailingAnchor.constraint(equalTo: trailingAnchor),
+            icon.leadingAnchor.constraint(equalTo: leadingAnchor)
         ])
     }
 
