@@ -49,7 +49,6 @@ class Button: UIButton {
 
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: Constants.height),
-            widthAnchor.constraint(greaterThanOrEqualToConstant: 50)
         ])
     }
     

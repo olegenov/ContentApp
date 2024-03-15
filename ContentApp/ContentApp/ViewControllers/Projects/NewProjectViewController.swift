@@ -42,8 +42,8 @@ class NewProjectViewController: UIViewController, NewProjectDisplayLogic {
     }
     
     private let projectNameInputView: FormInput = FormInputFactory.createFormInput(type: .projectName)
-    private var errorsStack: UIStackView = UIStackView()
-    private var backButton: IconButton = IconButton(.back)
+    private let errorsStack: UIStackView = UIStackView()
+    private let backButton: IconButton = IconButton(.back)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,7 +145,6 @@ class NewProjectViewController: UIViewController, NewProjectDisplayLogic {
     }
     
     @objc func getBack() {
-        print("here")
         router?.navigateToProjects()
     }
 }

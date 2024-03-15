@@ -48,6 +48,23 @@
 		0D5815D02BA3FF050034764F /* NewProjectPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815CF2BA3FF050034764F /* NewProjectPresenter.swift */; };
 		0D5815D22BA3FF650034764F /* NewProjectRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815D12BA3FF650034764F /* NewProjectRouter.swift */; };
 		0D5815D82BA415FA0034764F /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815D72BA415FA0034764F /* IconButton.swift */; };
+		0D5815DA2BA41E1B0034764F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815D92BA41E1B0034764F /* MenuViewController.swift */; };
+		0D5815E42BA41F010034764F /* MenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815E32BA41F010034764F /* MenuPresenter.swift */; };
+		0D5815EA2BA41FC80034764F /* MenuAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815E92BA41FC80034764F /* MenuAssembly.swift */; };
+		0D5815EC2BA41FEA0034764F /* MenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815EB2BA41FEA0034764F /* MenuInteractor.swift */; };
+		0D5815EF2BA4290E0034764F /* MenuPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815EE2BA4290E0034764F /* MenuPosition.swift */; };
+		0D5815F12BA42A6C0034764F /* MenuPositionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815F02BA42A6C0034764F /* MenuPositionFactory.swift */; };
+		0D5815F32BA4303E0034764F /* MenuRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815F22BA4303E0034764F /* MenuRouter.swift */; };
+		0D5815F72BA4592D0034764F /* AboutPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815F62BA4592D0034764F /* AboutPageViewController.swift */; };
+		0D5815F92BA459790034764F /* AboutPageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815F82BA459790034764F /* AboutPageInteractor.swift */; };
+		0D5815FB2BA4599F0034764F /* AboutPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815FA2BA4599F0034764F /* AboutPagePresenter.swift */; };
+		0D5815FD2BA45A380034764F /* AboutPageAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815FC2BA45A380034764F /* AboutPageAssembly.swift */; };
+		0D5815FF2BA461990034764F /* ProfileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5815FE2BA461990034764F /* ProfileAssembly.swift */; };
+		0D5816012BA461DE0034764F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5816002BA461DE0034764F /* ProfileViewController.swift */; };
+		0D5816032BA462090034764F /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5816022BA462090034764F /* ProfileInteractor.swift */; };
+		0D5816052BA462450034764F /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5816042BA462450034764F /* ProfilePresenter.swift */; };
+		0D5816072BA463DF0034764F /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5816062BA463DF0034764F /* ProfileRouter.swift */; };
+		0D5816092BA472B60034764F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5816082BA472B60034764F /* User.swift */; };
 		0D8DA4982BA0E11800D76C62 /* SignupFormInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8DA4972BA0E11800D76C62 /* SignupFormInteractor.swift */; };
 		0D8DA49A2BA0E1AC00D76C62 /* SignupFormPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8DA4992BA0E1AC00D76C62 /* SignupFormPresenter.swift */; };
 		0D8DA4A02BA0F5B900D76C62 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8DA49F2BA0F5B800D76C62 /* LoginRequest.swift */; };
@@ -129,6 +146,23 @@
 		0D5815CF2BA3FF050034764F /* NewProjectPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectPresenter.swift; sourceTree = "<group>"; };
 		0D5815D12BA3FF650034764F /* NewProjectRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectRouter.swift; sourceTree = "<group>"; };
 		0D5815D72BA415FA0034764F /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		0D5815D92BA41E1B0034764F /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		0D5815E32BA41F010034764F /* MenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPresenter.swift; sourceTree = "<group>"; };
+		0D5815E92BA41FC80034764F /* MenuAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuAssembly.swift; sourceTree = "<group>"; };
+		0D5815EB2BA41FEA0034764F /* MenuInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInteractor.swift; sourceTree = "<group>"; };
+		0D5815EE2BA4290E0034764F /* MenuPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPosition.swift; sourceTree = "<group>"; };
+		0D5815F02BA42A6C0034764F /* MenuPositionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPositionFactory.swift; sourceTree = "<group>"; };
+		0D5815F22BA4303E0034764F /* MenuRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRouter.swift; sourceTree = "<group>"; };
+		0D5815F62BA4592D0034764F /* AboutPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPageViewController.swift; sourceTree = "<group>"; };
+		0D5815F82BA459790034764F /* AboutPageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPageInteractor.swift; sourceTree = "<group>"; };
+		0D5815FA2BA4599F0034764F /* AboutPagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPagePresenter.swift; sourceTree = "<group>"; };
+		0D5815FC2BA45A380034764F /* AboutPageAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPageAssembly.swift; sourceTree = "<group>"; };
+		0D5815FE2BA461990034764F /* ProfileAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembly.swift; sourceTree = "<group>"; };
+		0D5816002BA461DE0034764F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		0D5816022BA462090034764F /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		0D5816042BA462450034764F /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		0D5816062BA463DF0034764F /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		0D5816082BA472B60034764F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0D8DA4972BA0E11800D76C62 /* SignupFormInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupFormInteractor.swift; sourceTree = "<group>"; };
 		0D8DA4992BA0E1AC00D76C62 /* SignupFormPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupFormPresenter.swift; sourceTree = "<group>"; };
 		0D8DA49F2BA0F5B800D76C62 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
@@ -187,11 +221,12 @@
 		0D4051AD2BA0D06D00EBC636 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				0D8DA4992BA0E1AC00D76C62 /* SignupFormPresenter.swift */,
-				0D5815782BA13CE80034764F /* LoginFormPresenter.swift */,
-				0D5815872BA16A260034764F /* ProjectsPresenter.swift */,
+				0D5815DC2BA41E5A0034764F /* Projects */,
+				0D5815DB2BA41E500034764F /* Auth */,
 				0D5815A42BA207530034764F /* RootPresenter.swift */,
-				0D5815CF2BA3FF050034764F /* NewProjectPresenter.swift */,
+				0D5815E32BA41F010034764F /* MenuPresenter.swift */,
+				0D5815FA2BA4599F0034764F /* AboutPagePresenter.swift */,
+				0D5816042BA462450034764F /* ProfilePresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -199,12 +234,13 @@
 		0D4051AE2BA0D07900EBC636 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				0D5815DE2BA41E7F0034764F /* Projects */,
+				0D5815DD2BA41E760034764F /* Auth */,
 				0DCE84BF2B8A62840019AE42 /* Validators */,
-				0D8DA4972BA0E11800D76C62 /* SignupFormInteractor.swift */,
-				0D5815762BA13CBF0034764F /* LoginFormInteractor.swift */,
-				0D5815852BA169C80034764F /* ProjectsInteractor.swift */,
 				0D5815A22BA202390034764F /* RootInteractor.swift */,
-				0D5815C92BA3FDCA0034764F /* NewProjectInteractor.swift */,
+				0D5815EB2BA41FEA0034764F /* MenuInteractor.swift */,
+				0D5815F82BA459790034764F /* AboutPageInteractor.swift */,
+				0D5816022BA462090034764F /* ProfileInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -212,11 +248,11 @@
 		0D4051AF2BA0D08B00EBC636 /* Routers */ = {
 			isa = PBXGroup;
 			children = (
-				0D58157C2BA13EC70034764F /* SignupRouter.swift */,
-				0D5815812BA1465D0034764F /* LoginRouter.swift */,
-				0D5815892BA16A680034764F /* ProjectsRouter.swift */,
+				0D5815E02BA41E910034764F /* Projects */,
+				0D5815DF2BA41E8B0034764F /* Auth */,
 				0D58159E2BA1FEAD0034764F /* RootRouter.swift */,
-				0D5815D12BA3FF650034764F /* NewProjectRouter.swift */,
+				0D5815F22BA4303E0034764F /* MenuRouter.swift */,
+				0D5816062BA463DF0034764F /* ProfileRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -224,11 +260,12 @@
 		0D58157E2BA13EFF0034764F /* Assemblies */ = {
 			isa = PBXGroup;
 			children = (
-				0D8DA4B32BA1313A00D76C62 /* SignupAssembly.swift */,
-				0D58157F2BA13F160034764F /* LoginAssembly.swift */,
-				0D5815832BA1697D0034764F /* ProjectsAssembly.swift */,
+				0D5815E82BA41FB90034764F /* Projects */,
+				0D5815E72BA41FB10034764F /* Auth */,
 				0D5815A02BA1FF1A0034764F /* RootAssembly.swift */,
-				0D5815C32BA3FBFB0034764F /* NewProjectAssembly.swift */,
+				0D5815E92BA41FC80034764F /* MenuAssembly.swift */,
+				0D5815FC2BA45A380034764F /* AboutPageAssembly.swift */,
+				0D5815FE2BA461990034764F /* ProfileAssembly.swift */,
 			);
 			path = Assemblies;
 			sourceTree = "<group>";
@@ -294,6 +331,99 @@
 			path = PresentationModels;
 			sourceTree = "<group>";
 		};
+		0D5815DB2BA41E500034764F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				0D8DA4992BA0E1AC00D76C62 /* SignupFormPresenter.swift */,
+				0D5815782BA13CE80034764F /* LoginFormPresenter.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		0D5815DC2BA41E5A0034764F /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				0D5815872BA16A260034764F /* ProjectsPresenter.swift */,
+				0D5815CF2BA3FF050034764F /* NewProjectPresenter.swift */,
+			);
+			path = Projects;
+			sourceTree = "<group>";
+		};
+		0D5815DD2BA41E760034764F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				0D8DA4972BA0E11800D76C62 /* SignupFormInteractor.swift */,
+				0D5815762BA13CBF0034764F /* LoginFormInteractor.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		0D5815DE2BA41E7F0034764F /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				0D5815852BA169C80034764F /* ProjectsInteractor.swift */,
+				0D5815C92BA3FDCA0034764F /* NewProjectInteractor.swift */,
+			);
+			path = Projects;
+			sourceTree = "<group>";
+		};
+		0D5815DF2BA41E8B0034764F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				0D58157C2BA13EC70034764F /* SignupRouter.swift */,
+				0D5815812BA1465D0034764F /* LoginRouter.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		0D5815E02BA41E910034764F /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				0D5815892BA16A680034764F /* ProjectsRouter.swift */,
+				0D5815D12BA3FF650034764F /* NewProjectRouter.swift */,
+			);
+			path = Projects;
+			sourceTree = "<group>";
+		};
+		0D5815E22BA41EDF0034764F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0D5815ED2BA429030034764F /* Menu */,
+				0D5815B12BA3D2E20034764F /* Cards */,
+				0D5815992BA1FABF0034764F /* Icons */,
+				0DD542782B8550A200362B77 /* Forms */,
+				0DD5426F2B85470D00362B77 /* Buttons */,
+				0DD5425C2B84075700362B77 /* PageTitle.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0D5815E72BA41FB10034764F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				0D8DA4B32BA1313A00D76C62 /* SignupAssembly.swift */,
+				0D58157F2BA13F160034764F /* LoginAssembly.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		0D5815E82BA41FB90034764F /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				0D5815832BA1697D0034764F /* ProjectsAssembly.swift */,
+				0D5815C32BA3FBFB0034764F /* NewProjectAssembly.swift */,
+			);
+			path = Projects;
+			sourceTree = "<group>";
+		};
+		0D5815ED2BA429030034764F /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				0D5815EE2BA4290E0034764F /* MenuPosition.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		0D8DA4962BA0E0F000D76C62 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +436,8 @@
 			isa = PBXGroup;
 			children = (
 				0DCE84BD2B8A55E60019AE42 /* FormInputFactory.swift */,
+				0DD542742B85488800362B77 /* ButtonFactory.swift */,
+				0D5815F02BA42A6C0034764F /* MenuPositionFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -391,7 +523,7 @@
 			children = (
 				0D5815932BA1F8720034764F /* AppIcons.xcassets */,
 				0D58157E2BA13EFF0034764F /* Assemblies */,
-				0DD5425B2B84073A00362B77 /* Views */,
+				0DD5425B2B84073A00362B77 /* ViewControllers */,
 				0D4051AE2BA0D07900EBC636 /* Interactors */,
 				0D4051AD2BA0D06D00EBC636 /* Presenters */,
 				0DD5426C2B85338500362B77 /* Entities */,
@@ -410,16 +542,6 @@
 				0DD5424A2B83F69700362B77 /* Info.plist */,
 			);
 			path = ContentApp;
-			sourceTree = "<group>";
-		};
-		0DD542502B83F7C100362B77 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				0DCE84BA2B89511C0019AE42 /* Projects */,
-				0DCE84B72B894B000019AE42 /* Auth */,
-				0D58159C2BA1FE1A0034764F /* RootViewController.swift */,
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		0DD542532B83FEB900362B77 /* Fonts */ = {
@@ -443,23 +565,25 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		0DD5425B2B84073A00362B77 /* Views */ = {
+		0DD5425B2B84073A00362B77 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				0D5815B12BA3D2E20034764F /* Cards */,
-				0D5815992BA1FABF0034764F /* Icons */,
-				0DD542502B83F7C100362B77 /* ViewControllers */,
-				0DD542782B8550A200362B77 /* Forms */,
-				0DD5426F2B85470D00362B77 /* Buttons */,
-				0DD5425C2B84075700362B77 /* PageTitle.swift */,
+				0D5815E22BA41EDF0034764F /* Views */,
+				0DCE84BA2B89511C0019AE42 /* Projects */,
+				0DCE84B72B894B000019AE42 /* Auth */,
+				0D58159C2BA1FE1A0034764F /* RootViewController.swift */,
+				0D5815D92BA41E1B0034764F /* MenuViewController.swift */,
+				0D5815F62BA4592D0034764F /* AboutPageViewController.swift */,
+				0D5816002BA461DE0034764F /* ProfileViewController.swift */,
 			);
-			path = Views;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		0DD5426C2B85338500362B77 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
 				0D5815BB2BA3EC720034764F /* Project.swift */,
+				0D5816082BA472B60034764F /* User.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -472,7 +596,6 @@
 				0DCE84B12B8943450019AE42 /* ButtonEmpty.swift */,
 				0D5815D72BA415FA0034764F /* IconButton.swift */,
 				0DD542722B85475B00362B77 /* Button.swift */,
-				0DD542742B85488800362B77 /* ButtonFactory.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -624,9 +747,14 @@
 			files = (
 				0D5815D82BA415FA0034764F /* IconButton.swift in Sources */,
 				0D5815D02BA3FF050034764F /* NewProjectPresenter.swift in Sources */,
+				0D5816032BA462090034764F /* ProfileInteractor.swift in Sources */,
 				0D8DA4A22BA0F7F600D76C62 /* SignupFormValidator.swift in Sources */,
 				0D8DA4B42BA1313A00D76C62 /* SignupAssembly.swift in Sources */,
 				0D5815C42BA3FBFB0034764F /* NewProjectAssembly.swift in Sources */,
+				0D5815F32BA4303E0034764F /* MenuRouter.swift in Sources */,
+				0D5815E42BA41F010034764F /* MenuPresenter.swift in Sources */,
+				0D5816052BA462450034764F /* ProfilePresenter.swift in Sources */,
+				0D5815F92BA459790034764F /* AboutPageInteractor.swift in Sources */,
 				0DD5423D2B83F69600362B77 /* AppDelegate.swift in Sources */,
 				0D58158E2BA17F260034764F /* SignupRequest.swift in Sources */,
 				0D5815CC2BA3FE490034764F /* NewProjectRequest.swift in Sources */,
@@ -637,6 +765,7 @@
 				0DD542632B840D6F00362B77 /* Form.swift in Sources */,
 				0DD5425D2B84075700362B77 /* PageTitle.swift in Sources */,
 				0DD5423F2B83F69600362B77 /* SceneDelegate.swift in Sources */,
+				0D5816012BA461DE0034764F /* ProfileViewController.swift in Sources */,
 				0D5815AE2BA21EF30034764F /* UserResponse.swift in Sources */,
 				0DD5425A2B84047100362B77 /* UIViewControllerExtension.swift in Sources */,
 				0D5815C22BA3F5470034764F /* CreateCard.swift in Sources */,
@@ -649,21 +778,29 @@
 				0D5815842BA1697D0034764F /* ProjectsAssembly.swift in Sources */,
 				0D5815822BA1465D0034764F /* LoginRouter.swift in Sources */,
 				0D58158A2BA16A680034764F /* ProjectsRouter.swift in Sources */,
+				0D5815EA2BA41FC80034764F /* MenuAssembly.swift in Sources */,
 				0D58159D2BA1FE1A0034764F /* RootViewController.swift in Sources */,
+				0D5815EC2BA41FEA0034764F /* MenuInteractor.swift in Sources */,
 				0D5815BC2BA3EC720034764F /* Project.swift in Sources */,
 				0D5815A32BA202390034764F /* RootInteractor.swift in Sources */,
+				0D5815F72BA4592D0034764F /* AboutPageViewController.swift in Sources */,
 				0D5815802BA13F160034764F /* LoginAssembly.swift in Sources */,
+				0D5815DA2BA41E1B0034764F /* MenuViewController.swift in Sources */,
+				0D5815EF2BA4290E0034764F /* MenuPosition.swift in Sources */,
 				0DD542522B83F7E700362B77 /* LoginViewConroller.swift in Sources */,
 				0D5815AA2BA2197A0034764F /* TokenResponse.swift in Sources */,
 				0D5815882BA16A260034764F /* ProjectsPresenter.swift in Sources */,
+				0D5815FD2BA45A380034764F /* AboutPageAssembly.swift in Sources */,
 				0DCE84BE2B8A55E60019AE42 /* FormInputFactory.swift in Sources */,
 				0DD542672B840EEB00362B77 /* UIFontExtension.swift in Sources */,
 				0DD542752B85488800362B77 /* ButtonFactory.swift in Sources */,
 				0DD5425F2B84078800362B77 /* FormInput.swift in Sources */,
 				0D5815C82BA3FD800034764F /* NewProjectFormData.swift in Sources */,
+				0D5816072BA463DF0034764F /* ProfileRouter.swift in Sources */,
 				0DA841F62B8FEC7A0054ED4B /* ApiService.swift in Sources */,
 				0D5815D22BA3FF650034764F /* NewProjectRouter.swift in Sources */,
 				0D58159F2BA1FEAD0034764F /* RootRouter.swift in Sources */,
+				0D5815FF2BA461990034764F /* ProfileAssembly.swift in Sources */,
 				0DCE84B22B8943450019AE42 /* ButtonEmpty.swift in Sources */,
 				0DCE84C12B8A62930019AE42 /* FieldValidator.swift in Sources */,
 				0DCE84B42B89464F0019AE42 /* SignupViewController.swift in Sources */,
@@ -679,10 +816,12 @@
 				0D8DA4AA2BA102A800D76C62 /* SignupFormData.swift in Sources */,
 				0DA841F82B8FEEA90054ED4B /* TokenManager.swift in Sources */,
 				0DD542732B85475B00362B77 /* Button.swift in Sources */,
+				0D5815F12BA42A6C0034764F /* MenuPositionFactory.swift in Sources */,
 				0D58157D2BA13EC70034764F /* SignupRouter.swift in Sources */,
 				0D5815AC2BA21ED40034764F /* MeResponse.swift in Sources */,
 				0D5815792BA13CE80034764F /* LoginFormPresenter.swift in Sources */,
 				0DCE84C92B8A703A0019AE42 /* PasswordValidator.swift in Sources */,
+				0D5816092BA472B60034764F /* User.swift in Sources */,
 				0D5815A52BA207530034764F /* RootPresenter.swift in Sources */,
 				0DCE84C52B8A66A40019AE42 /* ErrorLabel.swift in Sources */,
 				0D5815982BA1F9AC0034764F /* Icon.swift in Sources */,
@@ -693,6 +832,7 @@
 				0D5815C02BA3EEEA0034764F /* ProjectResponse.swift in Sources */,
 				0D5815A12BA1FF1A0034764F /* RootAssembly.swift in Sources */,
 				0D8DA4A52BA0F98200D76C62 /* Validator.swift in Sources */,
+				0D5815FB2BA4599F0034764F /* AboutPagePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

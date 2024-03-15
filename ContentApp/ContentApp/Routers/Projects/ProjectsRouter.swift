@@ -8,7 +8,9 @@
 import UIKit
 
 protocol ProjectsRouterProtocol {
+    func navigateToMenu()
     func navigateToProjectCreation()
+    func navigateToProfile()
 }
 
 class ProjectsRouter: ProjectsRouterProtocol {
@@ -21,5 +23,15 @@ class ProjectsRouter: ProjectsRouterProtocol {
     func navigateToProjectCreation() {
         let newProjectVC = NewProjectAssembly.build()
         viewController?.navigationController?.pushViewController(newProjectVC, animated: true)
+    }
+    
+    func navigateToMenu() {
+        let menuVC = MenuAssembly.build()
+        viewController?.navigationController?.pushViewController(menuVC, animated: true)
+    }
+    
+    func navigateToProfile() {
+        let profileVC = ProfileAssembly.build()
+        viewController?.navigationController?.pushViewController(profileVC, animated: true)
     }
 }

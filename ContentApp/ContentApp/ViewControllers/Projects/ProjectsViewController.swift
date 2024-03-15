@@ -30,6 +30,8 @@ class ProjectsViewController: UIViewController, ProjectsDisplayLogic {
     private let titleView = PageTitle(Constants.title)
     private let cards = CardList()
     private var errorsStack: UIStackView = UIStackView()
+    private let menuButton = IconButton(.menu)
+    private let profileButton = IconButton(.profile)
     
     init(interactor: ProjectsBusinessLogic) {
         self.interactor = interactor
@@ -60,22 +62,24 @@ class ProjectsViewController: UIViewController, ProjectsDisplayLogic {
     }
     
     private func configureNav() {
-        let menuIcon = IconFactory.createIcon(type: .menu)
-        let profileIcon = IconFactory.createIcon(type: .profile)
+        menuButton.addTarget(self, action: #selector(openMenu), for: .touchUpInside)
+        menuButton.translatesAutoresizingMaskIntoConstraints = false
         
-        nav.addArrangedSubview(menuIcon)
-        nav.addArrangedSubview(profileIcon)
+        profileButton.addTarget(self, action: #selector(openProfile), for: .touchUpInside)
+        profileButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        nav.addArrangedSubview(menuButton)
+        nav.addArrangedSubview(profileButton)
         nav.distribution = .equalSpacing
         nav.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(nav)
         
         NSLayoutConstraint.activate([
-            nav.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             nav.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.navTopOffset),
             nav.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.sideOffset),
             nav.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.sideOffset),
-            nav.heightAnchor.constraint(equalToConstant: Constants.navHeight),
+
         ])
     }
     
@@ -145,6 +149,14 @@ class ProjectsViewController: UIViewController, ProjectsDisplayLogic {
     
     func handleCreatingNewProject() {
         router?.navigateToProjectCreation()
+    }
+    
+    @objc func openMenu() {
+        router?.navigateToMenu()
+    }
+    
+    @objc func openProfile() {
+        router?.navigateToProfile()
     }
 }
 

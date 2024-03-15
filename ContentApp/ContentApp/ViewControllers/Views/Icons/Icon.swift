@@ -27,8 +27,7 @@ class Icon: UIView {
             icon.heightAnchor.constraint(equalToConstant: icon.image?.size.height ?? 0),
             icon.widthAnchor.constraint(equalToConstant: icon.image?.size.width ?? 0),
             icon.centerYAnchor.constraint(equalTo: centerYAnchor),
-            icon.trailingAnchor.constraint(equalTo: trailingAnchor),
-            icon.leadingAnchor.constraint(equalTo: leadingAnchor)
+            icon.centerXAnchor.constraint(equalTo: centerXAnchor),
         ])
     }
 

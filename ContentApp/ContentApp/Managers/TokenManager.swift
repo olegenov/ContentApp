@@ -35,4 +35,9 @@ class TokenManager {
         
         return true
     }
+    
+    func deleteToken() {
+        UserDefaults.standard.removeObject(forKey: "accessToken")
+        self.accessToken = nil
+    }
 }
