@@ -218,12 +218,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0D4051AE2BA0D07900EBC636 /* Interactor */ = {
+		0D5492152BB1C11000C82E08 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				0DCE84BF2B8A62840019AE42 /* Validators */,
+				0D5815BB2BA3EC720034764F /* Project.swift */,
 			);
-			path = Interactor;
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		0D5492162BB1C18B00C82E08 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				0D5816082BA472B60034764F /* User.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		0D58158F2BA17F950034764F /* Request */ = {
@@ -270,7 +278,7 @@
 			path = Cards;
 			sourceTree = "<group>";
 		};
-		0D5815E22BA41EDF0034764F /* View */ = {
+		0D5815E22BA41EDF0034764F /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				0D5815B12BA3D2E20034764F /* Cards */,
@@ -279,7 +287,7 @@
 				0DD5426F2B85470D00362B77 /* Buttons */,
 				0DD5425C2B84075700362B77 /* PageTitle.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		0D8DA49B2BA0E8D600D76C62 /* Factory */ = {
@@ -352,6 +360,7 @@
 				0DB9EEE72BAD0E0300C91569 /* View */,
 				0DB9EEE82BAD0E0700C91569 /* Interactor */,
 				0DB9EEE92BAD0E1200C91569 /* Presenter */,
+				0D5492152BB1C11000C82E08 /* Entity */,
 				0DB9EEEA2BAD0E1C00C91569 /* Router */,
 			);
 			path = Projects;
@@ -410,6 +419,7 @@
 				0DB9EEF32BAD0F5800C91569 /* View */,
 				0DB9EEF42BAD0F5D00C91569 /* Interactor */,
 				0DB9EEF52BAD0F6700C91569 /* Presenter */,
+				0D5492162BB1C18B00C82E08 /* Entity */,
 				0DB9EEF62BAD0F6E00C91569 /* Router */,
 			);
 			path = Profile;
@@ -427,16 +437,16 @@
 			path = AboutPage;
 			sourceTree = "<group>";
 		};
-		0DB9EED52BAD0B6300C91569 /* Common */ = {
+		0DB9EED52BAD0B6300C91569 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				0D5815E22BA41EDF0034764F /* View */,
-				0D4051AE2BA0D07900EBC636 /* Interactor */,
-				0DD5426C2B85338500362B77 /* Entity */,
+				0DD542562B84037200362B77 /* Extensions */,
+				0DCE84BF2B8A62840019AE42 /* Validators */,
+				0D5815E22BA41EDF0034764F /* Views */,
 				0DB9EEFA2BAD10A000C91569 /* Asset */,
 				0D8DA49B2BA0E8D600D76C62 /* Factory */,
 			);
-			path = Common;
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		0DB9EED62BAD0BCA00C91569 /* View */ = {
@@ -766,14 +776,13 @@
 			isa = PBXGroup;
 			children = (
 				0DB9EEF82BAD105500C91569 /* Api */,
-				0DB9EED52BAD0B6300C91569 /* Common */,
+				0DB9EED52BAD0B6300C91569 /* Shared */,
 				0DB9EED22BAD0A6100C91569 /* Root */,
 				0DB9EECD2BAD097D00C91569 /* AuthGroup */,
 				0DB9EED02BAD0A1100C91569 /* Menu */,
 				0DB9EED12BAD0A1900C91569 /* ProjectsGroup */,
 				0DB9EED42BAD0AFF00C91569 /* AboutPage */,
 				0DB9EED32BAD0AA900C91569 /* Profile */,
-				0DD542562B84037200362B77 /* Extensions */,
 				0DD5423C2B83F69600362B77 /* AppDelegate.swift */,
 				0DD5423E2B83F69600362B77 /* SceneDelegate.swift */,
 				0DD542472B83F69700362B77 /* LaunchScreen.storyboard */,
@@ -801,15 +810,6 @@
 				0DCE84C62B8A6F4B0019AE42 /* UIStackViewExtension.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		0DD5426C2B85338500362B77 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				0D5815BB2BA3EC720034764F /* Project.swift */,
-				0D5816082BA472B60034764F /* User.swift */,
-			);
-			path = Entity;
 			sourceTree = "<group>";
 		};
 		0DD5426F2B85470D00362B77 /* Buttons */ = {
