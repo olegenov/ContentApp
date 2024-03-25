@@ -290,13 +290,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		0D8DA49B2BA0E8D600D76C62 /* Factory */ = {
+		0D8DA49B2BA0E8D600D76C62 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
 				0DCE84BD2B8A55E60019AE42 /* FormInputFactory.swift */,
 				0DD542742B85488800362B77 /* ButtonFactory.swift */,
 			);
-			path = Factory;
+			path = Factories;
 			sourceTree = "<group>";
 		};
 		0D8DA4A32BA0F96400D76C62 /* FieldValidators */ = {
@@ -443,8 +443,8 @@
 				0DD542562B84037200362B77 /* Extensions */,
 				0DCE84BF2B8A62840019AE42 /* Validators */,
 				0D5815E22BA41EDF0034764F /* Views */,
-				0DB9EEFA2BAD10A000C91569 /* Asset */,
-				0D8DA49B2BA0E8D600D76C62 /* Factory */,
+				0DB9EEFA2BAD10A000C91569 /* Assets */,
+				0D8DA49B2BA0E8D600D76C62 /* Factories */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -735,14 +735,14 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		0DB9EEFA2BAD10A000C91569 /* Asset */ = {
+		0DB9EEFA2BAD10A000C91569 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 				0DD542532B83FEB900362B77 /* Fonts */,
 				0D5815932BA1F8720034764F /* AppIcons.xcassets */,
 				0DD542452B83F69700362B77 /* Assets.xcassets */,
 			);
-			path = Asset;
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		0DCE84BF2B8A62840019AE42 /* Validators */ = {
