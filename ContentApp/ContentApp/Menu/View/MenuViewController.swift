@@ -30,13 +30,6 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
     
     var menuItems = UIStackView()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        configureTemplate()
-        configureUI()
-    }
-    
     init(interactor: MenuBusinessLogic) {
         self.interactor = interactor
         super.init(nibName: nil, bundle: nil)

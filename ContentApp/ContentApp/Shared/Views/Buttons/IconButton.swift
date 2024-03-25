@@ -37,10 +37,4 @@ final class IconButton: Button {
             iconView.leadingAnchor.constraint(equalTo: leadingAnchor),
         ])
     }
-    
-    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-        let extendedBounds = bounds.insetBy(dx: -20, dy: -20)
-           
-        return extendedBounds.contains(point)
-    }
 }

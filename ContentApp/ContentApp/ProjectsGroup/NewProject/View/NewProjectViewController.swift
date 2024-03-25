@@ -12,7 +12,7 @@ protocol NewProjectDisplayLogic {
     func handleSuccessCreation()
 }
 
-class NewProjectViewController: UIViewController, NewProjectDisplayLogic {
+class NewProjectViewController: BaseViewController, NewProjectDisplayLogic {
     enum Constants {
         static let backButtonTopOffset: CGFloat = 80
         static let backButtonSideMargin: CGFloat = 16
@@ -42,22 +42,11 @@ class NewProjectViewController: UIViewController, NewProjectDisplayLogic {
     }
     
     private let projectNameInputView: FormInput = FormInputFactory.createFormInput(type: .projectName)
-    private let errorsStack: UIStackView = UIStackView()
     private let backButton: IconButton = IconButton(.back)
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureTemplate()
-        
-        navigationItem.hidesBackButton = true
-        configureUI()
-    }
-    
-    private func configureUI() {
+    internal override func configureUI() {
         configureForm()
         configureHidingKeyBoard()
-        configureErrors()
-        configureBackButton()
     }
     
     private func configureForm() {
@@ -80,40 +69,15 @@ class NewProjectViewController: UIViewController, NewProjectDisplayLogic {
         ])
     }
     
-    private func configureErrors() {
-        errorsStack.axis = .vertical
-        errorsStack.spacing = Constants.errorsGap
-        errorsStack.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(errorsStack)
-        
-        NSLayoutConstraint.activate([
-            errorsStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            errorsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.formSideMargin),
-            errorsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.formSideMargin),
-            errorsStack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.errorsGap),
-        ])
-    }
-    
-    private func configureBackButton() {
+    internal override func configureNav() {
         backButton.addTarget(self, action: #selector(getBack), for: .touchUpInside)
-        backButton.translatesAutoresizingMaskIntoConstraints = false
         
-        view.addSubview(backButton)
+        let navBuilder = NavBuilder(nav: self.nav)
+        navBuilder.addLeftButton(button: backButton)
         
-        NSLayoutConstraint.activate([
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.backButtonSideMargin),
-            backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.backButtonTopOffset),
-        ])
+        displayNav()
     }
-    
-    func showError(errorText: String) {
-        let errorLabel = ErrorLabel(errorText)
-        errorLabel.show()
 
-        errorsStack.addArrangedSubview(errorLabel)
-    }
-    
     private func configureHidingKeyBoard() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tapGesture)
@@ -124,6 +88,7 @@ class NewProjectViewController: UIViewController, NewProjectDisplayLogic {
     }
     
     func handleSubmit() {
+        view.endEditing(true)
         errorsStack.clear()
         
         let formData = NewProjectFormData(
@@ -131,13 +96,6 @@ class NewProjectViewController: UIViewController, NewProjectDisplayLogic {
         )
         
         interactor?.submitFormData(formData)
-    }
-    
-    func displayError(_ error: String) {
-        let errorLabel = ErrorLabel(error)
-        
-        errorLabel.show()
-        errorsStack.addArrangedSubview(errorLabel)
     }
     
     func handleSuccessCreation() {

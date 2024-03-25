@@ -12,7 +12,7 @@ protocol LoginDisplayLogic {
     func handleSuccessLogin()
 }
 
-class LoginViewController: UIViewController, LoginDisplayLogic {
+class LoginViewController: BaseViewController, LoginDisplayLogic {
     enum Constants {
         static let formTitleText: String = "login"
         static let formTopOffset: CGFloat = 250
@@ -40,22 +40,19 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     
     private let usernameInputView: FormInput = FormInputFactory.createFormInput(type: .loginUsername)
     private let passwordInputView: FormInput = FormInputFactory.createFormInput(type: .loginPassword)
-    private var errorsStack: UIStackView = UIStackView()
     private let signupSection = UIStackView()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureTemplate()
-        configureNameLabel()
-        navigationItem.hidesBackButton = true
-        configureUI()
-    }
-    
-    private func configureUI() {
+    internal override func configureUI() {
         configureForm()
         configureSignupSwitch()
         configureHidingKeyBoard()
-        configureErrors()
+    }
+    
+    internal override func configureNav() {
+        let navBuilder = NavBuilder(nav: self.nav)
+        navBuilder.addNameLabel()
+        
+        displayNav()
     }
     
     private func configureForm() {
@@ -76,21 +73,6 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
             loginForm.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.formTopOffset),
             loginForm.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.formSideMargin),
             loginForm.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.formSideMargin),
-        ])
-    }
-    
-    private func configureErrors() {
-        errorsStack.axis = .vertical
-        errorsStack.spacing = Constants.errorsGap
-        errorsStack.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(errorsStack)
-        
-        NSLayoutConstraint.activate([
-            errorsStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            errorsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.formSideMargin),
-            errorsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.formSideMargin),
-            errorsStack.bottomAnchor.constraint(equalTo: signupSection.topAnchor, constant: -Constants.errorsGap),
         ])
     }
     
@@ -123,13 +105,6 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         ])
     }
     
-    func showError(errorText: String) {
-        let errorLabel = ErrorLabel(errorText)
-        errorLabel.show()
-
-        errorsStack.addArrangedSubview(errorLabel)
-    }
-    
     private func configureHidingKeyBoard() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tapGesture)
@@ -144,6 +119,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     }
     
     func handleSubmit() {
+        view.endEditing(true)
         errorsStack.clear()
         
         let formData = LoginFormData(
@@ -152,13 +128,6 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
         )
         
         interactor?.submitFormData(formData)
-    }
-    
-    func displayError(_ error: String) {
-        let errorLabel = ErrorLabel(error)
-        
-        errorLabel.show()
-        errorsStack.addArrangedSubview(errorLabel)
     }
     
     func handleSuccessLogin() {

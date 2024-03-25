@@ -12,7 +12,7 @@ protocol SignupDisplayLogic {
     func handleSuccessSignup()
 }
 
-class SignupViewController: UIViewController, SignupDisplayLogic {
+class SignupViewController: BaseViewController, SignupDisplayLogic {
     enum Constants {
         static let formTitleText: String = "signup"
         static let formTopOffset: CGFloat = 180
@@ -25,14 +25,6 @@ class SignupViewController: UIViewController, SignupDisplayLogic {
         static let errorsGap: CGFloat = 8
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureTemplate()
-        configureNameLabel()
-        navigationItem.hidesBackButton = true
-        configureUI()
-    }
-    
     var interactor: SignupBusinessLogic?
     var router: SignupRouterProtocol?
     
@@ -43,7 +35,6 @@ class SignupViewController: UIViewController, SignupDisplayLogic {
     private let emailInputVIew: FormInput = FormInputFactory.createFormInput(type: .signupEmail)
     private let passwordInputView: FormInput = FormInputFactory.createFormInput(type: .signupPassword)
     private let repeatPasswordInputView: FormInput = FormInputFactory.createFormInput(type: .signupRepeatPassword)
-    private var errorsStack: UIStackView = UIStackView()
     private let loginSection = UIStackView()
     
     init(interactor: SignupBusinessLogic) {
@@ -56,11 +47,10 @@ class SignupViewController: UIViewController, SignupDisplayLogic {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configureUI() {
+    internal override func configureUI() {
         configureForm()
         configureSignupSwitch()
         configureHidingKeyBoard()
-        configureErrors()
     }
     
     private func configureForm() {
@@ -84,6 +74,13 @@ class SignupViewController: UIViewController, SignupDisplayLogic {
             form.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.formSideMargin),
             form.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.formSideMargin),
         ])
+    }
+    
+    internal override func configureNav() {
+        let navBuilder = NavBuilder(nav: self.nav)
+        navBuilder.addNameLabel()
+        
+        displayNav()
     }
     
     private func configureSignupSwitch() {
@@ -116,21 +113,6 @@ class SignupViewController: UIViewController, SignupDisplayLogic {
         ])
     }
     
-    private func configureErrors() {
-        errorsStack.axis = .vertical
-        errorsStack.spacing = Constants.errorsGap
-        errorsStack.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(errorsStack)
-        
-        NSLayoutConstraint.activate([
-            errorsStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            errorsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.formSideMargin),
-            errorsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.formSideMargin),
-            errorsStack.bottomAnchor.constraint(equalTo: loginSection.topAnchor, constant: -Constants.errorsGap),
-        ])
-    }
-    
     func showError(errorText: String) {
         let errorLabel = ErrorLabel(errorText)
         errorLabel.show()
@@ -152,6 +134,7 @@ class SignupViewController: UIViewController, SignupDisplayLogic {
     }
     
     func handleSubmit() {
+        view.endEditing(true)
         errorsStack.clear()
         
         let formData = SignupFormData(
@@ -164,13 +147,6 @@ class SignupViewController: UIViewController, SignupDisplayLogic {
         )
         
         interactor?.validateFormData(formData)
-    }
-    
-    func displayError(_ error: String) {
-        let errorLabel = ErrorLabel(error)
-        
-        errorLabel.show()
-        errorsStack.addArrangedSubview(errorLabel)
     }
     
     func handleSuccessSignup() {

@@ -13,7 +13,7 @@ protocol ProfileDisplayLogic {
     func updateUserInfo(response: UserResponse)
 }
 
-class ProfileViewController: UIViewController,ProfileDisplayLogic {
+class ProfileViewController: BaseViewController, ProfileDisplayLogic {
     enum Constants {
         static let backButtonTopOffset: CGFloat = 70
         static let backButtonSideMargin: CGFloat = 16
@@ -22,7 +22,6 @@ class ProfileViewController: UIViewController,ProfileDisplayLogic {
         static let sideOffset: CGFloat = 16
         static let navHeight: CGFloat = 35
         static let title: String = "profile"
-        static let titleTopOffset: CGFloat = 8
         
         static let errorsGap: CGFloat = 8
         static let errorsSideMargin: CGFloat = 16
@@ -33,21 +32,10 @@ class ProfileViewController: UIViewController,ProfileDisplayLogic {
     var user: User = User(id: 0, username: "", firstname: "", surname: "", email: "")
     var interactor: ProfileBusinessLogic?
     var router: ProfileRouterProtocol?
-    private let titleView = PageTitle(Constants.title)
-    private let userCredentials = PageTitle(Constants.title)
-    private var errorsStack: UIStackView = UIStackView()
-    private let menuButton = IconButton(.menu)
+    private let userCredentials: PageTitle  = PageTitle(Constants.title)
+    private let menuButton: IconButton  = IconButton(.menu)
     private let backButton: IconButton = IconButton(.back)
     private let logoutButton: Button = ButtonFactory.createButton(type: .active, title: Constants.logoutButtonText)
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        configureTemplate()
-        configureNameLabel()
-        
-        configureUI()
-    }
     
     init(interactor: ProfileBusinessLogic) {
         self.interactor = interactor
@@ -58,61 +46,29 @@ class ProfileViewController: UIViewController,ProfileDisplayLogic {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configureUI() {
-        navigationItem.hidesBackButton = true
+    internal override func configureUI() {
+        configureTitle(title: Constants.title)
         configureUser()
-        configureBackButton()
-        configureTitle()
         configureUserCredentials()
-        configureErrors()
         configureLogoutButton()
     }
     
-    private func configureBackButton() {
+    internal override func configureNav() {
         backButton.addTarget(self, action: #selector(getBack), for: .touchUpInside)
-        backButton.translatesAutoresizingMaskIntoConstraints = false
         
-        view.addSubview(backButton)
+        var navBuilder = NavBuilder(nav: nav)
+        navBuilder.addLeftButton(button: backButton)
         
-        NSLayoutConstraint.activate([
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.backButtonSideMargin),
-            backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.backButtonTopOffset),
-        ])
+        displayNav()
     }
-    
-    private func configureErrors() {
-        errorsStack.axis = .vertical
-        errorsStack.spacing = Constants.errorsGap
-        errorsStack.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(errorsStack)
-        
-        NSLayoutConstraint.activate([
-            errorsStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            errorsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.errorsSideMargin),
-            errorsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.errorsSideMargin),
-            errorsStack.bottomAnchor.constraint(equalTo: view.topAnchor, constant: -Constants.errorsGap),
-        ])
-    }
-    
-    private func configureTitle() {
-        titleView.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(titleView)
-        
-        NSLayoutConstraint.activate([
-            titleView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.titleTopOffset),
-            titleView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.sideOffset),
-        ])
-    }
-    
+
     private func configureUserCredentials() {
         userCredentials.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(userCredentials)
         
         NSLayoutConstraint.activate([
-            userCredentials.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: Constants.titleTopOffset),
+            userCredentials.topAnchor.constraint(equalTo: titleView.bottomAnchor),
             userCredentials.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.sideOffset),
         ])
     }
@@ -148,13 +104,6 @@ class ProfileViewController: UIViewController,ProfileDisplayLogic {
     
     @objc func processLogout() {
         interactor?.processLogout()
-    }
-    
-    internal func displayError(_ error: String) {
-        let errorLabel = ErrorLabel(error)
-        
-        errorLabel.show()
-        errorsStack.addArrangedSubview(errorLabel)
     }
     
     internal func openSignupPage() {
