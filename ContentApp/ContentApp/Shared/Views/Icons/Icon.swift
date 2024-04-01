@@ -28,6 +28,8 @@ class Icon: UIView {
             icon.widthAnchor.constraint(equalToConstant: icon.image?.size.width ?? 0),
             icon.centerYAnchor.constraint(equalTo: centerYAnchor),
             icon.centerXAnchor.constraint(equalTo: centerXAnchor),
+            leadingAnchor.constraint(equalTo: icon.leadingAnchor),
+            trailingAnchor.constraint(equalTo: icon.trailingAnchor),
         ])
     }
 

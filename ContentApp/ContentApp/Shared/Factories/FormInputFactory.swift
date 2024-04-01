@@ -8,7 +8,7 @@
 import UIKit
 
 class FormInputFactory {
-    enum Types {
+    enum TextTypes {
         case surname
         case firstName
         case signupUsername
@@ -18,6 +18,10 @@ class FormInputFactory {
         case loginUsername
         case loginPassword
         case projectName
+    }
+    
+    enum SelectTypes {
+        case team
     }
     
     enum Constants {
@@ -30,38 +34,59 @@ class FormInputFactory {
         static var projectNamePlaceHolder: String = "name"
     }
     
-    static func createFormInput(type: Types) -> FormInput {
-        let inputView: FormInput
+    static func createFormTextInput(type: TextTypes) -> FormTextInput {
+        let inputView: FormTextInput
         
         switch type {
         case .surname:
-            inputView = FormInput(Constants.surnamePlaceHolder)
+            inputView = FormTextInput(Constants.surnamePlaceHolder)
+            
         case .firstName:
-            inputView = FormInput(Constants.firstNamePlaceHolder)
+            inputView = FormTextInput(Constants.firstNamePlaceHolder)
+            
         case .signupUsername:
-            inputView = FormInput(Constants.usernamePlaceHolder)
+            inputView = FormTextInput(Constants.usernamePlaceHolder)
             inputView.disableAutoCorrection()
+            
         case .signupPassword:
-            inputView = FormInput(Constants.passwordPlaceHolder)
+            inputView = FormTextInput(Constants.passwordPlaceHolder)
             inputView.enableSecuring()
             inputView.disableAutoCorrection()
+            
         case .signupEmail:
-            inputView = FormInput(Constants.emailPlaceHolder)
+            inputView = FormTextInput(Constants.emailPlaceHolder)
             inputView.setKeyBoardType(.emailAddress)
             inputView.disableAutoCorrection()
+            
         case .signupRepeatPassword:
-            inputView = FormInput(Constants.repeatPasswordPlaceHolder)
+            inputView = FormTextInput(Constants.repeatPasswordPlaceHolder)
             inputView.enableSecuring()
             inputView.disableAutoCorrection()
+            
         case .loginUsername:
-            inputView = FormInput(Constants.usernamePlaceHolder)
+            inputView = FormTextInput(Constants.usernamePlaceHolder)
             inputView.disableAutoCorrection()
+            
         case .loginPassword:
-            inputView = FormInput(Constants.passwordPlaceHolder)
+            inputView = FormTextInput(Constants.passwordPlaceHolder)
             inputView.enableSecuring()
             inputView.disableAutoCorrection()
+            
         case .projectName:
-            inputView = FormInput(Constants.projectNamePlaceHolder)
+            inputView = FormTextInput(Constants.projectNamePlaceHolder)
+            
+        }
+        
+        return inputView
+    }
+    
+    static func createFormSelectInput(type: SelectTypes, options: [FormSelectInputOption]) -> FormSelectInput {
+        let inputView: FormSelectInput
+        
+        switch type {
+        case .team:
+            inputView = FormSelectInput(options)
+            
         }
         
         return inputView

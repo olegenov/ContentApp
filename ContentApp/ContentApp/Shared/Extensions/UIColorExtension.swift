@@ -19,6 +19,7 @@ extension UIColor {
         static let red: UIColor = UIColor("#FEB5B5")
         static let darkRed: UIColor = UIColor("#A54242")
         static let cardBackgroundColor: UIColor = UIColor("#EBEBEB")
+        static let cardTappedColor: UIColor = UIColor("#E7E7E7")
     }
     
     enum Constants {

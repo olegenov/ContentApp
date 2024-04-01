@@ -9,4 +9,5 @@ import Foundation
 
 struct NewProjectFormData {
     let name: String
+    let team: FormSelectInputOption
 }

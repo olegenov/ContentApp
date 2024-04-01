@@ -10,6 +10,7 @@ import Foundation
 protocol NewProjectPresentationLogic {
     func presentError(errors: [String])
     func handleSuccessCreation()
+    func updateTeams(teams: [Team])
 }
 
 class NewProjectPresenter: NewProjectPresentationLogic {
@@ -23,5 +24,9 @@ class NewProjectPresenter: NewProjectPresentationLogic {
     
     func handleSuccessCreation() {
         viewController?.handleSuccessCreation()
+    }
+    
+    func updateTeams(teams: [Team]) {
+        viewController?.updateTeams(teams: teams)
     }
 }

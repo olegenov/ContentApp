@@ -9,4 +9,5 @@ import Foundation
 
 struct NewProjectRequest: Encodable {
     let name: String
+    var team_id: Int
 }

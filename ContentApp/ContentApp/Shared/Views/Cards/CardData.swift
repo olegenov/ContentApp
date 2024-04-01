@@ -8,5 +8,7 @@
 import Foundation
 
 struct CardData {
+    let id: Int
     let title: String
+    let property: [(Icon, String)]
 }

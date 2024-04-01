@@ -1,13 +1,14 @@
 //
-//  FormInput.swift
+//  FormTextInput.swift
 //  ContentApp
 //
-//  Created by Никита Китаев on 20.02.2024.
+//  Created by Никита Китаев on 27.03.2024.
 //
 
 import UIKit
 
-final class FormInput: UIView {
+class FormTextInput: UIView, FormInput {
+    
     enum Constants {
         static var height: CGFloat = 36
         

@@ -10,6 +10,7 @@ import UIKit
 protocol NewProjectDisplayLogic {
     func displayError(_ error: String)
     func handleSuccessCreation()
+    func updateTeams(teams: [Team])
 }
 
 class NewProjectViewController: BaseViewController, NewProjectDisplayLogic {
@@ -41,8 +42,11 @@ class NewProjectViewController: BaseViewController, NewProjectDisplayLogic {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private let projectNameInputView: FormInput = FormInputFactory.createFormInput(type: .projectName)
-    private let backButton: IconButton = IconButton(.back)
+    private let projectNameInputView: FormTextInput = FormInputFactory.createFormTextInput(type: .projectName)
+    private let teamInputView: FormSelectInput = FormInputFactory.createFormSelectInput(type: .team, options: [
+        FormSelectInputOption(id: 0, name: "new team", editable: true),
+    ])
+    private let backButton: Button = ButtonFactory.createIconButton(type: .back)
     
     internal override func configureUI() {
         configureForm()
@@ -51,8 +55,11 @@ class NewProjectViewController: BaseViewController, NewProjectDisplayLogic {
     
     private func configureForm() {
         let newProjectForm = Form(Constants.formTitleText, formFields: [
-            projectNameInputView
+            projectNameInputView,
+            teamInputView,
         ], submitText: Constants.formTitleText)
+        
+        interactor?.loadTeams()
         
         view.addSubview(newProjectForm)
         newProjectForm.translatesAutoresizingMaskIntoConstraints = false
@@ -92,7 +99,8 @@ class NewProjectViewController: BaseViewController, NewProjectDisplayLogic {
         errorsStack.clear()
         
         let formData = NewProjectFormData(
-            name: projectNameInputView.getData()
+            name: projectNameInputView.getData(),
+            team: teamInputView.getData()
         )
         
         interactor?.submitFormData(formData)
@@ -100,6 +108,16 @@ class NewProjectViewController: BaseViewController, NewProjectDisplayLogic {
     
     func handleSuccessCreation() {
         router?.navigateToProjects()
+    }
+    
+    func updateTeams(teams: [Team]) {
+        var options: [FormSelectInputOption] = []
+        
+        for team in teams {
+            options.append(FormSelectInputOption(id: team.id, name: team.name, editable: false))
+        }
+        
+        teamInputView.updateOptions(newOptions: options)
     }
     
     @objc func getBack() {

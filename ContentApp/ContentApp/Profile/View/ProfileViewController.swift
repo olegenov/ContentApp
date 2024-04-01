@@ -56,7 +56,7 @@ class ProfileViewController: BaseViewController, ProfileDisplayLogic {
     internal override func configureNav() {
         backButton.addTarget(self, action: #selector(getBack), for: .touchUpInside)
         
-        var navBuilder = NavBuilder(nav: nav)
+        let navBuilder = NavBuilder(nav: nav)
         navBuilder.addLeftButton(button: backButton)
         
         displayNav()

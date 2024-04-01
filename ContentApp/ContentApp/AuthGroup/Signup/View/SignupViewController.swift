@@ -29,12 +29,12 @@ class SignupViewController: BaseViewController, SignupDisplayLogic {
     var router: SignupRouterProtocol?
     
     private var form: Form = Form()
-    private let firstNameInputView: FormInput = FormInputFactory.createFormInput(type: .firstName)
-    private let surnameInputView: FormInput = FormInputFactory.createFormInput(type: .surname)
-    private let usernameInputView: FormInput = FormInputFactory.createFormInput(type: .signupUsername)
-    private let emailInputVIew: FormInput = FormInputFactory.createFormInput(type: .signupEmail)
-    private let passwordInputView: FormInput = FormInputFactory.createFormInput(type: .signupPassword)
-    private let repeatPasswordInputView: FormInput = FormInputFactory.createFormInput(type: .signupRepeatPassword)
+    private let firstNameInputView: FormTextInput = FormInputFactory.createFormTextInput(type: .firstName)
+    private let surnameInputView: FormTextInput = FormInputFactory.createFormTextInput(type: .surname)
+    private let usernameInputView: FormTextInput = FormInputFactory.createFormTextInput(type: .signupUsername)
+    private let emailInputVIew: FormTextInput = FormInputFactory.createFormTextInput(type: .signupEmail)
+    private let passwordInputView: FormTextInput = FormInputFactory.createFormTextInput(type: .signupPassword)
+    private let repeatPasswordInputView: FormTextInput = FormInputFactory.createFormTextInput(type: .signupRepeatPassword)
     private let loginSection = UIStackView()
     
     init(interactor: SignupBusinessLogic) {

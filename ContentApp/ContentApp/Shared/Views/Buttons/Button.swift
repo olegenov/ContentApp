@@ -14,7 +14,7 @@ class Button: UIButton {
         static var paddingHorizontal: CGFloat = 16
         static var paddingVertical: CGFloat = 8
     }
-
+    
     init(_ title: String) {
         super.init(frame: .zero)
         
@@ -27,26 +27,28 @@ class Button: UIButton {
         
         configureUI()
     }
-
+    
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     private func configureUI() {
         layer.cornerRadius = Constants.cornerRadius
         translatesAutoresizingMaskIntoConstraints = false
         
-        titleEdgeInsets.left = Constants.paddingHorizontal
-        titleEdgeInsets.right = Constants.paddingHorizontal
-        titleEdgeInsets.bottom = Constants.paddingVertical
-        titleEdgeInsets.top = Constants.paddingVertical
+        let edgeInsets = NSDirectionalEdgeInsets(top: Constants.paddingVertical,
+                                                 leading: Constants.paddingHorizontal,
+                                                 bottom: Constants.paddingVertical,
+                                                 trailing: Constants.paddingHorizontal)
+        
+        configuration?.contentInsets = edgeInsets
         
         addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
         addTarget(self, action: #selector(buttonTouchUp), for: .touchUpInside)
         addTarget(self, action: #selector(buttonTouchUp), for: .touchUpOutside)
         addTarget(self, action: #selector(buttonTouchUp), for: .touchCancel)
-
+        
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: Constants.height),
         ])
@@ -54,7 +56,7 @@ class Button: UIButton {
     
     @objc func buttonTouchDown() {
     }
-
+    
     @objc func buttonTouchUp() {
     }
 }

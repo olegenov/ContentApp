@@ -34,7 +34,6 @@ final class IconButton: Button {
         NSLayoutConstraint.activate([
             iconView.centerXAnchor.constraint(equalTo: centerXAnchor),
             iconView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            iconView.leadingAnchor.constraint(equalTo: leadingAnchor),
         ])
     }
 }

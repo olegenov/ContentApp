@@ -33,19 +33,26 @@ final class PageTitle : UIView {
     }
 
     private func configureUI(titleText: String) {
-        let title: UILabel = titleView
+        translatesAutoresizingMaskIntoConstraints = false
         
-        title.translatesAutoresizingMaskIntoConstraints = false
-        title.text = titleText
-        title.font = UIFont.appFont(.title)
-        title.textColor = Constants.titleColor
-        
-        addSubview(title)
+        configureTitle(titleText: titleText)
         
         NSLayoutConstraint.activate([
-            title.heightAnchor.constraint(equalToConstant: Constants.titleHeight),
-            bottomAnchor.constraint(equalTo: title.bottomAnchor, constant: Constants.titleBottomOffset),
-            centerYAnchor.constraint(equalTo: title.centerYAnchor)
+            bottomAnchor.constraint(equalTo: titleView.bottomAnchor, constant: Constants.titleBottomOffset),
+            centerYAnchor.constraint(equalTo: titleView.centerYAnchor)
+        ])
+    }
+    
+    private func configureTitle(titleText: String) {
+        titleView.translatesAutoresizingMaskIntoConstraints = false
+        titleView.text = titleText
+        titleView.font = UIFont.appFont(.title)
+        titleView.textColor = Constants.titleColor
+        
+        addSubview(titleView)
+        
+        NSLayoutConstraint.activate([
+            titleView.heightAnchor.constraint(equalToConstant: Constants.titleHeight),
         ])
     }
     

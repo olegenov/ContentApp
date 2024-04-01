@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D1A92A32BB9CEB000892953 /* PostAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A92A22BB9CEB000892953 /* PostAssembly.swift */; };
+		0D1A92A92BB9CEEE00892953 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A92A82BB9CEEE00892953 /* PostViewController.swift */; };
+		0D1A92AB2BB9CEF700892953 /* PostInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A92AA2BB9CEF700892953 /* PostInteractor.swift */; };
+		0D1A92AD2BB9CF0300892953 /* PostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A92AC2BB9CF0300892953 /* PostPresenter.swift */; };
+		0D1A92AF2BB9CF0D00892953 /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A92AE2BB9CF0D00892953 /* PostRouter.swift */; };
+		0D1A92B12BBA3B9A00892953 /* SinglePostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A92B02BBA3B9A00892953 /* SinglePostResponse.swift */; };
 		0D5492182BB1C42200C82E08 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5492172BB1C42200C82E08 /* BaseViewController.swift */; };
 		0D54921B2BB1C77D00C82E08 /* Nav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D54921A2BB1C77D00C82E08 /* Nav.swift */; };
 		0D54921E2BB1C96A00C82E08 /* NavBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D54921D2BB1C96A00C82E08 /* NavBuilder.swift */; };
@@ -77,6 +83,26 @@
 		0D8DA4B42BA1313A00D76C62 /* SignupAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8DA4B32BA1313A00D76C62 /* SignupAssembly.swift */; };
 		0DA841F62B8FEC7A0054ED4B /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA841F52B8FEC7A0054ED4B /* ApiService.swift */; };
 		0DA841F82B8FEEA90054ED4B /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA841F72B8FEEA90054ED4B /* TokenManager.swift */; };
+		0DC552AC2BB49C4300273E37 /* FormSelectInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC552AB2BB49C4300273E37 /* FormSelectInput.swift */; };
+		0DC552AE2BB49CC500273E37 /* FormTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC552AD2BB49CC500273E37 /* FormTextInput.swift */; };
+		0DC552B12BB4A08100273E37 /* FormSelectInputOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC552B02BB4A08100273E37 /* FormSelectInputOption.swift */; };
+		0DC552B32BB7084800273E37 /* MyTeamsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC552B22BB7084800273E37 /* MyTeamsResponse.swift */; };
+		0DC552B82BB7098500273E37 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC552B72BB7098500273E37 /* Team.swift */; };
+		0DC552BA2BB709C700273E37 /* TeamResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC552B92BB709C700273E37 /* TeamResponse.swift */; };
+		0DC552BC2BB7129900273E37 /* ProjectTeamResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC552BB2BB7129900273E37 /* ProjectTeamResponse.swift */; };
+		0DC552BF2BB71A0000273E37 /* NewTeamRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC552BE2BB71A0000273E37 /* NewTeamRequest.swift */; };
+		0DC552C12BB71A2700273E37 /* NewTeamResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC552C02BB71A2700273E37 /* NewTeamResponse.swift */; };
+		0DC552C42BB75EF200273E37 /* ProjectAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC552C32BB75EF200273E37 /* ProjectAssembly.swift */; };
+		0DC552CA2BB75F5C00273E37 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC552C92BB75F5C00273E37 /* ProjectViewController.swift */; };
+		0DC552CC2BB75F6800273E37 /* ProjectInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC552CB2BB75F6800273E37 /* ProjectInteractor.swift */; };
+		0DC552CF2BB75F7800273E37 /* ProjectPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC552CE2BB75F7800273E37 /* ProjectPresenter.swift */; };
+		0DC552D12BB75F8200273E37 /* ProjectRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC552D02BB75F8200273E37 /* ProjectRouter.swift */; };
+		0DC552D32BB761DB00273E37 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC552D22BB761DB00273E37 /* Post.swift */; };
+		0DC552DD2BB763A600273E37 /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC552DC2BB763A600273E37 /* PostResponse.swift */; };
+		0DC552E02BB763E500273E37 /* DateTimeReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC552DF2BB763E500273E37 /* DateTimeReponse.swift */; };
+		0DC552E42BB764D500273E37 /* ProjectPostsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC552E32BB764D500273E37 /* ProjectPostsResponse.swift */; };
+		0DC93BB12BBB1148007EF2EF /* PostInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC93BB02BBB1148007EF2EF /* PostInfoView.swift */; };
+		0DC93BB32BBB12ED007EF2EF /* PostTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC93BB22BBB12ED007EF2EF /* PostTextViewCell.swift */; };
 		0DCE84B02B8592F10019AE42 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DCE84AF2B8592F10019AE42 /* Nunito-Regular.ttf */; };
 		0DCE84B22B8943450019AE42 /* ButtonEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE84B12B8943450019AE42 /* ButtonEmpty.swift */; };
 		0DCE84B42B89464F0019AE42 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE84B32B89464F0019AE42 /* SignupViewController.swift */; };
@@ -107,6 +133,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D1A92A22BB9CEB000892953 /* PostAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAssembly.swift; sourceTree = "<group>"; };
+		0D1A92A82BB9CEEE00892953 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		0D1A92AA2BB9CEF700892953 /* PostInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInteractor.swift; sourceTree = "<group>"; };
+		0D1A92AC2BB9CF0300892953 /* PostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPresenter.swift; sourceTree = "<group>"; };
+		0D1A92AE2BB9CF0D00892953 /* PostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
+		0D1A92B02BBA3B9A00892953 /* SinglePostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePostResponse.swift; sourceTree = "<group>"; };
 		0D5492172BB1C42200C82E08 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		0D54921A2BB1C77D00C82E08 /* Nav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nav.swift; sourceTree = "<group>"; };
 		0D54921D2BB1C96A00C82E08 /* NavBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBuilder.swift; sourceTree = "<group>"; };
@@ -177,6 +209,26 @@
 		0D8DA4B32BA1313A00D76C62 /* SignupAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupAssembly.swift; sourceTree = "<group>"; };
 		0DA841F52B8FEC7A0054ED4B /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		0DA841F72B8FEEA90054ED4B /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		0DC552AB2BB49C4300273E37 /* FormSelectInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSelectInput.swift; sourceTree = "<group>"; };
+		0DC552AD2BB49CC500273E37 /* FormTextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextInput.swift; sourceTree = "<group>"; };
+		0DC552B02BB4A08100273E37 /* FormSelectInputOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSelectInputOption.swift; sourceTree = "<group>"; };
+		0DC552B22BB7084800273E37 /* MyTeamsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTeamsResponse.swift; sourceTree = "<group>"; };
+		0DC552B72BB7098500273E37 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		0DC552B92BB709C700273E37 /* TeamResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamResponse.swift; sourceTree = "<group>"; };
+		0DC552BB2BB7129900273E37 /* ProjectTeamResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTeamResponse.swift; sourceTree = "<group>"; };
+		0DC552BE2BB71A0000273E37 /* NewTeamRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTeamRequest.swift; sourceTree = "<group>"; };
+		0DC552C02BB71A2700273E37 /* NewTeamResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTeamResponse.swift; sourceTree = "<group>"; };
+		0DC552C32BB75EF200273E37 /* ProjectAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectAssembly.swift; sourceTree = "<group>"; };
+		0DC552C92BB75F5C00273E37 /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
+		0DC552CB2BB75F6800273E37 /* ProjectInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectInteractor.swift; sourceTree = "<group>"; };
+		0DC552CE2BB75F7800273E37 /* ProjectPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPresenter.swift; sourceTree = "<group>"; };
+		0DC552D02BB75F8200273E37 /* ProjectRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRouter.swift; sourceTree = "<group>"; };
+		0DC552D22BB761DB00273E37 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		0DC552DC2BB763A600273E37 /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
+		0DC552DF2BB763E500273E37 /* DateTimeReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeReponse.swift; sourceTree = "<group>"; };
+		0DC552E32BB764D500273E37 /* ProjectPostsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPostsResponse.swift; sourceTree = "<group>"; };
+		0DC93BB02BBB1148007EF2EF /* PostInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInfoView.swift; sourceTree = "<group>"; };
+		0DC93BB22BBB12ED007EF2EF /* PostTextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextViewCell.swift; sourceTree = "<group>"; };
 		0DCE84AF2B8592F10019AE42 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		0DCE84B12B8943450019AE42 /* ButtonEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonEmpty.swift; sourceTree = "<group>"; };
 		0DCE84B32B89464F0019AE42 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -222,10 +274,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D1A92A12BB9CE7E00892953 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				0D1A92A22BB9CEB000892953 /* PostAssembly.swift */,
+				0D1A92A72BB9CED600892953 /* View */,
+				0D1A92A62BB9CECF00892953 /* Interactor */,
+				0D1A92A52BB9CEC100892953 /* Presenter */,
+				0D1A92A42BB9CEBB00892953 /* Router */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		0D1A92A42BB9CEBB00892953 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				0D1A92AE2BB9CF0D00892953 /* PostRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		0D1A92A52BB9CEC100892953 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0D1A92AC2BB9CF0300892953 /* PostPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		0D1A92A62BB9CECF00892953 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				0D1A92AA2BB9CEF700892953 /* PostInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		0D1A92A72BB9CED600892953 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0D1A92A82BB9CEEE00892953 /* PostViewController.swift */,
+				0DC93BB02BBB1148007EF2EF /* PostInfoView.swift */,
+				0DC93BB22BBB12ED007EF2EF /* PostTextViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		0D5492152BB1C11000C82E08 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				0D5815BB2BA3EC720034764F /* Project.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -260,6 +357,7 @@
 				0D8DA49F2BA0F5B800D76C62 /* LoginRequest.swift */,
 				0D58158D2BA17F260034764F /* SignupRequest.swift */,
 				0D5815CB2BA3FE490034764F /* NewProjectRequest.swift */,
+				0DC552BE2BB71A0000273E37 /* NewTeamRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -268,7 +366,6 @@
 			isa = PBXGroup;
 			children = (
 				0D5815972BA1F9AC0034764F /* Icon.swift */,
-				0D58159A2BA1FAD60034764F /* IconFactory.swift */,
 			);
 			path = Icons;
 			sourceTree = "<group>";
@@ -276,13 +373,11 @@
 		0D5815A82BA2193A0034764F /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				0D5815A92BA2197A0034764F /* TokenResponse.swift */,
-				0D5815AB2BA21ED40034764F /* MeResponse.swift */,
-				0D5815AD2BA21EF30034764F /* UserResponse.swift */,
-				0D5815AF2BA3CF400034764F /* SignupResponse.swift */,
-				0D5815BD2BA3EDBB0034764F /* MyProjectsResponse.swift */,
-				0D5815BF2BA3EEEA0034764F /* ProjectResponse.swift */,
-				0D5815CD2BA3FEA60034764F /* NewProjectResponse.swift */,
+				0DC552DE2BB763DB00273E37 /* DateTime */,
+				0DC552DB2BB7639C00273E37 /* Post */,
+				0DC552DA2BB7638D00273E37 /* Auth */,
+				0DC552D92BB7637400273E37 /* Teams */,
+				0DC552D82BB7635F00273E37 /* Projects */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -315,6 +410,7 @@
 		0D8DA49B2BA0E8D600D76C62 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
+				0D58159A2BA1FAD60034764F /* IconFactory.swift */,
 				0DCE84BD2B8A55E60019AE42 /* FormInputFactory.swift */,
 				0DD542742B85488800362B77 /* ButtonFactory.swift */,
 			);
@@ -416,6 +512,8 @@
 		0DB9EED12BAD0A1900C91569 /* ProjectsGroup */ = {
 			isa = PBXGroup;
 			children = (
+				0D1A92A12BB9CE7E00892953 /* Post */,
+				0DC552C22BB75EDB00273E37 /* Project */,
 				0DB9EECE2BAD099600C91569 /* Projects */,
 				0DB9EECF2BAD09CD00C91569 /* NewProject */,
 			);
@@ -462,6 +560,7 @@
 		0DB9EED52BAD0B6300C91569 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				0DC552B62BB7097C00273E37 /* Entites */,
 				0D54921C2BB1C95E00C82E08 /* Builders */,
 				0DD542562B84037200362B77 /* Extensions */,
 				0DCE84BF2B8A62840019AE42 /* Validators */,
@@ -768,6 +867,121 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		0DC552AF2BB49E3300273E37 /* FormInput */ = {
+			isa = PBXGroup;
+			children = (
+				0DD5425E2B84078800362B77 /* FormInput.swift */,
+				0DC552AB2BB49C4300273E37 /* FormSelectInput.swift */,
+				0DC552AD2BB49CC500273E37 /* FormTextInput.swift */,
+				0DC552B02BB4A08100273E37 /* FormSelectInputOption.swift */,
+			);
+			path = FormInput;
+			sourceTree = "<group>";
+		};
+		0DC552B62BB7097C00273E37 /* Entites */ = {
+			isa = PBXGroup;
+			children = (
+				0D5815BB2BA3EC720034764F /* Project.swift */,
+				0DC552B72BB7098500273E37 /* Team.swift */,
+				0DC552D22BB761DB00273E37 /* Post.swift */,
+			);
+			path = Entites;
+			sourceTree = "<group>";
+		};
+		0DC552C22BB75EDB00273E37 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				0DC552C32BB75EF200273E37 /* ProjectAssembly.swift */,
+				0DC552C52BB75EF600273E37 /* View */,
+				0DC552C62BB75EFB00273E37 /* Interactor */,
+				0DC552C72BB75F0B00273E37 /* Presenter */,
+				0DC552C82BB75F4C00273E37 /* Router */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		0DC552C52BB75EF600273E37 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0DC552C92BB75F5C00273E37 /* ProjectViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0DC552C62BB75EFB00273E37 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				0DC552CB2BB75F6800273E37 /* ProjectInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		0DC552C72BB75F0B00273E37 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0DC552CE2BB75F7800273E37 /* ProjectPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		0DC552C82BB75F4C00273E37 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				0DC552D02BB75F8200273E37 /* ProjectRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		0DC552D82BB7635F00273E37 /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				0D5815BD2BA3EDBB0034764F /* MyProjectsResponse.swift */,
+				0D5815BF2BA3EEEA0034764F /* ProjectResponse.swift */,
+				0D5815CD2BA3FEA60034764F /* NewProjectResponse.swift */,
+			);
+			path = Projects;
+			sourceTree = "<group>";
+		};
+		0DC552D92BB7637400273E37 /* Teams */ = {
+			isa = PBXGroup;
+			children = (
+				0DC552B22BB7084800273E37 /* MyTeamsResponse.swift */,
+				0DC552B92BB709C700273E37 /* TeamResponse.swift */,
+				0DC552BB2BB7129900273E37 /* ProjectTeamResponse.swift */,
+				0DC552C02BB71A2700273E37 /* NewTeamResponse.swift */,
+			);
+			path = Teams;
+			sourceTree = "<group>";
+		};
+		0DC552DA2BB7638D00273E37 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				0D5815A92BA2197A0034764F /* TokenResponse.swift */,
+				0D5815AB2BA21ED40034764F /* MeResponse.swift */,
+				0D5815AD2BA21EF30034764F /* UserResponse.swift */,
+				0D5815AF2BA3CF400034764F /* SignupResponse.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		0DC552DB2BB7639C00273E37 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				0DC552DC2BB763A600273E37 /* PostResponse.swift */,
+				0DC552E32BB764D500273E37 /* ProjectPostsResponse.swift */,
+				0D1A92B02BBA3B9A00892953 /* SinglePostResponse.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		0DC552DE2BB763DB00273E37 /* DateTime */ = {
+			isa = PBXGroup;
+			children = (
+				0DC552DF2BB763E500273E37 /* DateTimeReponse.swift */,
+			);
+			path = DateTime;
+			sourceTree = "<group>";
+		};
 		0DCE84BF2B8A62840019AE42 /* Validators */ = {
 			isa = PBXGroup;
 			children = (
@@ -849,8 +1063,8 @@
 		0DD542782B8550A200362B77 /* Forms */ = {
 			isa = PBXGroup;
 			children = (
+				0DC552AF2BB49E3300273E37 /* FormInput */,
 				0DD542622B840D6F00362B77 /* Form.swift */,
-				0DD5425E2B84078800362B77 /* FormInput.swift */,
 				0DCE84C42B8A66A40019AE42 /* ErrorLabel.swift */,
 			);
 			path = Forms;
@@ -1003,11 +1217,14 @@
 				0D5815F92BA459790034764F /* AboutPageInteractor.swift in Sources */,
 				0DD5423D2B83F69600362B77 /* AppDelegate.swift in Sources */,
 				0D58158E2BA17F260034764F /* SignupRequest.swift in Sources */,
+				0DC552BC2BB7129900273E37 /* ProjectTeamResponse.swift in Sources */,
 				0D5815CC2BA3FE490034764F /* NewProjectRequest.swift in Sources */,
 				0DCE84BC2B8951410019AE42 /* ProjectsViewController.swift in Sources */,
 				0D5815B72BA3D5270034764F /* CardData.swift in Sources */,
+				0D1A92A32BB9CEB000892953 /* PostAssembly.swift in Sources */,
 				0D5815922BA186FF0034764F /* ApiError.swift in Sources */,
 				0D5815772BA13CBF0034764F /* LoginInteractor.swift in Sources */,
+				0DC552C12BB71A2700273E37 /* NewTeamResponse.swift in Sources */,
 				0DD542632B840D6F00362B77 /* Form.swift in Sources */,
 				0D5492182BB1C42200C82E08 /* BaseViewController.swift in Sources */,
 				0DD5425D2B84075700362B77 /* PageTitle.swift in Sources */,
@@ -1015,6 +1232,7 @@
 				0D5816012BA461DE0034764F /* ProfileViewController.swift in Sources */,
 				0D5815AE2BA21EF30034764F /* UserResponse.swift in Sources */,
 				0D5815C22BA3F5470034764F /* CreateCard.swift in Sources */,
+				0D1A92AB2BB9CEF700892953 /* PostInteractor.swift in Sources */,
 				0D5815CA2BA3FDCA0034764F /* NewProjectInteractor.swift in Sources */,
 				0DCE84CC2B8A89930019AE42 /* UsernameValidator.swift in Sources */,
 				0D5815BE2BA3EDBB0034764F /* MyProjectsResponse.swift in Sources */,
@@ -1023,38 +1241,54 @@
 				0D8DA4A02BA0F5B900D76C62 /* LoginRequest.swift in Sources */,
 				0D5815862BA169C80034764F /* ProjectsInteractor.swift in Sources */,
 				0D54921E2BB1C96A00C82E08 /* NavBuilder.swift in Sources */,
+				0DC552DD2BB763A600273E37 /* PostResponse.swift in Sources */,
+				0DC552BF2BB71A0000273E37 /* NewTeamRequest.swift in Sources */,
 				0D5815842BA1697D0034764F /* ProjectsAssembly.swift in Sources */,
 				0D5815822BA1465D0034764F /* LoginRouter.swift in Sources */,
 				0D58158A2BA16A680034764F /* ProjectsRouter.swift in Sources */,
+				0DC552D12BB75F8200273E37 /* ProjectRouter.swift in Sources */,
+				0DC552BA2BB709C700273E37 /* TeamResponse.swift in Sources */,
 				0D5815EA2BA41FC80034764F /* MenuAssembly.swift in Sources */,
 				0D58159D2BA1FE1A0034764F /* RootViewController.swift in Sources */,
 				0D5815EC2BA41FEA0034764F /* MenuInteractor.swift in Sources */,
+				0DC93BB12BBB1148007EF2EF /* PostInfoView.swift in Sources */,
 				0D5815BC2BA3EC720034764F /* Project.swift in Sources */,
 				0D5815A32BA202390034764F /* RootInteractor.swift in Sources */,
 				0D5815F72BA4592D0034764F /* AboutPageViewController.swift in Sources */,
 				0D5815802BA13F160034764F /* LoginAssembly.swift in Sources */,
 				0D5815DA2BA41E1B0034764F /* MenuViewController.swift in Sources */,
+				0DC552C42BB75EF200273E37 /* ProjectAssembly.swift in Sources */,
 				0D5815EF2BA4290E0034764F /* MenuPosition.swift in Sources */,
 				0DD542522B83F7E700362B77 /* LoginViewController.swift in Sources */,
+				0DC552CA2BB75F5C00273E37 /* ProjectViewController.swift in Sources */,
+				0D1A92A92BB9CEEE00892953 /* PostViewController.swift in Sources */,
 				0D5815AA2BA2197A0034764F /* TokenResponse.swift in Sources */,
 				0D5815882BA16A260034764F /* ProjectsPresenter.swift in Sources */,
+				0DC552D32BB761DB00273E37 /* Post.swift in Sources */,
 				0D5815FD2BA45A380034764F /* AboutPageAssembly.swift in Sources */,
 				0DCE84BE2B8A55E60019AE42 /* FormInputFactory.swift in Sources */,
+				0DC552B32BB7084800273E37 /* MyTeamsResponse.swift in Sources */,
 				0DD542672B840EEB00362B77 /* UIFontExtension.swift in Sources */,
 				0DD542752B85488800362B77 /* ButtonFactory.swift in Sources */,
 				0DD5425F2B84078800362B77 /* FormInput.swift in Sources */,
+				0DC93BB32BBB12ED007EF2EF /* PostTextViewCell.swift in Sources */,
 				0D5815C82BA3FD800034764F /* NewProjectFormData.swift in Sources */,
+				0DC552E02BB763E500273E37 /* DateTimeReponse.swift in Sources */,
 				0D5816072BA463DF0034764F /* ProfileRouter.swift in Sources */,
 				0DA841F62B8FEC7A0054ED4B /* ApiService.swift in Sources */,
+				0DC552AC2BB49C4300273E37 /* FormSelectInput.swift in Sources */,
 				0D5815D22BA3FF650034764F /* NewProjectRouter.swift in Sources */,
 				0D58159F2BA1FEAD0034764F /* RootRouter.swift in Sources */,
 				0D5815FF2BA461990034764F /* ProfileAssembly.swift in Sources */,
 				0DCE84B22B8943450019AE42 /* ButtonEmpty.swift in Sources */,
+				0DC552B12BB4A08100273E37 /* FormSelectInputOption.swift in Sources */,
 				0DCE84C12B8A62930019AE42 /* FieldValidator.swift in Sources */,
+				0D1A92AD2BB9CF0300892953 /* PostPresenter.swift in Sources */,
 				0DCE84B42B89464F0019AE42 /* SignupViewController.swift in Sources */,
 				0D8DA49A2BA0E1AC00D76C62 /* SignupPresenter.swift in Sources */,
 				0DD542772B854BE600362B77 /* ButtonRegular.swift in Sources */,
 				0D8DA4982BA0E11800D76C62 /* SignupInteractor.swift in Sources */,
+				0D1A92AF2BB9CF0D00892953 /* PostRouter.swift in Sources */,
 				0DD542712B85472000362B77 /* ButtonActive.swift in Sources */,
 				0DD542582B84039300362B77 /* UIColorExtension.swift in Sources */,
 				0D58157B2BA13DF10034764F /* LoginFormData.swift in Sources */,
@@ -1062,10 +1296,13 @@
 				0D5815B32BA3D3100034764F /* Card.swift in Sources */,
 				0DCE84C32B8A635F0019AE42 /* EmailValidator.swift in Sources */,
 				0D8DA4AA2BA102A800D76C62 /* SignupFormData.swift in Sources */,
+				0DC552CC2BB75F6800273E37 /* ProjectInteractor.swift in Sources */,
 				0DA841F82B8FEEA90054ED4B /* TokenManager.swift in Sources */,
 				0DD542732B85475B00362B77 /* Button.swift in Sources */,
+				0D1A92B12BBA3B9A00892953 /* SinglePostResponse.swift in Sources */,
 				0D5815F12BA42A6C0034764F /* MenuPositionFactory.swift in Sources */,
 				0D58157D2BA13EC70034764F /* SignupRouter.swift in Sources */,
+				0DC552B82BB7098500273E37 /* Team.swift in Sources */,
 				0D5815AC2BA21ED40034764F /* MeResponse.swift in Sources */,
 				0D5815792BA13CE80034764F /* LoginPresenter.swift in Sources */,
 				0DCE84C92B8A703A0019AE42 /* PasswordValidator.swift in Sources */,
@@ -1073,6 +1310,7 @@
 				0D5815A52BA207530034764F /* RootPresenter.swift in Sources */,
 				0DCE84C52B8A66A40019AE42 /* ErrorLabel.swift in Sources */,
 				0D5815982BA1F9AC0034764F /* Icon.swift in Sources */,
+				0DC552E42BB764D500273E37 /* ProjectPostsResponse.swift in Sources */,
 				0D5815C62BA3FC890034764F /* NewProjectViewController.swift in Sources */,
 				0D5815B02BA3CF400034764F /* SignupResponse.swift in Sources */,
 				0D5815B92BA3D5DF0034764F /* CardList.swift in Sources */,
@@ -1081,6 +1319,8 @@
 				0D5815A12BA1FF1A0034764F /* RootAssembly.swift in Sources */,
 				0D8DA4A52BA0F98200D76C62 /* Validator.swift in Sources */,
 				0D5815FB2BA4599F0034764F /* AboutPagePresenter.swift in Sources */,
+				0DC552CF2BB75F7800273E37 /* ProjectPresenter.swift in Sources */,
+				0DC552AE2BB49CC500273E37 /* FormTextInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1234,7 +1474,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1265,7 +1505,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

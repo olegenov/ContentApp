@@ -39,11 +39,12 @@ final class ProjectsInteractor: ProjectsBusinessLogic {
         
         var projects: [Project] = []
         
-        for project in myProjectsResponse!.projects {
-            projects.append(Project(id: project.id, name: project.name))
+        for projectReponse in myProjectsResponse!.projects {
+            var projectTeam = Team(id: projectReponse.team.id, name: projectReponse.team.name)
+            projects.append(Project(id: projectReponse.id, name: projectReponse.name, team: projectTeam))
         }
         
-        self.presenter?.handleSuccess(projects: projects)
+        self.presenter?.displayProjects(projects: projects)
     }
     
     private func handleFailureResponse(_ error: ApiError) {

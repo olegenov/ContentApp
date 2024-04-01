@@ -29,10 +29,6 @@ final class ButtonEmpty: Button {
         backgroundColor = Constants.backgroundColor
         setTitleColor(Constants.titleColor, for: .normal)
         titleLabel?.font = UIFont.appFont(.button)
-        
-        titleEdgeInsets.left = 0
-        titleEdgeInsets.right = 0
-        titleEdgeInsets.bottom = 0
-        titleEdgeInsets.top = 0
+        sizeToFit()
     }
 }

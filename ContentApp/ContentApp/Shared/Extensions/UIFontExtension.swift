@@ -18,6 +18,7 @@ extension UIFont {
         case formInput
         case inputError
         case cardTitle
+        case cardProperty
     }
     
     enum Constants {
@@ -29,6 +30,7 @@ extension UIFont {
         static let nameLabelFontSize: CGFloat = 24
         static let buttonFontSize: CGFloat = 16
         static let cardTitleFontSize: CGFloat = 20
+        static let cardPropertyFontSize: CGFloat = 12
     }
     
     private static func defaultFont() -> UIFont {
@@ -55,6 +57,8 @@ extension UIFont {
             return UIFont(name: Constants.defaultTextFont, size: Constants.defaultFontSize) ?? defaultFont()
         case .cardTitle:
             return UIFont(name: Constants.semiboldTextFont, size: Constants.cardTitleFontSize) ?? defaultFont()
+        case .cardProperty:
+            return UIFont(name: Constants.defaultTextFont, size: Constants.cardPropertyFontSize) ?? defaultFont()
         }
     }
 }

@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Project: Codable {
+struct Project {
     let id: Int
     let name: String
+    let team: Team
 }

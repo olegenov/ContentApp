@@ -44,13 +44,13 @@ class BaseViewController: UIViewController {
     
     internal func configureUI() { }
 
-    internal func displayNav() {
+    internal func displayNav(topOffset: CGFloat = Constants.navTopOffset) {
         nav.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(nav)
         
         NSLayoutConstraint.activate([
-            nav.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.navTopOffset),
+            nav.topAnchor.constraint(equalTo: view.topAnchor, constant: topOffset),
             nav.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.sideOffset),
             nav.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.sideOffset),
         ])
@@ -69,7 +69,6 @@ class BaseViewController: UIViewController {
         NSLayoutConstraint.activate([
             titleView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.titleTopOffset),
             titleView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.sideOffset),
-            titleView.bottomAnchor.constraint(equalTo: titleView.bottomAnchor, constant: Constants.titleTopOffset),
         ])
     }
     

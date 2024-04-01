@@ -24,4 +24,8 @@ class ButtonFactory {
             return ButtonEmpty(title)
         }
     }
+    
+    static func createIconButton(type: IconFactory.Types) -> Button {
+        return IconButton(type)
+    }
 }

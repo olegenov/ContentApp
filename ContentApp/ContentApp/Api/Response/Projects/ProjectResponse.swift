@@ -10,4 +10,6 @@ import Foundation
 struct ProjectResponse: Codable {
     var id: Int
     var name: String
+    var creator: UserResponse
+    var team: ProjectTeamResponse
 }

@@ -8,14 +8,14 @@
 import Foundation
 
 protocol ProjectsPresentationLogic {
-    func handleSuccess(projects: [Project])
+    func displayProjects(projects: [Project])
     func presentError(errors: [String])
 }
 
 class ProjectsPresenter: ProjectsPresentationLogic {
     var viewController: ProjectsDisplayLogic?
     
-    func handleSuccess(projects: [Project]) {
+    func displayProjects(projects: [Project]) {
         viewController?.displayProjects(projects)
     }
     

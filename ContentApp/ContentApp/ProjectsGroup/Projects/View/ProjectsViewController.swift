@@ -16,11 +16,12 @@ class ProjectsViewController: BaseViewController, ProjectsDisplayLogic {
     enum Constants {
         static let sideOffset: CGFloat = 16
         static let title: String = "projects"
+        static let cardHeight: CGFloat = 80
     }
     
     var interactor: ProjectsBusinessLogic?
     var router: ProjectsRouterProtocol?
-    private let cards = CardList()
+    private let cards = CardList(cardHeight: Constants.cardHeight)
     
     init(interactor: ProjectsBusinessLogic) {
         self.interactor = interactor
@@ -41,11 +42,11 @@ class ProjectsViewController: BaseViewController, ProjectsDisplayLogic {
     }
     
     internal override func configureNav() {
-        let menuButton = IconButton(.menu)
+        let menuButton = ButtonFactory.createIconButton(type: .menu)
         menuButton.addTarget(self, action: #selector(openMenu), for: .touchUpInside)
         menuButton.translatesAutoresizingMaskIntoConstraints = false
         
-        let profileButton = IconButton(.profile)
+        let profileButton = ButtonFactory.createIconButton(type: .profile)
         profileButton.addTarget(self, action: #selector(openProfile), for: .touchUpInside)
         profileButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -59,6 +60,7 @@ class ProjectsViewController: BaseViewController, ProjectsDisplayLogic {
     
     private func configureCards() {
         cards.configureAddCardTapAction(self.handleCreatingNewProject)
+        cards.configureCardsTapAction(self.handleOpeningProject)
         
         cards.translatesAutoresizingMaskIntoConstraints = false
         
@@ -76,7 +78,9 @@ class ProjectsViewController: BaseViewController, ProjectsDisplayLogic {
         var cardsData: [CardData] = []
         
         for project in projects {
-            cardsData.append(CardData(title: project.name))
+            cardsData.append(CardData(id: project.id, title: project.name, property: [
+                (IconFactory.createIcon(type: .team), project.team.name)
+            ]))
         }
         
         cards.updateData(cardsData)
@@ -84,6 +88,10 @@ class ProjectsViewController: BaseViewController, ProjectsDisplayLogic {
     
     func handleCreatingNewProject() {
         router?.navigateToProjectCreation()
+    }
+    
+    func handleOpeningProject(projectId: Int) {
+        router?.navigateToProject(id: projectId)
     }
     
     @objc func openMenu() {

@@ -39,8 +39,8 @@ class APIService: APIServiceProtocol {
         var headers: HTTPHeaders = [:]
         
         if token {
-            let token = TokenManager.shared.getToken()
-            headers["Authorization"] = "Bearer " + (token ?? "")
+            let tokenString = TokenManager.shared.getToken()
+            headers["Authorization"] = "Bearer " + (tokenString ?? "")
         }
         
         AF.request(url, method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
@@ -59,8 +59,8 @@ class APIService: APIServiceProtocol {
         var headers: HTTPHeaders = [:]
         
         if token {
-            let token = TokenManager.shared.getToken()
-            headers["Authorization"] = "Bearer " + (token ?? "")
+            let tokenString = TokenManager.shared.getToken()
+            headers["Authorization"] = "Bearer " + (tokenString ?? "")
         }
         
         AF.request(url, method: .get, headers: headers)

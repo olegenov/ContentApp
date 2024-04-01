@@ -11,16 +11,19 @@ class CardList: UICollectionView {
     enum Constants {
         static let verticalGap: CGFloat = 15
         static let horizontalGap: CGFloat = 9
-        static let cardHeight: CGFloat = 52
     }
     
+    private let cardHeight: CGFloat
     var data: [CardData] = []
     private var addCardTapAction: (() -> Void)?
+    private var cardTapAction: ((Int) -> Void)?
     
-    init() {
+    init(cardHeight: CGFloat) {
         let layout = UICollectionViewFlowLayout()
         
         layout.scrollDirection = .vertical
+        self.cardHeight = cardHeight
+        
         super.init(frame: .zero, collectionViewLayout: layout)
         
         showsVerticalScrollIndicator = false
@@ -45,6 +48,10 @@ class CardList: UICollectionView {
     func configureAddCardTapAction(_ action: @escaping () -> Void) {
         addCardTapAction = action
     }
+    
+    func configureCardsTapAction(_ action: @escaping (Int) -> Void) {
+        cardTapAction = action
+    }
 }
 
 extension CardList: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -64,13 +71,18 @@ extension CardList: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         let project = data[indexPath.item - 1]
         
         cell.configure(with: project)
+        cell.configureCardTapAction({
+            self.cardTapAction?(project.id)
+        })
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         let width = (collectionView.frame.width - Constants.horizontalGap) / 2
-        return CGSize(width: width, height: Constants.cardHeight)
+
+        return CGSize(width: width, height: self.cardHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

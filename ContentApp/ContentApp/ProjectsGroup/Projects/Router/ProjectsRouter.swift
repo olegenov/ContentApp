@@ -11,6 +11,7 @@ protocol ProjectsRouterProtocol {
     func navigateToMenu()
     func navigateToProjectCreation()
     func navigateToProfile()
+    func navigateToProject(id: Int)
 }
 
 class ProjectsRouter: ProjectsRouterProtocol {
@@ -33,5 +34,10 @@ class ProjectsRouter: ProjectsRouterProtocol {
     func navigateToProfile() {
         let profileVC = ProfileAssembly.build()
         viewController?.navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
+    func navigateToProject(id: Int) {
+        let projectVC = ProjectAssembly.build(projectId: id)
+        viewController?.navigationController?.pushViewController(projectVC, animated: true)
     }
 }

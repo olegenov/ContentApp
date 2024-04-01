@@ -38,8 +38,8 @@ class LoginViewController: BaseViewController, LoginDisplayLogic {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private let usernameInputView: FormInput = FormInputFactory.createFormInput(type: .loginUsername)
-    private let passwordInputView: FormInput = FormInputFactory.createFormInput(type: .loginPassword)
+    private let usernameInputView: FormTextInput = FormInputFactory.createFormTextInput(type: .loginUsername)
+    private let passwordInputView: FormTextInput = FormInputFactory.createFormTextInput(type: .loginPassword)
     private let signupSection = UIStackView()
     
     internal override func configureUI() {

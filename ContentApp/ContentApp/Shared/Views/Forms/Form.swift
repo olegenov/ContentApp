@@ -15,7 +15,7 @@ final class Form: UIView {
     }
     
     private var contents: UIStackView = UIStackView()
-    private var fields: [FormInput] = [FormInput]()
+    private var fields: [any FormInput] = [any FormInput]()
     private var submitButtonAction: (() -> Void)?
     private var submitButton: UIButton = UIButton()
     
@@ -25,7 +25,7 @@ final class Form: UIView {
         super.init(frame: .zero)
     }
     
-    init(_ title: String, formFields: [FormInput], submitText: String = Constants.defaultSubmitText) {
+    init(_ title: String, formFields: [any FormInput], submitText: String = Constants.defaultSubmitText) {
         super.init(frame: .zero)
         
         fields = formFields
@@ -42,7 +42,7 @@ final class Form: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func addInputField(_ field: FormInput) {
+    public func addInputField(_ field: any FormInput) {
         fields.append(field)
     }
     

@@ -14,11 +14,11 @@ class NavBuilder {
         self.nav = nav
     }
     
-    public func addLeftButton(button: UIButton) {
+    public func addLeftButton(button: Button) {
         nav.configureLeftButton(button: button)
     }
     
-    public func addRightButton(button: UIButton) {
+    public func addRightButton(button: Button) {
         nav.configureRightButton(button: button)
     }
     

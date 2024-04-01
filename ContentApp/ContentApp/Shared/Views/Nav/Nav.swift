@@ -45,7 +45,7 @@ class Nav: UINavigationBar {
         ])
     }
     
-    internal func configureLeftButton(button: UIButton) {
+    internal func configureLeftButton(button: Button) {
         addSubview(button)
         
         NSLayoutConstraint.activate([
@@ -54,7 +54,7 @@ class Nav: UINavigationBar {
         ])
     }
     
-    internal func configureRightButton(button: UIButton) {
+    internal func configureRightButton(button: Button) {
         addSubview(button)
         
         NSLayoutConstraint.activate([
