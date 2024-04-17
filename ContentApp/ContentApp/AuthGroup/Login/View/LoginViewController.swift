@@ -45,7 +45,6 @@ class LoginViewController: BaseViewController, LoginDisplayLogic {
     internal override func configureUI() {
         configureForm()
         configureSignupSwitch()
-        configureHidingKeyBoard()
     }
     
     internal override func configureNav() {
@@ -104,18 +103,9 @@ class LoginViewController: BaseViewController, LoginDisplayLogic {
             section.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.sectionBottomOffset),
         ])
     }
-    
-    private func configureHidingKeyBoard() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        view.addGestureRecognizer(tapGesture)
-    }
-    
+
     @objc private func signupSwitchButtonTapped() {
         router?.navigateToSignup()
-    }
-    
-    @objc func handleTap() {
-        view.endEditing(true)
     }
     
     func handleSubmit() {
@@ -131,6 +121,6 @@ class LoginViewController: BaseViewController, LoginDisplayLogic {
     }
     
     func handleSuccessLogin() {
-        router?.navigateToProjects()
+        router?.navigateToMenu()
     }
 }

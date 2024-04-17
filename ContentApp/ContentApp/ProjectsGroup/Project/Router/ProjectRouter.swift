@@ -9,9 +9,9 @@ import UIKit
 
 protocol ProjectRouterProtocol {
     func navigateToMenu()
-    func navigateToPostCreation()
+    func navigateToPostCreation(projectId: Int, onClose: @escaping (() -> Void))
     func navigateToProjects()
-    func navigateToPost(projectId: Int, postId: Int)
+    func navigateToPost(projectId: Int, postId: Int, onClose: @escaping (() -> Void))
 }
 
 class ProjectRouter: ProjectRouterProtocol {
@@ -21,9 +21,10 @@ class ProjectRouter: ProjectRouterProtocol {
         self.viewController = viewController
     }
     
-    func navigateToPostCreation() {
-//        let newProjectVC = NewProjectAssembly.build()
-//        viewController?.navigationController?.pushViewController(newProjectVC, animated: true)
+    func navigateToPostCreation(projectId: Int, onClose: @escaping (() -> Void)) {
+        let postVC = NewPostAssembly.build(projectId: projectId, postId: 0)
+        postVC.onClose = onClose
+        viewController?.present(postVC, animated: true)
     }
     
     func navigateToMenu() {
@@ -35,8 +36,9 @@ class ProjectRouter: ProjectRouterProtocol {
         viewController?.navigationController?.popViewController(animated: true)
     }
     
-    func navigateToPost(projectId: Int, postId: Int) {
+    func navigateToPost(projectId: Int, postId: Int, onClose: @escaping (() -> Void)) {
         let postVC = PostAssembly.build(projectId: projectId, postId: postId)
+        postVC.onClose = onClose
         viewController?.present(postVC, animated: true)
     }
 }

@@ -12,6 +12,10 @@ protocol APIServiceProtocol {
     func fetchData<T: Decodable>(urlString: String, responseType: T.Type, token: Bool, completion: @escaping (Result<T, ApiError>) -> Void)
     
     func postData<T: Encodable, U: Decodable>(urlString: String, parameters: T, responseType: U.Type, token: Bool, completion: @escaping (Result<U, ApiError>) -> Void)
+    
+    func patchData<T: Encodable, U: Decodable>(urlString: String, parameters: T, responseType: U.Type, token: Bool, completion: @escaping (Result<U, ApiError>) -> Void)
+    
+    func deleteData<T: Decodable>(urlString: String, responseType: T.Type, token: Bool, completion: @escaping (Result<T, ApiError>) -> Void)
 }
 
 class APIService: APIServiceProtocol {
@@ -47,6 +51,46 @@ class APIService: APIServiceProtocol {
             .validate(statusCode: 200..<300)
             .responseDecodable(of: U.self) { response in
                 self.handleResponse(response: response, completion: completion)
+            }
+    }
+    
+    func patchData<T: Encodable, U: Decodable>(urlString: String, parameters: T, responseType: U.Type, token: Bool, completion: @escaping (Result<U, ApiError>) -> Void) {
+        guard let url = URL(string: baseUrl + urlString) else {
+            completion(.failure(ApiError(Constants.invalidUrl)))
+            return
+        }
+        
+        var headers: HTTPHeaders = [:]
+        
+        if token {
+            let tokenString = TokenManager.shared.getToken()
+            headers["Authorization"] = "Bearer " + (tokenString ?? "")
+        }
+        
+        AF.request(url, method: .patch, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
+            .validate(statusCode: 200..<300)
+            .responseDecodable(of: U.self) { response in
+                self.handleResponse(response: response, completion: completion)
+            }
+    }
+    
+    func deleteData<T: Decodable>(urlString: String, responseType: T.Type, token: Bool, completion: @escaping (Result<T, ApiError>) -> Void) {
+        guard let url = URL(string: baseUrl + urlString) else {
+            completion(.failure(ApiError(Constants.invalidUrl)))
+            return
+        }
+        
+        var headers: HTTPHeaders = [:]
+        
+        if token {
+            let tokenString = TokenManager.shared.getToken()
+            headers["Authorization"] = "Bearer " + (tokenString ?? "")
+        }
+        
+        AF.request(url, method: .delete, headers: headers)
+            .validate(statusCode: 200..<300)
+            .responseData { response in
+                self.handleDataResponse(response: response, completion: completion)
             }
     }
     
@@ -116,7 +160,7 @@ class APIService: APIServiceProtocol {
             if let errorMessage = json?["error"] as? String {
                 return errorMessage
             }
-        } catch { 
+        } catch {
             return parseHttpCode(statusCode)
         }
         

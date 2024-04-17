@@ -9,7 +9,7 @@ import UIKit
 
 protocol LoginRouterProtocol {
     func navigateToSignup()
-    func navigateToProjects()
+    func navigateToMenu()
 }
 
 class LoginRouter: LoginRouterProtocol {
@@ -23,8 +23,8 @@ class LoginRouter: LoginRouterProtocol {
         viewController?.navigationController?.popViewController(animated: true)
     }
     
-    func navigateToProjects() {
-        let projectsVC = ProjectsAssembly.build()
-        viewController?.navigationController?.pushViewController(projectsVC, animated: true)
+    func navigateToMenu() {
+        let menuVC = MenuAssembly.build()
+        viewController?.navigationController?.pushViewController(menuVC, animated: true)
     }
 }

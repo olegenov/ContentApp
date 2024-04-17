@@ -11,6 +11,7 @@ final class ButtonRegular: Button {
     enum Constants {
         static let backgroundColor: UIColor = UIColor.clear
         static let titleColor: UIColor = UIColor.AppColors.textColor
+        static let borderColor: UIColor = UIColor.AppColors.outlineColor
     }
 
     override init(_ title: String) {
@@ -29,5 +30,10 @@ final class ButtonRegular: Button {
         backgroundColor = Constants.backgroundColor
         setTitleColor(Constants.titleColor, for: .normal)
         titleLabel?.font = UIFont.appFont(.button)
+        
+        layer.borderColor = Constants.borderColor.cgColor
+        layer.borderWidth = 1
+        
+        addPadding()
     }
 }

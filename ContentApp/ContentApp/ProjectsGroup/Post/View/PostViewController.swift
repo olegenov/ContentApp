@@ -9,7 +9,7 @@ import UIKit
 
 protocol PostDisplayLogic {
     func displayError(_ error: String)
-    func displayPostInfo(_ post: Post)
+    func displayPostInfo(_ post: PostInfo)
     func displayTitle(_ title: String)
 }
 
@@ -19,15 +19,26 @@ class PostViewController: BaseViewController, PostDisplayLogic {
         static let navTopOffset: CGFloat = 32
         static let sideOffset: CGFloat = 16
         static let pageTitle: String = "post"
+        static let projectButtonText: String = "info"
+        static let infoButtonText: String = "info"
+        static let textButtonText: String = "text"
+        static let buttonsTopOffset: CGFloat = 12
+        static let sectionTopOffset: CGFloat = 18
     }
     
     let postId: Int
     let projectId: Int
     let interactor: PostBusinessLogic?
     var router: PostRouterProtocol?
-    var projectButton: Button = Button()
+    var postTextSection: PostTextSection = PostTextSection()
+    var postInfoSection: PostInfoSection = PostInfoSection()
+    var projectButton: Button = ButtonFactory.createButton(type: .empty, title: Constants.projectButtonText)
+    var textButton: Button = ButtonFactory.createButton(type: .regular, title: Constants.textButtonText)
+    var infoButton: Button = ButtonFactory.createButton(type: .regular, title: Constants.infoButtonText)
+    var post: PostInfo = PostInfo(title: "new post", assign: "none", publishing: Date.now, deadline: Date.now, content: "", projectName: "project")
+    
     var postName: UITextField = UITextField(frame:.zero)
-    var postInfo: PostInfoView = PostInfoView()
+    var sectionButtons: UIStackView = UIStackView()
     
     init(interactor: PostBusinessLogic, projectId: Int, postId: Int) {
         self.interactor = interactor
@@ -44,40 +55,104 @@ class PostViewController: BaseViewController, PostDisplayLogic {
         interactor?.loadPost(projectId: self.projectId, postId: self.postId)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        post.title = postName.text ?? "none"
+        post.content = postTextSection.textView.text
+        
+        self.interactor?.savePostChanges(projectId: self.projectId, postId: self.postId, postInfo: self.post)
+    }
+    
     func configureEditableTitle(title: String) {
         postName.translatesAutoresizingMaskIntoConstraints = false
         postName.font = UIFont.appFont(.title)
         postName.text = title
-        postName.textAlignment = .left
-        postName.contentMode = .topLeft
-        postName.sizeToFit()
         
         view.addSubview(postName)
         
         NSLayoutConstraint.activate([
             postName.topAnchor.constraint(equalTo: nav.bottomAnchor),
             postName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.sideOffset),
+            postName.heightAnchor.constraint(equalToConstant: postName.font?.lineHeight ?? 0)
         ])
     }
     
     internal override func configureUI() {
         configureEditableTitle(title: Constants.pageTitle)
-        configurePostInfo()
+        configureSectionButtons()
+        configureTextSection()
+        configureInfoSection()
     }
     
-    func configurePostInfo() {
-        view.addSubview(postInfo)
+    func configureTextSection() {        
+        view.addSubview(postTextSection)
         
         NSLayoutConstraint.activate([
-            postInfo.topAnchor.constraint(equalTo: postName.bottomAnchor),
-            postInfo.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.sideOffset),
-            postInfo.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.sideOffset),
-            postInfo.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            postTextSection.topAnchor.constraint(equalTo: sectionButtons.bottomAnchor, constant: Constants.sectionTopOffset),
+            postTextSection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.sideOffset),
+            postTextSection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.sideOffset),
+            postTextSection.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
+    func configureInfoSection() {
+        postInfoSection.isHidden = true
+        
+        postInfoSection.configurePublishLabelAction(action: publishLabelTapped)
+        postInfoSection.configureDeadlineLabelAction(action: deadlineLabelTapped)
+        postInfoSection.configureAssignLabelAction(action: assignLabelTapped)
+        
+        view.addSubview(postInfoSection)
+        
+        NSLayoutConstraint.activate([
+            postInfoSection.topAnchor.constraint(equalTo: sectionButtons.bottomAnchor, constant: Constants.sectionTopOffset),
+            postInfoSection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.sideOffset),
+            postInfoSection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.sideOffset),
+            postInfoSection.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+    
+    func configureSectionButtons() {
+        textButton.makeActive()
+        textButton.addTarget(self, action: #selector(textButtonTapped), for: .touchUpInside)
+        infoButton.addTarget(self, action: #selector(infoButtonTapped), for: .touchUpInside)
+        
+        sectionButtons.axis = .horizontal
+        sectionButtons.translatesAutoresizingMaskIntoConstraints = false
+        sectionButtons.spacing = 10
+        sectionButtons.addArrangedSubview(textButton)
+        sectionButtons.addArrangedSubview(infoButton)
+        
+        view.addSubview(sectionButtons)
+        
+        NSLayoutConstraint.activate([
+            sectionButtons.topAnchor.constraint(equalTo: postName.bottomAnchor, constant: Constants.buttonsTopOffset),
+            sectionButtons.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.sideOffset),
+        ])
+    }
+    
+    @objc private func textButtonTapped() {
+        textButton.makeActive()
+        infoButton.makeRegular()
+        showTextSection()
+    }
+    
+    @objc private func infoButtonTapped() {
+        textButton.makeRegular()
+        infoButton.makeActive()
+        showInfoSection()
+    }
+    
+    private func showTextSection() {
+        postInfoSection.isHidden = true
+        postTextSection.isHidden = false
+    }
+    
+    private func showInfoSection() {
+        postTextSection.isHidden = true
+        postInfoSection.isHidden = false
+    }
+    
     internal override func configureNav() {
-        projectButton = ButtonFactory.createButton(type: .empty, title: "to project")
         projectButton.addTarget(self, action: #selector(openProject), for: .touchUpInside)
         projectButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -87,25 +162,108 @@ class PostViewController: BaseViewController, PostDisplayLogic {
         displayNav(topOffset: Constants.navTopOffset)
     }
     
-    func displayPostInfo(_ post: Post) {
+    func displayPostInfo(_ post: PostInfo) {
         displayProjectName(post.projectName)
         displayTitle(post.title)
-        displayPostText(post)
+        postTextSection.configure(with: post)
+        postInfoSection.configure(with: post)
+        
+        self.post = post
     }
     
-    func displayProjectName(_ title: String) {
+    internal func displayProjectName(_ title: String) {
         projectButton.setTitle(title + " /", for: .normal)
     }
     
     func displayTitle(_ title: String) {
+        self.post.title = title
         postName.text = title
-    }
-    
-    func displayPostText(_ post: Post) {
-        postInfo.updateData(post)
     }
     
     @objc func openProject() {
         router?.navigateToProject()
+    }
+    
+    private func textEndEditing(text: String) {
+        self.post.content = text
+    }
+    
+    private func publishLabelTapped() {
+        let alertController = UIAlertController(title: "select publication date", message: nil, preferredStyle: .actionSheet)
+        
+        let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 20, width: alertController.view.frame.width, height: 200))
+        datePicker.datePickerMode = .dateAndTime
+        alertController.view.addSubview(datePicker)
+        
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        alertController.view.addSubview(datePicker)
+        
+        let selectAction = UIAlertAction(title: "select", style: .default) { _ in
+            self.post.publishing = datePicker.date
+            self.displayPostInfo(self.post)
+        }
+        
+        let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(selectAction)
+        alertController.addAction(cancelAction)
+        
+        NSLayoutConstraint.activate([
+            datePicker.centerXAnchor.constraint(equalTo: alertController.view.centerXAnchor),
+            datePicker.topAnchor.constraint(equalTo: alertController.view.topAnchor, constant: 40),
+            alertController.view.heightAnchor.constraint(equalToConstant: 220),
+        ])
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func deadlineLabelTapped() {
+        let alertController = UIAlertController(title: "select deadline date", message: nil, preferredStyle: .actionSheet)
+        
+        let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 20, width: alertController.view.frame.width, height: 200))
+        datePicker.datePickerMode = .dateAndTime
+        alertController.view.addSubview(datePicker)
+        
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        alertController.view.addSubview(datePicker)
+        
+        let selectAction = UIAlertAction(title: "select", style: .default) { _ in
+            self.post.deadline = datePicker.date
+            self.displayPostInfo(self.post)
+        }
+        
+        let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(selectAction)
+        alertController.addAction(cancelAction)
+        
+        NSLayoutConstraint.activate([
+            datePicker.centerXAnchor.constraint(equalTo: alertController.view.centerXAnchor),
+            datePicker.topAnchor.constraint(equalTo: alertController.view.topAnchor, constant: 40),
+            alertController.view.heightAnchor.constraint(equalToConstant: 220),
+        ])
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func assignLabelTapped() {
+        let alertController = UIAlertController(title: "input username", message: nil, preferredStyle: .alert)
+        
+        alertController.addTextField { textField in
+            textField.placeholder = "username"
+        }
+        
+        let confirmAction = UIAlertAction(title: "select", style: .default) { _ in
+            guard let newValue = alertController.textFields?.first?.text else { return }
+            self.post.assign = newValue
+            self.displayPostInfo(self.post)
+        }
+        
+        let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
 }

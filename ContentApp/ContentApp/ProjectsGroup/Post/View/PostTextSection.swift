@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PostTextViewCell: UICollectionViewCell {
+class PostTextSection: UIView {
     enum Constants {
         static let sidePadding: CGFloat = 16
         static let topPadding: CGFloat = 12
@@ -20,8 +20,8 @@ class PostTextViewCell: UICollectionViewCell {
     
     let textView = UITextView()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init() {
+        super.init(frame: .zero)
         configureUI()
     }
     
@@ -30,38 +30,36 @@ class PostTextViewCell: UICollectionViewCell {
     }
     
     private func configureUI() {
-        configureBackground()
-        configureText()
+        translatesAutoresizingMaskIntoConstraints = false
+        configureTextField()
     }
     
-    private func configureBackground() {
-        backgroundColor = UIColor.AppColors.cardBackgroundColor
-    }
-    
-    private func configureBorders() {
-        layer.cornerRadius = Constants.borderRadius
-        layer.masksToBounds = true
-    }
-    
-    private func configureText() {
-        let textView = UITextView()
-        
-        textView.frame = CGRect(x: 20, y: 100, width: 300, height: 200)
-        
+    private func configureTextField() {
         textView.font = UIFont.systemFont(ofSize: 16)
         textView.textColor = UIColor.black
-        textView.backgroundColor = UIColor.lightGray
         textView.textAlignment = .left
         textView.isEditable = true
         textView.isScrollEnabled = true
         
-        textView.text = "Начните вводить текст..."
+        textView.text = "hello world!"
+        textView.font = UIFont.appFont(.formInput)
+        textView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(textView)
+        
+        NSLayoutConstraint.activate([
+            textView.topAnchor.constraint(equalTo: topAnchor),
+            textView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            textView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            textView.bottomAnchor.constraint(equalTo: bottomAnchor),
+        ])
     }
     
-    func configure(with post: Post) {
+    func configure(with post: PostInfo) {
+        if post.content.isEmpty {
+            return
+        }
+        
         textView.text = post.content
     }
 }
-

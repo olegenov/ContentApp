@@ -18,6 +18,7 @@ class FormInputFactory {
         case loginUsername
         case loginPassword
         case projectName
+        case invitationUsername
     }
     
     enum SelectTypes {
@@ -74,7 +75,10 @@ class FormInputFactory {
             
         case .projectName:
             inputView = FormTextInput(Constants.projectNamePlaceHolder)
-            
+        
+        case .invitationUsername:
+            inputView = FormTextInput(Constants.usernamePlaceHolder)
+            inputView.disableAutoCorrection()
         }
         
         return inputView

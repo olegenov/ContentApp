@@ -50,7 +50,6 @@ class SignupViewController: BaseViewController, SignupDisplayLogic {
     internal override func configureUI() {
         configureForm()
         configureSignupSwitch()
-        configureHidingKeyBoard()
     }
     
     private func configureForm() {
@@ -120,17 +119,8 @@ class SignupViewController: BaseViewController, SignupDisplayLogic {
         errorsStack.addArrangedSubview(errorLabel)
     }
         
-    private func configureHidingKeyBoard() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        view.addGestureRecognizer(tapGesture)
-    }
-    
     @objc private func signupSwitchButtonTapped() {
         router?.navigateToLogin()
-    }
-    
-    @objc func handleTap() {
-        view.endEditing(true)
     }
     
     func handleSubmit() {

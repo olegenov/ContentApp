@@ -12,12 +12,14 @@ class MenuPositionFactory {
         case projects
         case profile
         case about
+        case teams
     }
     
     enum Constants {
         static var projectsText: String = "projects"
         static var profileText: String = "profile"
         static var aboutText: String = "about"
+        static var teamsText: String = "teams"
     }
     
     static func createMenuPosition(type: Types, active: Bool) -> MenuPosition {
@@ -30,6 +32,8 @@ class MenuPositionFactory {
             position = MenuPosition(Constants.profileText)
         case .projects:
             position = MenuPosition(Constants.projectsText)
+        case .teams:
+            position = MenuPosition(Constants.teamsText)
         }
         
         return position

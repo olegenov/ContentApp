@@ -32,7 +32,7 @@ struct DateTimeResponse: Codable {
         let dateString = try container.decode(String.self)
         
         let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = [.withFullDate, .withFullTime, .withFractionalSeconds, .withTimeZone, .withDashSeparatorInDate, .withColonSeparatorInTime]
+        formatter.formatOptions = [.withFullDate, .withFullTime]
         
         if let date = formatter.date(from: dateString) {
             let calendar = Calendar.current

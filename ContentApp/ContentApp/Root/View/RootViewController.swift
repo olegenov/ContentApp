@@ -9,7 +9,7 @@ import UIKit
 
 protocol RootDisplayLogic {
     func openSignupPage()
-    func openProjectsPage()
+    func openMenuPage()
     func displayError(_ error: String)
 }
 
@@ -70,8 +70,8 @@ class RootViewController: UIViewController, RootDisplayLogic {
         router?.navigateToSignup()
     }
     
-    internal func openProjectsPage() {
-        router?.navigateToProjects()
+    internal func openMenuPage() {
+        router?.navigateToMenu()
     }
     
     internal func displayError(_ error: String) {

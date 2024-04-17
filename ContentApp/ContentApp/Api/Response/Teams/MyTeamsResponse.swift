@@ -8,5 +8,6 @@
 import Foundation
 
 struct MyTeamsResponse: Codable {
-    var teams: [TeamReponse]
+    var teams: [TeamResponse]
+    var request_id: Int
 }

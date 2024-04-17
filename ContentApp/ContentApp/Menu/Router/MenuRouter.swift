@@ -8,10 +8,9 @@
 import UIKit
 
 protocol MenuRouterProtocol {
-    func getBack()
-    func navigateToAboutPage()
     func navigateToProjects()
     func navigateToProfile()
+    func navigateToTeams()
 }
 
 class MenuRouter: MenuRouterProtocol {
@@ -21,20 +20,18 @@ class MenuRouter: MenuRouterProtocol {
         self.viewController = viewController
     }
     
-    func getBack() {
-        viewController?.navigationController?.popViewController(animated: true)
-    }
-    
-    func navigateToAboutPage() {
-        let AboutPageVC = AboutPageAssembly.build()
-        viewController?.navigationController?.pushViewController(AboutPageVC, animated: true)
-    }
-    
     func navigateToProjects() {
         let ProjectsVC = ProjectsAssembly.build()
         viewController?.navigationController?.pushViewController(ProjectsVC, animated: true)
     }
     
     func navigateToProfile() {
+        let profileVC = ProfileAssembly.build()
+        viewController?.navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
+    func navigateToTeams() {
+        let teamsVC = TeamsAssembly.build()
+        viewController?.navigationController?.pushViewController(teamsVC, animated: true)
     }
 }

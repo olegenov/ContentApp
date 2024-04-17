@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TeamReponse: Codable {
+struct TeamResponse: Codable {
     var id: Int
     var name: String
     var creator: UserResponse

@@ -9,6 +9,8 @@ import Foundation
 
 protocol PostBusinessLogic {
     func loadPost(projectId: Int, postId: Int)
+    func savePostChanges(projectId: Int, postId: Int, postInfo: PostInfo) 
+    func createPost(projectId: Int, postInfo: PostInfo)
 }
 
 final class PostInteractor: PostBusinessLogic {
@@ -37,9 +39,9 @@ final class PostInteractor: PostBusinessLogic {
             return
         }
 
-        var postResponse = response.info
+        let postResponse = response.info
         
-        var title = response.project_name
+        let title = response.project_name
         
         var post = Post(
             id: postResponse.id,
@@ -50,8 +52,6 @@ final class PostInteractor: PostBusinessLogic {
             content: postResponse.content,
             projectName: title
         )
-            
-        let userResponse = postResponse.assign
             
         guard let userResponse = postResponse.assign else {
             self.presenter?.displayPostInfo(post: post)
@@ -67,10 +67,43 @@ final class PostInteractor: PostBusinessLogic {
         )
         
         post.assign = postAssign
+        
         self.presenter?.displayPostInfo(post: post)
     }
     
     private func handleFailureResponse(_ error: ApiError) {
         self.presenter?.presentError(errors: [error.message])
+    }
+    
+    func savePostChanges(projectId: Int, postId: Int, postInfo: PostInfo) {
+        let request = PostEditRequest(title: postInfo.title,
+                                      assign: postInfo.assign,
+                                      publishing: postInfo.publishing.toCringe(),
+                                      deadline: postInfo.deadline.toCringe(),
+                                      content: postInfo.content)
+        apiService.patchData(urlString: String(format: apiUrl + "%d", projectId, postId), parameters: request, responseType: EmptyResponse.self, token: true) { result in
+            switch result {
+            case .success( _):
+                return
+            case .failure(let error):
+                self.handleFailureResponse(error)
+            }
+        }
+    }
+    
+    func createPost(projectId: Int, postInfo: PostInfo) {
+        let request = PostEditRequest(title: postInfo.title,
+                                      assign: postInfo.assign,
+                                      publishing: postInfo.publishing.toCringe(),
+                                      deadline: postInfo.deadline.toCringe(),
+                                      content: postInfo.content)
+        apiService.postData(urlString: String(format: apiUrl, projectId), parameters: request, responseType: EmptyResponse.self, token: true) { result in
+            switch result {
+            case .success( _):
+                return
+            case .failure(let error):
+                self.handleFailureResponse(error)
+            }
+        }
     }
 }

@@ -18,6 +18,10 @@ class Icon: UIView {
         configureUI()
     }
     
+    init() {
+        super.init(frame: .zero)
+    }
+    
     func configureUI() {
         addSubview(icon)
         

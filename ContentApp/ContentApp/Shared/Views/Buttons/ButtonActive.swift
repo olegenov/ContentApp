@@ -29,6 +29,8 @@ final class ButtonActive: Button {
         backgroundColor = Constants.backgroundColor
         setTitleColor(Constants.titleColor, for: .normal)
         titleLabel?.font = UIFont.appFont(.buttonActive)
+        
+        addPadding()
     }
     
     @objc override func buttonTouchDown() {

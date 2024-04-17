@@ -12,13 +12,14 @@ protocol PostRouterProtocol {
 }
 
 class PostRouter: PostRouterProtocol {
-    weak var viewController: UIViewController?
+    weak var viewController: BaseViewController?
     
-    init(viewController: UIViewController) {
+    init(viewController: BaseViewController) {
         self.viewController = viewController
     }
     
     func navigateToProject() {
+        viewController?.onClose?()
         viewController?.dismiss(animated: true)
     }
 }

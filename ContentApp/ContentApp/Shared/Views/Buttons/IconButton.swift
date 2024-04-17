@@ -27,6 +27,7 @@ final class IconButton: Button {
     }
     
     private func configureUI() {
+        translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = Constants.backgroundColor
         iconView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(iconView)

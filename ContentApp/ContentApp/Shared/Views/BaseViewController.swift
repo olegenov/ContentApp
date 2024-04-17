@@ -27,6 +27,7 @@ class BaseViewController: UIViewController {
     internal var errorsStack: UIStackView = UIStackView()
     internal var titleView: PageTitle = PageTitle()
     internal var nav: Nav = Nav()
+    internal var onClose: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,7 @@ class BaseViewController: UIViewController {
         configureNav()
         configureUI()
         configureErrors()
+        configureHidingKeyBoard()
     }
     
     internal func configureNav() { }
@@ -94,6 +96,15 @@ class BaseViewController: UIViewController {
         errorsStack.addArrangedSubview(errorLabel)
         
         Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(hideErrorLabel(_:)), userInfo: errorLabel, repeats: false)
+    }
+    
+    private func configureHidingKeyBoard() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func handleTap() {
+        view.endEditing(true)
     }
     
     @objc private func hideErrorLabel(_ timer: Timer) {

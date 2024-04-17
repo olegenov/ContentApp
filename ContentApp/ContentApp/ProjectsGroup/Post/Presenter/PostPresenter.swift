@@ -16,7 +16,16 @@ class PostPresenter: PostPresentationLogic {
     var viewController: PostDisplayLogic?
     
     func displayPostInfo(post: Post) {
-        viewController?.displayPostInfo(post)
+        var postInfo = PostInfo(
+            title: post.title,
+            assign: post.assign?.username ?? "none",
+            publishing: post.publishing,
+            deadline: post.deadline,
+            content: post.content,
+            projectName: post.projectName
+        )
+        
+        viewController?.displayPostInfo(postInfo)
     }
     
     func presentError(errors: [String]) {

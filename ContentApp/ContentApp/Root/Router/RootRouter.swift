@@ -9,7 +9,7 @@ import UIKit
 
 protocol RootRouterProtocol {
     func navigateToSignup()
-    func navigateToProjects()
+    func navigateToMenu()
 }
 
 class RootRouter: RootRouterProtocol {
@@ -24,8 +24,8 @@ class RootRouter: RootRouterProtocol {
         viewController?.navigationController?.pushViewController(signupVc, animated: true)
     }
     
-    func navigateToProjects() {
-        let projectsVC = ProjectsAssembly.build()
-        viewController?.navigationController?.pushViewController(projectsVC, animated: true)
+    func navigateToMenu() {
+        let menuVC = MenuAssembly.build()
+        viewController?.navigationController?.pushViewController(menuVC, animated: true)
     }
 }

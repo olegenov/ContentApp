@@ -13,10 +13,10 @@ class CardList: UICollectionView {
         static let horizontalGap: CGFloat = 9
     }
     
-    private let cardHeight: CGFloat
+    let cardHeight: CGFloat
     var data: [CardData] = []
-    private var addCardTapAction: (() -> Void)?
-    private var cardTapAction: ((Int) -> Void)?
+    internal var addCardTapAction: (() -> Void)?
+    internal var cardTapAction: ((Int) -> Void)?
     
     init(cardHeight: CGFloat) {
         let layout = UICollectionViewFlowLayout()
@@ -68,11 +68,11 @@ extension CardList: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath) as! Card
-        let project = data[indexPath.item - 1]
+        let item = data[indexPath.item - 1]
         
-        cell.configure(with: project)
+        cell.configure(with: item)
         cell.configureCardTapAction({
-            self.cardTapAction?(project.id)
+            self.cardTapAction?(item.id)
         })
         
         return cell

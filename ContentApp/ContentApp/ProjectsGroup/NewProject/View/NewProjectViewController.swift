@@ -50,7 +50,6 @@ class NewProjectViewController: BaseViewController, NewProjectDisplayLogic {
     
     internal override func configureUI() {
         configureForm()
-        configureHidingKeyBoard()
     }
     
     private func configureForm() {
@@ -85,15 +84,6 @@ class NewProjectViewController: BaseViewController, NewProjectDisplayLogic {
         displayNav()
     }
 
-    private func configureHidingKeyBoard() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        view.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc func handleTap() {
-        view.endEditing(true)
-    }
-    
     func handleSubmit() {
         view.endEditing(true)
         errorsStack.clear()

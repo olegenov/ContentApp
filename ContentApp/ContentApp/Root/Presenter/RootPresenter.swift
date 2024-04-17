@@ -23,7 +23,7 @@ class RootPresenter: RootPresentationLogic {
     }
     
     func handleSuccessLogin() {
-        viewController?.openProjectsPage()
+        viewController?.openMenuPage()
     }
     
     func switchToSignup() {

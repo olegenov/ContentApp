@@ -27,8 +27,7 @@ class ProjectsRouter: ProjectsRouterProtocol {
     }
     
     func navigateToMenu() {
-        let menuVC = MenuAssembly.build()
-        viewController?.navigationController?.pushViewController(menuVC, animated: true)
+        viewController?.navigationController?.popViewController(animated: true)
     }
     
     func navigateToProfile() {

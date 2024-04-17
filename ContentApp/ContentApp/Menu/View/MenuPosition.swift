@@ -7,13 +7,11 @@
 
 import UIKit
 
-class MenuPosition: UIView {
-    private let textView = UILabel()
-    
+class MenuPosition: UIButton {
     init(_ text: String) {
         super.init(frame: .zero)
         
-        textView.text = text
+        setTitle(text, for: .normal)
         configureUI()
     }
     
@@ -25,37 +23,17 @@ class MenuPosition: UIView {
     }
     
     private func configureUI() {
-        isUserInteractionEnabled = true
-        textView.font = UIFont.appFont(.title)
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(textView)
-        
-        NSLayoutConstraint.activate([
-            bottomAnchor.constraint(equalTo: textView.bottomAnchor),
-            topAnchor.constraint(equalTo: textView.topAnchor),
-            textView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            textView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            textView.topAnchor.constraint(equalTo: topAnchor),
-            textView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
+        translatesAutoresizingMaskIntoConstraints = false
+        titleLabel?.font = UIFont.appFont(.title)
+        setTitleColor(UIColor.AppColors.textColor, for: .normal)
     }
     
     func configurePositionTapAction(_ action: @escaping () -> Void) {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(positionTapped))
-        addGestureRecognizer(tapGesture)
+        self.addTarget(self, action: #selector(positionTapped), for: .touchUpInside)
         positionTapAction = action
     }
     
     @objc private func positionTapped() {
-        print("tap!")
-        UIView.animate(withDuration: 0.1) {
-            self.textView.textColor = UIColor.AppColors.outlineColor
-        }
-        
-        self.positionTapAction?()
-        
-        UIView.animate(withDuration: 0.1) {
-            self.textView.textColor = UIColor.black
-        }
+        positionTapAction?()
     }
 }

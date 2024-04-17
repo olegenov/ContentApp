@@ -37,13 +37,6 @@ class Button: UIButton {
         layer.cornerRadius = Constants.cornerRadius
         translatesAutoresizingMaskIntoConstraints = false
         
-        let edgeInsets = NSDirectionalEdgeInsets(top: Constants.paddingVertical,
-                                                 leading: Constants.paddingHorizontal,
-                                                 bottom: Constants.paddingVertical,
-                                                 trailing: Constants.paddingHorizontal)
-        
-        configuration?.contentInsets = edgeInsets
-        
         addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
         addTarget(self, action: #selector(buttonTouchUp), for: .touchUpInside)
         addTarget(self, action: #selector(buttonTouchUp), for: .touchUpOutside)
@@ -54,9 +47,31 @@ class Button: UIButton {
         ])
     }
     
+    func addPadding() {
+        var configuration = UIButton.Configuration.plain()
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: Constants.paddingVertical,
+                                                           leading: Constants.paddingHorizontal,
+                                                           bottom: Constants.paddingVertical,
+                                                           trailing: Constants.paddingHorizontal)
+        self.configuration = configuration
+    }
+    
     @objc func buttonTouchDown() {
     }
     
     @objc func buttonTouchUp() {
+    }
+    
+    func makeActive() {
+        backgroundColor = ButtonActive.Constants.backgroundColor
+        setTitleColor(ButtonActive.Constants.titleColor, for: .normal)
+        layer.borderWidth = 0
+    }
+    
+    func makeRegular() {
+        backgroundColor = ButtonRegular.Constants.backgroundColor
+        titleLabel?.textColor = ButtonRegular.Constants.titleColor
+        layer.borderColor = ButtonRegular.Constants.borderColor.cgColor
+        layer.borderWidth = 1
     }
 }

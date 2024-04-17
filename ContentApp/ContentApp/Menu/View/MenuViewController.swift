@@ -11,7 +11,7 @@ protocol MenuDisplayLogic {
     func displayMenuItems(items: [String])
 }
 
-class MenuViewController: UIViewController, MenuDisplayLogic {
+class MenuViewController: BaseViewController, MenuDisplayLogic {
     enum Constants {
         static let topOffset: CGFloat = 110
         static let menuWidth: CGFloat = 250
@@ -25,7 +25,7 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
     
     var projectsMenuPosition = MenuPositionFactory.createMenuPosition(type: .projects, active: false)
     var profileMenuPosition = MenuPositionFactory.createMenuPosition(type: .profile, active: false)
-    var aboutMenuPosition = MenuPositionFactory.createMenuPosition(type: .about, active: false)
+    var teamsMenuPosition = MenuPositionFactory.createMenuPosition(type: .teams, active: false)
     private let backButton: IconButton = IconButton(.back)
     
     var menuItems = UIStackView()
@@ -42,27 +42,20 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
     func displayMenuItems(items: [String]) {
     }
     
-    private func configureUI() {
+    internal override func configureUI() {
         configureMenu()
         configureActions()
     }
     
     private func configureMenu() {
-        let menuFrame = CGRect(x: -Constants.menuWidth, y: 0, width: Constants.menuWidth, height: view.bounds.height)
-        let menuView = UIView(frame: menuFrame)
-        
-        menuView.backgroundColor = UIColor.AppColors.white
-        menuView.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(menuView)
-        
         menuItems.translatesAutoresizingMaskIntoConstraints = false
         menuItems.spacing = Constants.menuSpacing
         menuItems.axis = .vertical
+        menuItems.alignment = .leading
         
-        menuView.addSubview(menuItems)
+        view.addSubview(menuItems)
         
-        for item in [projectsMenuPosition, profileMenuPosition, aboutMenuPosition] {
+        for item in [projectsMenuPosition, profileMenuPosition, teamsMenuPosition] {
             item.translatesAutoresizingMaskIntoConstraints = false
             menuItems.addArrangedSubview(item)
         }
@@ -75,19 +68,19 @@ class MenuViewController: UIViewController, MenuDisplayLogic {
     
     private func configureActions() {
         projectsMenuPosition.configurePositionTapAction(handleProjectsPositionTap)
-        aboutMenuPosition.configurePositionTapAction(handleAboutPositionTap)
         profileMenuPosition.configurePositionTapAction(handleProfilePositionTap)
+        teamsMenuPosition.configurePositionTapAction(handleTeamsPositionTap)
     }
     
-    private func handleProjectsPositionTap() {
+    func handleProjectsPositionTap() {
         router?.navigateToProjects()
     }
     
-    private func handleAboutPositionTap() {
-        router?.navigateToAboutPage()
+    func handleProfilePositionTap() {
+        router?.navigateToProfile()
     }
     
-    private func handleProfilePositionTap() {
-        router?.navigateToProfile()
+    func handleTeamsPositionTap() {
+        router?.navigateToTeams()
     }
 }
